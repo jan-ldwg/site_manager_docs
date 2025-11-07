@@ -1,4 +1,57 @@
-site_name: Marshmallow Generator
-
+site_name: site_mangager_docs
 nav:
-  - "index.md"
+  - Home: index.md
+  - Getting Started: gettingstarted.md
+  - Library:
+      - Connectors: library/connectors.md
+      - Signals: library/signals.md
+  - Data Model:
+      - Devicetype: datamodel/devicetype.md
+  - API:
+      - Overview: api/overview.md
+      - /devices: api/devices.md
+      - /devicetypes: api/devicetypes.md
+      - /cables: api/cables.md
+      - /ports: api/ports.md
+      - /moduleSlotsTypes: api/moduleSlotsTypes.md
+      - /moduleTypes: api/moduleTypes.md
+      - /connectors: api/connectors.md
+      - /manufacturers: api/manufacturers.md
+      - /racks: api/racks.md
+      - /rooms: api/rooms.md
+      - /buildings: api/buildings.md
+      - /sites: api/sites.md
+
+theme:
+  name: material
+
+  palette:
+    - scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    - scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+  features:
+    - content.code.copy
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      auto_title: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
