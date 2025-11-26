@@ -12,7 +12,7 @@
         <link rel="prev" href="../../library/signals/">
       
       
-        <link rel="next" href="../../api/overview/">
+        <link rel="next" href="../devices/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Devicetype - site_mangager_docs</title>
+        <title>Device Types - site_mangager_docs</title>
       
     
     
@@ -103,7 +103,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Devicetype
+              Device Types
             
           </span>
         </div>
@@ -422,13 +422,36 @@
   
   
   <span class="md-ellipsis">
-    Devicetype
+    Device Types
     
   </span>
   
 
       </a>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devices/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Devices
+    
+  </span>
+  
+
+      </a>
     </li>
   
 
@@ -553,259 +576,6 @@
 
               
             
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/devicetypes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /devicetypes
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/cables/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /cables
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/ports.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /ports
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/moduleSlotsTypes.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /moduleSlotsTypes
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/moduleTypes.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /moduleTypes
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/connectors.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /connectors
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/manufacturers.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /manufacturers
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/racks.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /racks
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/rooms.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /rooms
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/buildings.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /buildings
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/sites.md" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /sites
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
           </ul>
         </nav>
       
@@ -845,8 +615,13 @@
 
 
 
-  <h1>Devicetype</h1>
+  <h1>Device Types</h1>
 
+<p>Device types can be thought of as templates that are used to create instances of devices. In contrast to some other applications (e.g. Netbox) site_manager does not duplicate information from the device type into each device instance upon creation, but instead retrieves general information for a device by querying the device type. This means that a device type may only be deleted from the database when there are no devices of this type in the database. This also means that some information in the device type can be changed and all existing instances of this device will be updated on future queries.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The number of ports and module slots can not be changed afterwards.</p>
+</div>
 <div class="language-typescript highlight"><span class="filename">TypeScript</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kr">type</span><span class="w"> </span><span class="nx">PortType</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="nx">portTypeId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span><span class="w"> </span><span class="c1">//UUIDv4</span>
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="nx">portTypeName</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">;</span>
