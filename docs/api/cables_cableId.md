@@ -8,24 +8,17 @@
 
     **Description:**
 
-    Returns a list of all cables.
+    Returns the cables.
 
     **Path:**
 
     ```HTTP
-    GET /api/v1/cables
+    GET /api/v1/cables/{cableid}
     ```
 
     **Query Parameters:**
 
-    | Name              | Type                 | Description                                                |
-    | ----------------- | -------------------- | ---------------------------------------------------------- |
-    | `startRackId`     | `string / string[]` | (optional) Retrieves only cables starting in this rack     |
-    | `startRoomId`     | `string / string[]` | (optional) Retrieves only cables starting room             |
-    | `startBuildingId` | `string / string[]` | (optional) Retrieves only cables starting in this building |
-    | `endRackId`       | `string / string[]` | (optional) Retrieves only cables ending in this rack       |
-    | `endRoomId`       | `string / string[]` | (optional) Retrieves only cables ending room               |
-    | `endBuildingId`   | `string / string[]` | (optional) Retrieves only cables ending in this building   |
+    None.
 
     **Request Body:**
 
@@ -36,13 +29,14 @@
     | Code  | Status                |
     | ----- | --------------------- |
     | `200` | Success               |
+    | `404` | Cable not found       |
     | `500` | Internal server error |
 
     **Response Body:**
 
     === "Example"
         ```json
-        --8<-- "json_examples/GET_cables_res.jsonc"
+        --8<-- "json_examples/POST_cables_res.json"
         ```
 
     === "Schema"
@@ -75,42 +69,40 @@
     | `endRackId`            | `string`                | UUIDv4 of the rack on the end side              |                  |
     | `endRackName`          | `string`                | name of the rack on the end side                |                  |
 
-=== "POST"
+=== "PATCH"
 
-     **Description:**
+    **Description:**
 
-    Creates a new cable.
+    Changes an existing cable.
 
     **Path:**
 
     ```HTTP
-    POST /api/v1/cables
+    PATCH /api/v1/cables/{cableid}
     ```
 
     **Query Parameters:**
 
     None.
 
-    **Request Body:**
+     **Request Body:**
 
     === "Example"
-        ```json
-        --8<-- "json_examples/POST_cables_req.json"
-        ```
 
+        ```json
+        --8<-- "json_examples/PATCH_devices_device_req.json"
+        ```
     === "Schema"
+
         ```json
         {}
         ```
-
     | Name                  | Type            | Description                                               |
     | --------------------- | --------------- | --------------------------------------------------------- |
     | `number`              | `string / null` | number of the cable as printed on it                      |
     | `length`              | `number / null` | (optional) length of the cable in meters                  |
-    | `startPort`           | `string`        | UUIDv4 of the start port                                  |
     | `startConnector`      | `string / null` | (optional) id of the cable connector at the start side    |
     | `startConnectorColor` | `string / null` | (optional) color of the cable connector at the start side |
-    | `endPort`             | `string`        | UUIDv4 of the end port                                    |
     | `endConnector`        | `string / null` | (optional) id of the cable connector at the end side      |
     | `endConnectorColor`   | `string / null` | (optional) color of the cable connector at the end side   |
 
@@ -119,6 +111,7 @@
     | Code  | Status                |
     | ----- | --------------------- |
     | `200` | Success               |
+    | `404` | Cable not found       |
     | `500` | Internal server error |
 
     **Response Body:**
@@ -160,3 +153,51 @@
     | `endDeviceName`        | `string`                | name of the device on the end side              |                  |
     | `endRackId`            | `string`                | UUIDv4 of the rack on the end side              |                  |
     | `endRackName`          | `string`                | name of the rack on the end side                |                  |
+
+=== "DELETE"
+
+    **Description:**
+
+    Deletes a cable.
+
+    **Path:**
+
+    ```HTTP
+    DELETE /api/v1/cables/{cableid}
+    ```
+
+    **Query Parameters:**
+
+    None.
+
+    **Request Body:**
+
+    None.
+
+    **Status Codes:**
+
+    | Code  | Status                |
+    | ----- | --------------------- |
+    | `200` | Success               |
+    | `404` | Cable not found       |
+    | `500` | Internal server error |
+
+    **Response Body:**
+
+    === "Example"
+
+        ```json
+        {
+            "deletedCable": "c0ec2b68-94a7-421b-9dfe-10619f1b125a"
+        }
+        ```
+
+    === "Schema"
+
+        ```json
+        {}
+        ```
+
+    | Name           | Type     | Description                 |
+    | -------------- | -------- | --------------------------- |
+    | `deletedCable` | `string` | UUIDv4 of the deleted cable |

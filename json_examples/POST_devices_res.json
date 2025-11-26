@@ -1,0 +1,42 @@
+{
+  "id": "8ba4f0c5-8db2-4f18-ba7d-991bdb4c9c87",
+  "name": "A-DSP01",
+  "deviceType": "directout_MAVEN_A",
+  "deviceTypeName": "MAVEN.A",
+  "manufacturerName": "DirectOut GmbH",
+  "manufacturerNameShort": "DirectOut",
+  "description": null,
+  "serialNumber": null,
+  "site": "a305a342-015d-4da3-92fd-f30c35040a40",
+  "siteName": "Stuttgart",
+  "building": "a0304ce6-e541-459f-9e44-7fd08f187866",
+  "buildingName": "HDHF",
+  "room": "d03c883f-e0a7-46d4-bd08-61c4e8e421ec",
+  "roomName": "FS-ZGR",
+  "rack": "bc8cf910-0fdc-49ba-8212-f6e8e3a4c90e",
+  "rackName": "SK 01",
+  "rackElevation": null,
+  "rackPosition": null,
+  "ports": [
+    {
+      "portId": "fa922a63-70f4-43dd-bfad-853196939338",
+      "portTypeId": "9bb1e428-1660-4ab2-9e86-243907acc61c",
+      "portName": "WCK IN",
+      "portDirection": "IN",
+      "connectorId": "BNC_f",
+      "connectorName": "BNC 75 Ohm female",
+      "connectorGender": "FEMALE",
+      "connectorIcon": "BNC_f"
+    },
+    ...
+  ],
+  "moduleSlots": [
+    {
+      "moduleSlotId": "4f9cb89d-0054-4466-88ab-e19ebeb18fb7",
+      "moduleSlotTypeId": "254067f1-d7ba-42a0-8478-f7b3897538d1",
+      "moduleSlotName": "MADI 1",
+      "module": {}
+    },
+    ...
+  ]
+}

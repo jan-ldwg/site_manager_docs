@@ -1,53 +1,5 @@
-```typescript
-type PortType = {
-  portTypeId: string; //UUIDv4
-  portTypeName: string;
-  portTypeDirection:
-    | "IN"
-    | "OUT"
-    | "BIDI"
-    | "SWITCHABLE"
-    | "UPLINK"
-    | "DOWNLINK"
-    | "UPSTREAM"
-    | "DOWNSTREAM";
-  connectorId: string;
-  connectorName: string;
-  connectorGender: string;
-  connectorIcon: string;
-  compatibleSignalTypes: string[];
-};
-type Module = {
-  moduleTypeId: string;
-  moduleTypeName: string;
-  manufacturer: string;
-  manufacturerName: string;
-  manufactuerNameShort: string;
-  orderNumber?: string;
-  orderName?: string;
-  ports: PortType[];
-};
+Device types can be thought of as templates that are used to create instances of devices. In contrast to some other applications (e.g. Netbox) site_manager does not duplicate information from the device type into each device instance upon creation, but instead retrieves general information for a device by querying the device type. This means that a device type may only be deleted from the database when there are no devices of this type in the database. This also means that some information in the device type can be changed and all existing instances of this device will be updated on future queries.
 
-type ModuleSlotType = {
-  moduleSlotTypeId: string; //UUIDv4
-  moduleSlotTypeName: string;
-};
+!!! note
 
-type DeviceType = {
-  deviceTypeId: string; //UUIDv4
-  deviceTypeName: string;
-  manufacturerId: string;
-  manufacturerName: string;
-  manufactuerNameShort: string;
-  orderCode?: string;
-  orderName?: string;
-  climateLoad: number; //in watts
-  weight?: number; //in grams
-  width?: number; //in millimeters
-  height?: number; //in millimeters
-  depth?: number; //in millimeters
-  heightRackUnits?: number; //in RU
-  portTypes?: PortType[];
-  moduleSlotTypes?: ModuleSlotType[];
-};
-```
+    The number of ports and module slots can not be changed afterwards.

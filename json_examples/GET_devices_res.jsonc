@@ -1,0 +1,58 @@
+[
+  {
+    "id": "02d323ae-7282-4521-b810-086337d5d9ee",
+    "name": "DSP01",
+    "deviceTypeId": "lawo_Power_Core_Rev_3",
+    "deviceTypeName": "Power Core Rev.3",
+    "manufacturerId": "lawo",
+    "manufacturerName": "Lawo AG",
+    "manufacturerNameShort": "Lawo",
+    "description": "The main audio dsp for Studio 1.",
+    "serialNumber": "x2025-096",
+    "siteId": "a305a342-015d-4da3-92fd-f30c35040a40",
+    "siteName": "Stuttgart",
+    "buildingId": "427cf9fd-d445-4501-9537-e659e0f6525e",
+    "buildingName": "HDFS",
+    "roomId": "fe3f9e4b-5271-478a-8f70-e83b2a7dbd26",
+    "roomName": "Studio 1",
+    "rackId": "db0f263a-bc48-4d5e-b740-c064c6ffaada",
+    "rackName": "WAK 1",
+    "rackElevation": null,
+    "rackPosition": null,
+    "ports": [
+      {
+        "portId": "ae2ee1e7-45f4-4f9a-8f33-b54310e3400b",
+        "portTypeId": "1ae17240-bd09-4c7f-a33a-4f01a3533b73",
+        "portTypeName": "Audio In 1",
+        "portTypeDirection": "IN",
+        "connectorId": "XLR3p_f",
+        "connectorName": "XLR 3pole female",
+        "connectorGender": "FEMALE",
+        "connectorIcon": "XLR3p_f"
+      }
+      ///...
+    ],
+    "moduleSlots": [
+      {
+        "moduleSlotId": "5de0a7a0-2d85-4b77-a134-0b88caf4e56e",
+        "moduleSlotTypeId": "254067f1-d7ba-42a0-8478-f7b3897538d1",
+        "moduleSlotTypeName": "MADI 1",
+        "module": {
+          "moduleId": "e0b5147b-9442-4d01-9548-04504eedc8d9",
+          "moduleTypeId": "lawo_981_60-82",
+          "moduleTypeName": "981/60-82",
+          "manufacturerId": "lawo",
+          "manufacturerName": "Lawo AG",
+          "manufacturerNameShort": "Lawo",
+          "ports": [
+            /*...*/
+          ],
+          "moduleSlots": [
+            /*...*/
+          ]
+        }
+      }
+      //...
+    ]
+  }
+]
