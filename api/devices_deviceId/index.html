@@ -606,6 +606,52 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cables/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    /cables
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cables_cableId/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    /cables/{cableid}
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -737,252 +783,47 @@
 </div>
 </div>
 </div>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>id</code></td>
-<td><code>string</code></td>
-<td>UUIDv4 of the device</td>
-<td></td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td><code>string | null</code></td>
-<td>human readable name of the device</td>
-<td>limited to 16 characters</td>
-</tr>
-<tr>
-<td><code>deviceTypeId</code></td>
-<td><code>string</code></td>
-<td>id of the type of the device</td>
-<td></td>
-</tr>
-<tr>
-<td><code>deviceTypeName</code></td>
-<td><code>string</code></td>
-<td>human readable name of the device type</td>
-<td></td>
-</tr>
-<tr>
-<td><code>manufacturerId</code></td>
-<td><code>string</code></td>
-<td>id of the manufacturer of the device</td>
-<td></td>
-</tr>
-<tr>
-<td><code>manufacturerName</code></td>
-<td><code>string</code></td>
-<td>full name of the manufacturer</td>
-<td></td>
-</tr>
-<tr>
-<td><code>manufacturerNameShort</code></td>
-<td><code>string</code></td>
-<td>colloquial name of the manufacturer</td>
-<td></td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td><code>string | null</code></td>
-<td>user defined description of the device</td>
-<td></td>
-</tr>
-<tr>
-<td><code>serialNumber</code></td>
-<td><code>string | null</code></td>
-<td>serial number of the device</td>
-<td>limited to 32 characters</td>
-</tr>
-<tr>
-<td><code>siteId</code></td>
-<td><code>string</code></td>
-<td>UUIDv4 of the site</td>
-<td></td>
-</tr>
-<tr>
-<td><code>siteName</code></td>
-<td><code>string</code></td>
-<td>human readable name of the site</td>
-<td></td>
-</tr>
-<tr>
-<td><code>buildingId</code></td>
-<td><code>string</code></td>
-<td>UUIDv4 of the building</td>
-<td></td>
-</tr>
-<tr>
-<td><code>buildingName</code></td>
-<td><code>string</code></td>
-<td>human readable name of the building</td>
-<td></td>
-</tr>
-<tr>
-<td><code>roomId</code></td>
-<td><code>string</code></td>
-<td>UUIDv4 of the room</td>
-<td></td>
-</tr>
-<tr>
-<td><code>roomName</code></td>
-<td><code>string</code></td>
-<td>human readable name of the room</td>
-<td></td>
-</tr>
-<tr>
-<td><code>rackId</code></td>
-<td><code>string</code></td>
-<td>UUIDv4 of the rack</td>
-<td></td>
-</tr>
-<tr>
-<td><code>rackName</code></td>
-<td><code>string</code></td>
-<td>human readable name of the rack</td>
-<td></td>
-</tr>
-<tr>
-<td><code>rackElevation</code></td>
-<td><code>number | null</code></td>
-<td>position of the device in RU counted from the bottom of the rack</td>
-<td></td>
-</tr>
-<tr>
-<td><code>rackPosition</code></td>
-<td><code>FRONT | BACK | LOOSE</code></td>
-<td>position of the device in the rack</td>
-<td></td>
-</tr>
-<tr>
-<td><code>ports</code></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>portId</code></td>
-<td><code>string</code></td>
-<td>UUIDv4 of the port</td>
-<td></td>
-</tr>
-<tr>
-<td><code>portTypeId</code></td>
-<td><code>string</code></td>
-<td>UUIDv4 of the port type</td>
-<td></td>
-</tr>
-<tr>
-<td><code>portTypeName</code></td>
-<td><code>string</code></td>
-<td>name of the port as labeled on the device</td>
-<td></td>
-</tr>
-<tr>
-<td><code>portTypeDirection</code></td>
-<td><code>"IN" | "OUT" | "BIDI"</code></td>
-<td>direction of the port type</td>
-<td></td>
-</tr>
-<tr>
-<td><code>connectorId</code></td>
-<td><code>string</code></td>
-<td>id of the connector</td>
-<td></td>
-</tr>
-<tr>
-<td><code>connectorName</code></td>
-<td><code>string</code></td>
-<td>human readable name of the connector</td>
-<td></td>
-</tr>
-<tr>
-<td><code>connectorGender</code></td>
-<td><code>"MALE" | "FEMALE" | "HERMA“</code></td>
-<td>gender of the connector</td>
-<td></td>
-</tr>
-<tr>
-<td><code>connectorIcon</code></td>
-<td><code>string</code></td>
-<td>name of the associated icon</td>
-<td>every icon is available as svg</td>
-</tr>
-<tr>
-<td><code>moduleSlots</code></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>moduleSlotId</code></td>
-<td><code>string</code></td>
-<td>UUIDv4 of the module slot</td>
-<td></td>
-</tr>
-<tr>
-<td><code>moduleSlotTypeId</code></td>
-<td><code>string</code></td>
-<td>UUIDv4 of the module slot type</td>
-<td></td>
-</tr>
-<tr>
-<td><code>moduleSlotTypeName</code></td>
-<td><code>string</code></td>
-<td>name of the slot as labeled on the device</td>
-<td></td>
-</tr>
-<tr>
-<td><code>module</code></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><code>moduleId</code></td>
-<td><code>string</code></td>
-<td>UUIDv4 of the module</td>
-<td></td>
-</tr>
-<tr>
-<td><code>moduleTypeId</code></td>
-<td><code>string</code></td>
-<td>id of the module type</td>
-<td></td>
-</tr>
-<tr>
-<td><code>moduleTypeName</code></td>
-<td><code>string</code></td>
-<td>human readable name of the module type</td>
-<td></td>
-</tr>
-<tr>
-<td><code>manufacturerId</code></td>
-<td><code>string</code></td>
-<td>id of the manufacturer of the module</td>
-<td></td>
-</tr>
-<tr>
-<td><code>manufacturerName</code></td>
-<td><code>string</code></td>
-<td>full name of the manufacturer</td>
-<td></td>
-</tr>
-<tr>
-<td><code>manufacturerNameShort</code></td>
-<td><code>string</code></td>
-<td>colloquial name of the manufacturer</td>
-<td></td>
-</tr>
-</tbody>
-</table>
+<p>| Name                    | Type     | Description                               | Notes                                                            |
+| ----------------------- | -------- | ----------------------------------------- | ---------------------------------------------------------------- | ---------------------------------- |
+| <code>id</code>                    | <code>string</code> | UUIDv4 of the device                      |
+| <code>name</code>                  | <code>string  | null</code>                                     | human readable name of the device                                | limited to 16 characters           |
+| <code>deviceTypeId</code>          | <code>string</code> | id of the type of the device              |
+| <code>deviceTypeName</code>        | <code>string</code> | human readable name of the device type    |
+| <code>manufacturerId</code>        | <code>string</code> | id of the manufacturer of the device      |
+| <code>manufacturerName</code>      | <code>string</code> | full name of the manufacturer             |
+| <code>manufacturerNameShort</code> | <code>string</code> | colloquial name of the manufacturer       |
+| <code>description</code>           | <code>string  | null</code>                                     | user defined description of the device                           |
+| <code>serialNumber</code>          | <code>string  | null</code>                                     | serial number of the device                                      | limited to 32 characters           |
+| <code>siteId</code>                | <code>string</code> | UUIDv4 of the site                        |
+| <code>siteName</code>              | <code>string</code> | human readable name of the site           |
+| <code>buildingId</code>            | <code>string</code> | UUIDv4 of the building                    |
+| <code>buildingName</code>          | <code>string</code> | human readable name of the building       |
+| <code>roomId</code>                | <code>string</code> | UUIDv4 of the room                        |
+| <code>roomName</code>              | <code>string</code> | human readable name of the room           |
+| <code>rackId</code>                | <code>string</code> | UUIDv4 of the rack                        |
+| <code>rackName</code>              | <code>string</code> | human readable name of the rack           |
+| <code>rackElevation</code>         | <code>number  | null</code>                                     | position of the device in RU counted from the bottom of the rack |
+| <code>rackPosition</code>          | <code>FRONT   | BACK                                      | LOOSE</code>                                                           | position of the device in the rack |
+| <code>ports</code>                 |          |                                           |
+| <code>portId</code>                | <code>string</code> | UUIDv4 of the port                        |
+| <code>portTypeId</code>            | <code>string</code> | UUIDv4 of the port type                   |
+| <code>portTypeName</code>          | <code>string</code> | name of the port as labeled on the device |
+| <code>portTypeDirection</code>     | <code>"IN"    | "OUT"                                     | "BIDI"</code>                                                          | direction of the port type         |
+| <code>connectorId</code>           | <code>string</code> | id of the connector                       |
+| <code>connectorName</code>         | <code>string</code> | human readable name of the connector      |
+| <code>connectorGender</code>       | <code>"MALE"  | "FEMALE"                                  | "HERMA“</code>                                                         | gender of the connector            |
+| <code>connectorIcon</code>         | <code>string</code> | name of the associated icon               | every icon is available as svg                                   |
+| <code>moduleSlots</code>           |          |                                           |
+| <code>moduleSlotId</code>          | <code>string</code> | UUIDv4 of the module slot                 |
+| <code>moduleSlotTypeId</code>      | <code>string</code> | UUIDv4 of the module slot type            |
+| <code>moduleSlotTypeName</code>    | <code>string</code> | name of the slot as labeled on the device |
+| <code>module</code>                |          |                                           |
+| <code>moduleId</code>              | <code>string</code> | UUIDv4 of the module                      |
+| <code>moduleTypeId</code>          | <code>string</code> | id of the module type                     |
+| <code>moduleTypeName</code>        | <code>string</code> | human readable name of the module type    |
+| <code>manufacturerId</code>        | <code>string</code> | id of the manufacturer of the module      |
+| <code>manufacturerName</code>      | <code>string</code> | full name of the manufacturer             |
+| <code>manufacturerNameShort</code> | <code>string</code> | colloquial name of the manufacturer       |</p>
 </div>
 <div class="tabbed-block">
 <p><strong>Description:</strong></p>
@@ -1010,42 +851,12 @@
 </div>
 </div>
 </div>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Notes</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>rackId</code></td>
-<td><code>string</code></td>
-<td>(optional) UUIDv4 of the rack in which the device should be created</td>
-<td></td>
-</tr>
-<tr>
-<td><code>name</code></td>
-<td><code>string | null</code></td>
-<td>(optional) human readable name of the device to create</td>
-<td></td>
-</tr>
-<tr>
-<td><code>description</code></td>
-<td><code>string | null</code></td>
-<td>(optional) user defined description of the device</td>
-<td></td>
-</tr>
-<tr>
-<td><code>serialNumber</code></td>
-<td><code>string | null</code></td>
-<td>(optional) serial number of the device</td>
-<td>limited to 32 characters</td>
-</tr>
-</tbody>
-</table>
+<p>| Name           | Type     | Description                                                         | Notes                                                  |
+| -------------- | -------- | ------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------ |
+| <code>rackId</code>       | <code>string</code> | (optional) UUIDv4 of the rack in which the device should be created |
+| <code>name</code>         | <code>string  | null</code>                                                               | (optional) human readable name of the device to create |
+| <code>description</code>  | <code>string  | null</code>                                                               | (optional) user defined description of the device      |
+| <code>serialNumber</code> | <code>string  | null</code>                                                               | (optional) serial number of the device                 | limited to 32 characters |</p>
 <p><strong>Status Codes:</strong></p>
 <table>
 <thead>
@@ -1126,6 +937,7 @@
 <th>Type</th>
 <th>Description</th>
 <th>Notes</th>
+<th></th>
 </tr>
 </thead>
 <tbody>
@@ -1134,17 +946,20 @@
 <td><code>string</code></td>
 <td>UUIDv4 of the device</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>name</code></td>
-<td><code>string | null</code></td>
+<td><code>string  | null</code></td>
 <td>human readable name of the device</td>
 <td>limited to 16 characters</td>
+<td></td>
 </tr>
 <tr>
 <td><code>deviceTypeId</code></td>
 <td><code>string</code></td>
 <td>id of the type of the device</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1152,11 +967,13 @@
 <td><code>string</code></td>
 <td>human readable name of the device type</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>manufacturerId</code></td>
 <td><code>string</code></td>
 <td>id of the manufacturer of the device</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1164,29 +981,34 @@
 <td><code>string</code></td>
 <td>full name of the manufacturer</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>manufacturerNameShort</code></td>
 <td><code>string</code></td>
 <td>colloquial name of the manufacturer</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>description</code></td>
-<td><code>string | null</code></td>
+<td><code>string  | null</code></td>
 <td>user defined description of the device</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td><code>serialNumber</code></td>
-<td><code>string | null</code></td>
+<td><code>string  | null</code></td>
 <td>serial number of the device</td>
 <td>limited to 32 characters</td>
+<td></td>
 </tr>
 <tr>
 <td><code>siteId</code></td>
 <td><code>string</code></td>
 <td>UUIDv4 of the site</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1194,11 +1016,13 @@
 <td><code>string</code></td>
 <td>human readable name of the site</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>buildingId</code></td>
 <td><code>string</code></td>
 <td>UUIDv4 of the building</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1206,11 +1030,6 @@
 <td><code>string</code></td>
 <td>human readable name of the building</td>
 <td></td>
-</tr>
-<tr>
-<td><code>roomId</code></td>
-<td><code>string</code></td>
-<td>UUIDv4 of the room</td>
 <td></td>
 </tr>
 <tr>
@@ -1218,11 +1037,20 @@
 <td><code>string</code></td>
 <td>human readable name of the room</td>
 <td></td>
+<td></td>
+</tr>
+<tr>
+<td><code>roomId</code></td>
+<td><code>string</code></td>
+<td>UUIDv4 of the room</td>
+<td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>rackId</code></td>
 <td><code>string</code></td>
 <td>UUIDv4 of the rack</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1230,21 +1058,25 @@
 <td><code>string</code></td>
 <td>human readable name of the rack</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>rackElevation</code></td>
-<td><code>number | null</code></td>
+<td><code>number  | null</code></td>
 <td><code>position of the device in RU counted from the bottom of the rack</code></td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td><code>rackPosition</code></td>
-<td><code>FRONT | BACK | LOOSE</code></td>
+<td><code>FRONT   | BACK                                      | LOOSE</code></td>
 <td>position of the device in the rack</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
 <td><code>ports</code></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -1254,11 +1086,13 @@
 <td><code>string</code></td>
 <td>UUIDv4 of the port</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>portTypeId</code></td>
 <td><code>string</code></td>
 <td>UUIDv4 of the port type</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1266,11 +1100,13 @@
 <td><code>string</code></td>
 <td>name of the port as labeled on the device</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>portTypeDirection</code></td>
-<td><code>"IN" | "OUT" | "BIDI"</code></td>
+<td><code>"IN"    | "OUT"                                     | "BIDI"</code></td>
 <td>direction of the port type</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1278,17 +1114,20 @@
 <td><code>string</code></td>
 <td>id of the connector</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>connectorName</code></td>
 <td><code>string</code></td>
 <td>human readable name of the connector</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>connectorGender</code></td>
-<td><code>"MALE" | "FEMALE" | "HERMA“</code></td>
+<td><code>"MALE"  | "FEMALE"                                  | "HERMA“</code></td>
 <td>gender of the connector</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1296,9 +1135,11 @@
 <td><code>string</code></td>
 <td>name of the associated icon</td>
 <td>every icon is available as svg</td>
+<td></td>
 </tr>
 <tr>
 <td><code>moduleSlots</code></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -1308,11 +1149,13 @@
 <td><code>string</code></td>
 <td>UUIDv4 of the module slot</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>moduleSlotTypeId</code></td>
 <td><code>string</code></td>
 <td>UUIDv4 of the module slot type</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1320,9 +1163,11 @@
 <td><code>string</code></td>
 <td>name of the slot as labeled on the device</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>module</code></td>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -1332,11 +1177,13 @@
 <td><code>string</code></td>
 <td>UUIDv4 of the module</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>moduleTypeId</code></td>
 <td><code>string</code></td>
 <td>id of the module type</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1344,11 +1191,13 @@
 <td><code>string</code></td>
 <td>human readable name of the module type</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>manufacturerId</code></td>
 <td><code>string</code></td>
 <td>id of the manufacturer of the module</td>
+<td></td>
 <td></td>
 </tr>
 <tr>
@@ -1356,11 +1205,13 @@
 <td><code>string</code></td>
 <td>full name of the manufacturer</td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><code>manufacturerNameShort</code></td>
 <td><code>string</code></td>
 <td>colloquial name of the manufacturer</td>
+<td></td>
 <td></td>
 </tr>
 </tbody>
