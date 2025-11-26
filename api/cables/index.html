@@ -718,32 +718,32 @@
 <tbody>
 <tr>
 <td><code>startRackId</code></td>
-<td><code>string \| string[]</code></td>
+<td><code>string / string[]</code></td>
 <td>(optional) Retrieves only cables starting in this rack</td>
 </tr>
 <tr>
 <td><code>startRoomId</code></td>
-<td><code>string \| string[]</code></td>
+<td><code>string / string[]</code></td>
 <td>(optional) Retrieves only cables starting room</td>
 </tr>
 <tr>
 <td><code>startBuildingId</code></td>
-<td><code>string \| string[]</code></td>
+<td><code>string / string[]</code></td>
 <td>(optional) Retrieves only cables starting in this building</td>
 </tr>
 <tr>
 <td><code>endRackId</code></td>
-<td><code>string \| string[]</code></td>
+<td><code>string / string[]</code></td>
 <td>(optional) Retrieves only cables ending in this rack</td>
 </tr>
 <tr>
 <td><code>endRoomId</code></td>
-<td><code>string \| string[]</code></td>
+<td><code>string / string[]</code></td>
 <td>(optional) Retrieves only cables ending room</td>
 </tr>
 <tr>
 <td><code>endBuildingId</code></td>
-<td><code>string \| string[]</code></td>
+<td><code>string / string[]</code></td>
 <td>(optional) Retrieves only cables ending in this building</td>
 </tr>
 </tbody>
@@ -800,8 +800,8 @@
 </span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a><span class="w">    </span><span class="nt">&quot;endDeviceName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VMIX 01&quot;</span><span class="p">,</span>
 </span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a><span class="w">    </span><span class="nt">&quot;endRackId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bc8cf910-0fdc-49ba-8212-f6e8e3a4c90e&quot;</span><span class="p">,</span>
 </span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a><span class="w">    </span><span class="nt">&quot;endRackName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SK 01&quot;</span>
-</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">  </span><span class="p">},</span>
-</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">  </span><span class="err">...</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a><span class="w">  </span><span class="c1">//...</span>
 </span><span id="__span-1-30"><a id="__codelineno-1-30" name="__codelineno-1-30" href="#__codelineno-1-30"></a><span class="p">]</span>
 </span></code></pre></div>
 </div>
@@ -826,13 +826,13 @@
 </tr>
 <tr>
 <td><code>number</code></td>
-<td><code>string \| null</code></td>
+<td><code>string / null</code></td>
 <td>number of the cable as printed on it</td>
 <td></td>
 </tr>
 <tr>
 <td><code>length</code></td>
-<td><code>number \| null</code></td>
+<td><code>number / null</code></td>
 <td>length of the cable in meters</td>
 <td></td>
 </tr>
@@ -850,19 +850,19 @@
 </tr>
 <tr>
 <td><code>startConnectorId</code></td>
-<td><code>string \| null</code></td>
+<td><code>string / null</code></td>
 <td>id of the cable connector at the start side</td>
 <td></td>
 </tr>
 <tr>
 <td><code>startConnectorName</code></td>
-<td><code>string \| null</code></td>
+<td><code>string / null</code></td>
 <td>name of the cable connector at the start side</td>
 <td></td>
 </tr>
 <tr>
 <td><code>startConnectorGender</code></td>
-<td><code>MALE \| FEMALE \| HERMA</code></td>
+<td><code>MALE / FEMALE / HERMA</code></td>
 <td>gender of the cable connector at the start side</td>
 <td></td>
 </tr>
@@ -874,7 +874,7 @@
 </tr>
 <tr>
 <td><code>startConnectorColor</code></td>
-<td><code>string \| null</code></td>
+<td><code>string / null</code></td>
 <td>color of the cable connector at the start side</td>
 <td></td>
 </tr>
@@ -916,19 +916,19 @@
 </tr>
 <tr>
 <td><code>endConnectorId</code></td>
-<td><code>string \| null</code></td>
+<td><code>string / null</code></td>
 <td>id of the cable connector at the end side</td>
 <td></td>
 </tr>
 <tr>
 <td><code>endConnectorName</code></td>
-<td><code>string \| null</code></td>
+<td><code>string / null</code></td>
 <td>name of the cable connector at the end side</td>
 <td></td>
 </tr>
 <tr>
 <td><code>endConnectorGender</code></td>
-<td><code>MALE \| FEMALE \| HERMA</code></td>
+<td><code>MALE / FEMALE / HERMA</code></td>
 <td>gender of the cable connector at the end side</td>
 <td></td>
 </tr>
@@ -940,7 +940,7 @@
 </tr>
 <tr>
 <td><code>endConnectorColor</code></td>
-<td><code>string \| null</code></td>
+<td><code>string / null</code></td>
 <td>color of the cable connector at the end side</td>
 <td></td>
 </tr>
@@ -971,7 +971,308 @@
 </tbody>
 </table>
 </div>
-<div class="tabbed-block"></div>
+<div class="tabbed-block">
+<p><strong>Description:</strong></p>
+<p>Creates a new cable.</p>
+<p><strong>Path:</strong></p>
+<div class="language-HTTP highlight"><span class="filename">HTTP</span><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="err">POST /api/v1/cables</span>
+</span></code></pre></div>
+<p><strong>Query Parameters:</strong></p>
+<p>None.</p>
+<p><strong>Request Body:</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Example</label><label for="__tabbed_3_2">Schema</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-json highlight"><span class="filename">JSON</span><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="p">{</span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="nt">&quot;number?&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;x15234&quot;</span><span class="p">,</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="nt">&quot;length?&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="nt">&quot;startPort&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;636ce53c-cc09-41fb-9a97-1f9981b0d324&quot;</span><span class="p">,</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="nt">&quot;startConnector?&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="nt">&quot;startConnectorColor?&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="nt">&quot;endPort&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0c3bbe4a-7c3d-49e7-8738-cb1a5611eceb&quot;</span><span class="p">,</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="nt">&quot;endConnector?&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="nt">&quot;endConnectorColor?&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-json highlight"><span class="filename">JSON</span><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="p">{}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>number</code></td>
+<td><code>string / null</code></td>
+<td>number of the cable as printed on it</td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td><code>number / null</code></td>
+<td>(optional) length of the cable in meters</td>
+</tr>
+<tr>
+<td><code>startPort</code></td>
+<td><code>string</code></td>
+<td>UUIDv4 of the start port</td>
+</tr>
+<tr>
+<td><code>startConnector</code></td>
+<td><code>string / null</code></td>
+<td>(optional) id of the cable connector at the start side</td>
+</tr>
+<tr>
+<td><code>startConnectorColor</code></td>
+<td><code>string / null</code></td>
+<td>(optional) color of the cable connector at the start side</td>
+</tr>
+<tr>
+<td><code>endPort</code></td>
+<td><code>string</code></td>
+<td>UUIDv4 of the end port</td>
+</tr>
+<tr>
+<td><code>endConnector</code></td>
+<td><code>string / null</code></td>
+<td>(optional) id of the cable connector at the end side</td>
+</tr>
+<tr>
+<td><code>endConnectorColor</code></td>
+<td><code>string / null</code></td>
+<td>(optional) color of the cable connector at the end side</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Status Codes:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>200</code></td>
+<td>Success</td>
+</tr>
+<tr>
+<td><code>500</code></td>
+<td>Internal server error</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Response Body:</strong></p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Example</label><label for="__tabbed_4_2">Schema</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="language-json highlight"><span class="filename">JSON</span><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;c0ec2b68-94a7-421b-9dfe-10619f1b125a&quot;</span><span class="p">,</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;x21010&quot;</span><span class="p">,</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="nt">&quot;length&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="nt">&quot;startPortId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;862b5739-25c7-40d9-b235-9a0c289d4ab8&quot;</span><span class="p">,</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="nt">&quot;startPortName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;10&quot;</span><span class="p">,</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="nt">&quot;startConnectorId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RJ45_m&quot;</span><span class="p">,</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="w">  </span><span class="nt">&quot;startConnectorName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RJ45 male&quot;</span><span class="p">,</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="w">  </span><span class="nt">&quot;startConnectorGender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MALE&quot;</span><span class="p">,</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="w">  </span><span class="nt">&quot;startConnectorIcon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RJ45_m&quot;</span><span class="p">,</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="w">  </span><span class="nt">&quot;startConnectorColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="w">  </span><span class="nt">&quot;startDeviceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;ba6108b9-5062-41f3-a0f0-c9dec2fcc124&quot;</span><span class="p">,</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="w">  </span><span class="nt">&quot;startDeviceName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;NSW 01&quot;</span><span class="p">,</span>
+</span><span id="__span-5-14"><a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a><span class="w">  </span><span class="nt">&quot;startRackId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;76d9ab79-35a6-4c0c-8049-e1a803b20499&quot;</span><span class="p">,</span>
+</span><span id="__span-5-15"><a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="w">  </span><span class="nt">&quot;startRackName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SK 02&quot;</span><span class="p">,</span>
+</span><span id="__span-5-16"><a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="w">  </span><span class="nt">&quot;endPortId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3d84db19-ab92-4013-a01c-0f3d6c75e481&quot;</span><span class="p">,</span>
+</span><span id="__span-5-17"><a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="w">  </span><span class="nt">&quot;endPortName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;CONTROL&quot;</span><span class="p">,</span>
+</span><span id="__span-5-18"><a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="w">  </span><span class="nt">&quot;endConnectorId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RJ45_m&quot;</span><span class="p">,</span>
+</span><span id="__span-5-19"><a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="w">  </span><span class="nt">&quot;endConnectorColor&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+</span><span id="__span-5-20"><a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="w">  </span><span class="nt">&quot;endConnectorName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RJ45 male&quot;</span><span class="p">,</span>
+</span><span id="__span-5-21"><a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a><span class="w">  </span><span class="nt">&quot;endConnectorGender&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;MALE&quot;</span><span class="p">,</span>
+</span><span id="__span-5-22"><a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a><span class="w">  </span><span class="nt">&quot;endConnectorIcon&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;RJ45_m&quot;</span><span class="p">,</span>
+</span><span id="__span-5-23"><a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a><span class="w">  </span><span class="nt">&quot;endDeviceId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;b00d31f2-c4dd-41fe-9d8b-64c83c62911c&quot;</span><span class="p">,</span>
+</span><span id="__span-5-24"><a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="w">  </span><span class="nt">&quot;endDeviceName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;VMIX 01&quot;</span><span class="p">,</span>
+</span><span id="__span-5-25"><a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a><span class="w">  </span><span class="nt">&quot;endRackId&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bc8cf910-0fdc-49ba-8212-f6e8e3a4c90e&quot;</span><span class="p">,</span>
+</span><span id="__span-5-26"><a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="w">  </span><span class="nt">&quot;endRackName&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;SK 01&quot;</span>
+</span><span id="__span-5-27"><a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a><span class="p">}</span>
+</span></code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="language-json highlight"><span class="filename">JSON</span><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="p">{}</span>
+</span></code></pre></div>
+</div>
+</div>
+</div>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>id</code></td>
+<td><code>string</code></td>
+<td>id of the cable</td>
+<td></td>
+</tr>
+<tr>
+<td><code>number</code></td>
+<td><code>string / null</code></td>
+<td>number of the cable as printed on it</td>
+<td></td>
+</tr>
+<tr>
+<td><code>length</code></td>
+<td><code>number / null</code></td>
+<td>length of the cable in meters</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startPortId</code></td>
+<td><code>string</code></td>
+<td>UUIDv4 of the start port</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startPortName</code></td>
+<td><code>string</code></td>
+<td>name of the start port as printed on the device</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startConnectorId</code></td>
+<td><code>string / null</code></td>
+<td>id of the cable connector at the start side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startConnectorName</code></td>
+<td><code>string / null</code></td>
+<td>name of the cable connector at the start side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startConnectorGender</code></td>
+<td><code>MALE / FEMALE / HERMA</code></td>
+<td>gender of the cable connector at the start side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startConnectorIcon</code></td>
+<td><code>string</code></td>
+<td>icon of the cable connector at the start side</td>
+<td>available as svg</td>
+</tr>
+<tr>
+<td><code>startConnectorColor</code></td>
+<td><code>string / null</code></td>
+<td>color of the cable connector at the start side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startDeviceId</code></td>
+<td><code>string</code></td>
+<td>UUIDv4 of the device on the start side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startDeviceName</code></td>
+<td><code>string</code></td>
+<td>name of the device on the start side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startRackId</code></td>
+<td><code>string</code></td>
+<td>UUIDv4 of the rack on the start side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>startRackName</code></td>
+<td><code>string</code></td>
+<td>name of the rack on the start side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>endPortId</code></td>
+<td><code>string</code></td>
+<td>UUIDv4 of the end port</td>
+<td></td>
+</tr>
+<tr>
+<td><code>endPortName</code></td>
+<td><code>string</code></td>
+<td>name of the end port as printed on the device</td>
+<td></td>
+</tr>
+<tr>
+<td><code>endConnectorId</code></td>
+<td><code>string / null</code></td>
+<td>id of the cable connector at the end side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>endConnectorName</code></td>
+<td><code>string / null</code></td>
+<td>name of the cable connector at the end side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>endConnectorGender</code></td>
+<td><code>MALE / FEMALE / HERMA</code></td>
+<td>gender of the cable connector at the end side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>endConnectorIcon</code></td>
+<td><code>string</code></td>
+<td>icon of the cable connector at the end side</td>
+<td>available as svg</td>
+</tr>
+<tr>
+<td><code>endConnectorColor</code></td>
+<td><code>string / null</code></td>
+<td>color of the cable connector at the end side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>endDeviceId</code></td>
+<td><code>string</code></td>
+<td>UUIDv4 of the device on the end side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>endDeviceName</code></td>
+<td><code>string</code></td>
+<td>name of the device on the end side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>endRackId</code></td>
+<td><code>string</code></td>
+<td>UUIDv4 of the rack on the end side</td>
+<td></td>
+</tr>
+<tr>
+<td><code>endRackName</code></td>
+<td><code>string</code></td>
+<td>name of the rack on the end side</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 
