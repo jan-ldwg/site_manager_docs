@@ -12,7 +12,7 @@
         <link rel="prev" href="../../datamodel/devices/">
       
       
-        <link rel="next" href="../devices/">
+        <link rel="next" href="../manufacturers/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -603,12 +603,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../devices/" class="md-nav__link">
+      <a href="../manufacturers/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    /devices
+    /manufacturers
     
   </span>
   
@@ -626,81 +626,12 @@
   
   
     <li class="md-nav__item">
-      <a href="../devices_deviceId/" class="md-nav__link">
+      <a href="../manufacturers_manufacturerId/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
-    /devices/{deviceid}
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../devicetypes/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /devicetypes
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cables/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /cables
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../cables_cableId/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    /cables/{cableid}
+    /manufacturers/{id}
     
   </span>
   
@@ -835,10 +766,11 @@
 </table>
 <p><code>POST</code>, <code>PATCH</code> and <code>PUT</code> return the full object on success.</p>
 <h2 id="authentication">Authentication</h2>
-<p>site_manager uses cookies for authentication.</p>
+<p>site_manager uses cookies for authentication. Every request to protected api endpoints (e.g. everything except <code>api/auth/sign-in/email</code>) has to include a valid session cookie. The cookie is called <code>site-manager.session_data</code>.</p>
+<p>To make direct requests to the server without using the frontend authentication is required. This can done by sending the email and password to <code>api/auth/sign-in/email</code>. The api will respond with the cookie, which can then be sent with all future requests.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Under the hood site_manager uses Better Auth as the authentication framework.</p>
+<p>Better Auth is strict when it comes to requests send to <code>api/auth/*</code>. Make sure to set the origin header!</p>
 </div>
 <h2 id="about-this-documentation">About this documentation</h2>
 <p>Optional parameters in the request body are marked with an <code>?</code> at the end of their key. This has to be omitted in the request.</p>
