@@ -10,16 +10,17 @@ nav:
       - Devices: datamodel/devices.md
   - API:
       - Overview: api/overview.md
-      - /devices: api/devices.md
-      - /devices/{deviceid}: api/devices_deviceId.md
-      - /devicetypes: api/devicetypes.md
-      - /cables: api/cables.md
-      - /cables/{cableid}: api/cables_cableId.md
+      #- /devices: api/devices.md
+      #- /devices/{deviceid}: api/devices_deviceId.md
+      #- /devicetypes: api/devicetypes.md
+      #- /cables: api/cables.md
+      #- /cables/{cableid}: api/cables_cableId.md
       #- /ports: api/ports.md
       #- /moduleSlotsTypes: api/moduleSlotsTypes.md
       #- /moduleTypes: api/moduleTypes.md
       #- /connectors: api/connectors.md
-      #- /manufacturers: api/manufacturers.md
+      - /manufacturers: api/manufacturers.md
+      - /manufacturers/{id}: api/manufacturers_manufacturerId.md
       #- /racks: api/racks.md
       #- /rooms: api/rooms.md
       #- /buildings: api/buildings.md
