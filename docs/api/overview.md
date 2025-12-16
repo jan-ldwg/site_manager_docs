@@ -31,11 +31,13 @@ These 5 methods are supported. Note that not every endpoint supports every metho
 
 ## Authentication
 
-site_manager uses cookies for authentication.
+site_manager uses cookies for authentication. Every request to protected api endpoints (e.g. everything except `api/auth/sign-in/email`) has to include a valid session cookie. The cookie is called `site-manager.session_data`.
 
-!!! note
+To make direct requests to the server without using the frontend authentication is required. This can done by sending the email and password to `api/auth/sign-in/email`. The api will respond with the cookie, which can then be sent with all future requests.
 
-    Under the hood site_manager uses Better Auth as the authentication framework.
+!!! warning
+
+    Better Auth is strict when it comes to requests send to `api/auth/*`. Make sure to set the origin header!
 
 ## About this documentation
 
