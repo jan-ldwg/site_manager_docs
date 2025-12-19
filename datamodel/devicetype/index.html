@@ -71,6 +71,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#manufacturers" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -439,6 +444,19 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Device Types
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -450,6 +468,59 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#manufacturers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manufacturers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Id
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#port-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port Type
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-slot-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module Slot Type
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -621,6 +692,29 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/sites_siteId/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    /sites/{id}
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -646,6 +740,50 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#manufacturers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manufacturers
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Id
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#port-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Port Type
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#module-slot-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Module Slot Type
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -665,17 +803,22 @@
 <p>Device types can be thought of as templates that are used to create instances of devices. In contrast to some other applications (e.g. Netbox) site_manager does not duplicate information from the device type into each device instance upon creation, but instead retrieves general information for a device by querying the device type. This means that a device type may only be deleted from the database when there are no devices of this type in the database. This also means that some information in the device type can be changed and all existing instances of this device will be updated on future queries.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The number of ports and module slots can not be changed afterwards.</p>
+<p>The number of ports or module slots can not be changed afterwards.</p>
 </div>
-<p><strong>Id</strong></p>
+<h4 id="manufacturers">Manufacturers</h4>
+<p>id: all lowercase, - allowed
+name: Everything allowed
+nameShort: Lower and Uppercase, max. 16 char</p>
+<h4 id="id">Id</h4>
 <p>Each device type is identified by a human readable, unique id.</p>
 <p>The rules to generate this id are as follows:</p>
 <ol>
 <li>Start with the id of the manufacturer</li>
-<li>Convert the name device name to lowercase</li>
+<li>Convert the device name to lowercase</li>
 <li>Replace all spaces, dots and underscores with -</li>
 <li>Remove all remaining special characters</li>
 </ol>
+<p>The id has to be a maximum of 48 characters</p>
 <p>To make this clearer here a some examples:</p>
 <table>
 <thead>
@@ -703,7 +846,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Port Type</strong></p>
+<h4 id="port-type">Port Type</h4>
 <p>Each device type can have a number of port types. Every port type represents a specific port on a specific device type. A port type is never reused for multiple different ports. This means a port type does not represent a concept like an generic SDI input, but a specific SDI input on a specific device (or module). The name of the port type should be as it is labeled on the device. If there is no labeling on the device, the name as used in the device´s manual should be used. If this is also not possible a logical name should be chosen.</p>
 <p>Every port type has a list of signal types it supports. These are important to validate connections between ports.</p>
 <p>Every port also has a direction.</p>
@@ -863,7 +1006,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Module Slot Type</strong></p>
+<h4 id="module-slot-type">Module Slot Type</h4>
 
 
 
