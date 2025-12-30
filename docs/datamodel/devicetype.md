@@ -2,18 +2,26 @@ Device types can be thought of as templates that are used to create instances of
 
 !!! note
 
-    The number of ports and module slots can not be changed afterwards.
+    The number of ports or module slots can not be changed afterwards.
 
-**Id**
+#### Manufacturers
+
+id: all lowercase, - allowed
+name: Everything allowed
+nameShort: Lower and Uppercase, max. 16 char
+
+#### Id
 
 Each device type is identified by a human readable, unique id.
 
 The rules to generate this id are as follows:
 
 1. Start with the id of the manufacturer
-2. Convert the name device name to lowercase
+2. Convert the device name to lowercase
 3. Replace all spaces, dots and underscores with -
 4. Remove all remaining special characters
+
+The id has to be a maximum of 48 characters
 
 To make this clearer here a some examples:
 
@@ -24,7 +32,7 @@ To make this clearer here a some examples:
 | Sony HDC-5500                                 | `sony-hdc-5500`                         |
 | Blackmagic Design ATEM 1 M/E Constellation HD | `blackmagic-atem-1-me-constellation-hd` |
 
-**Port Type**
+#### Port Type
 
 Each device type can have a number of port types. Every port type represents a specific port on a specific device type. A port type is never reused for multiple different ports. This means a port type does not represent a concept like an generic SDI input, but a specific SDI input on a specific device (or module). The name of the port type should be as it is labeled on the device. If there is no labeling on the device, the name as used in the device´s manual should be used. If this is also not possible a logical name should be chosen.
 
@@ -54,4 +62,4 @@ Every port also has a direction.
 | `REAR`  | ✅   | ✅    | ✅      | ✅     | ✅   | ✅     | ✅     | ✅      |
 | `FRONT` | ✅   | ✅    | ✅      | ✅     | ✅   | ✅     | ✅     | ✅      |
 
-**Module Slot Type**
+#### Module Slot Type

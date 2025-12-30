@@ -8,12 +8,12 @@
 
 #### Description
 
-Returns the manufacturer.
+Returns the site.
 
 #### Path
 
 ```HTTP
-GET /api/v1/manufacturers/{id}
+GET /api/v1/sites/{id}
 ```
 
 #### Query Parameters
@@ -29,16 +29,17 @@ None.
 | Code  | Status                |
 | ----- | --------------------- |
 | `200` | Success               |
+| `400` | Bad Request           |
 | `401` | Unauthorized          |
 | `404` | Not Found             |
-| `500` | Internal server error |
+| `500` | Internal Server Error |
 
 #### Response Body
 
 === "Example"
 
     ```json
-    --8<-- "json_examples/POST_manufacturers_res.json"
+    --8<-- "json_examples/POST_sites_res.json"
     ```
 
 === "Schema"
@@ -47,23 +48,21 @@ None.
     {}
     ```
 
-| Name        | Type          | Description                       | Notes |
-| ----------- | ------------- | --------------------------------- | ----- |
-| `id`        | `string(32)`  | id of the manufacturer            |       |
-| `name`      | `string`      | human readable name of the device |       |
-| `nameShort` | `string(16)`  | abbreviated version of the name   |       |
-| `email`     | `string/null` | email to contact the manufacturer |       |
+| Name   | Type             | Description                     | Notes |
+| ------ | ---------------- | ------------------------------- | ----- |
+| `id`   | `string(UUIDv4)` | id of the site                  |       |
+| `name` | `string`         | human readable name of the site |       |
 
 ## `DELETE`
 
 #### Description
 
-Deletes the manufacturer.
+Deletes the site.
 
 #### Path
 
 ```HTTP
-DELETE /api/v1/manufacturers/{id}
+DELETE /api/v1/site/{id}
 ```
 
 #### Query Parameters
@@ -79,6 +78,7 @@ None.
 | Code  | Meaning               |
 | ----- | --------------------- |
 | `200` | Ok                    |
+| `400` | Bad Request           |
 | `401` | Unauthorized          |
 | `404` | Not Found             |
 | `500` | Internal Server Error |

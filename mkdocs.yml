@@ -1,30 +1,4 @@
-site_name: site_mangager_docs
-nav:
-  - Home: index.md
-  - Getting Started: gettingstarted.md
-  - Library:
-      - Connectors: library/connectors.md
-      - Signals: library/signals.md
-  - Data Model:
-      - Device Types: datamodel/devicetype.md
-      - Devices: datamodel/devices.md
-  - API:
-      - Overview: api/overview.md
-      #- /devices: api/devices.md
-      #- /devices/{deviceid}: api/devices_deviceId.md
-      #- /devicetypes: api/devicetypes.md
-      #- /cables: api/cables.md
-      #- /cables/{cableid}: api/cables_cableId.md
-      #- /ports: api/ports.md
-      #- /moduleSlotsTypes: api/moduleSlotsTypes.md
-      #- /moduleTypes: api/moduleTypes.md
-      #- /connectors: api/connectors.md
-      - /manufacturers: api/manufacturers.md
-      - /manufacturers/{id}: api/manufacturers_manufacturerId.md
-      #- /racks: api/racks.md
-      #- /rooms: api/rooms.md
-      #- /buildings: api/buildings.md
-      #- /sites: api/sites.md
+site_name: site_manager_docs
 
 theme:
   name: material
@@ -51,6 +25,7 @@ theme:
 
 markdown_extensions:
   - attr_list
+  - md_in_html
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -66,3 +41,36 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
+
+#-------------site structure
+
+nav:
+  - Home: index.md
+  - Getting Started: gettingstarted.md
+  - Installation: installation.md
+  - Library:
+      - Contribute: library/contribute.md
+      - Connectors: library/connectors.md
+      - Signals: library/signals.md
+  - Data Model:
+      - Device Types: datamodel/devicetype.md
+      - Devices: datamodel/devices.md
+  - API:
+      - Overview: api/overview.md
+      #- /devices: api/devices.md
+      #- /devices/{deviceid}: api/devices_deviceId.md
+      - /devicetypes: api/devicetypes.md
+      #- /cables: api/cables.md
+      #- /cables/{cableid}: api/cables_cableId.md
+      #- /ports: api/ports.md
+      #- /moduleSlotsTypes: api/moduleSlotsTypes.md
+      #- /moduleTypes: api/moduleTypes.md
+      #- /connectors: api/connectors.md
+      - /manufacturers: api/manufacturers.md
+      - /manufacturers/{id}: api/manufacturers_manufacturerId.md
+      - /sites: api/sites.md
+      - /sites/{id}: api/sites_siteId.md
+      #- /racks: api/racks.md
+      #- /rooms: api/rooms.md
+      #- /buildings: api/buildings.md
+      #- /sites: api/sites.md
