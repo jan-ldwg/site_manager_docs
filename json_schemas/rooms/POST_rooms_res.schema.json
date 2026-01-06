@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POST api/v1/rooms RESPONSE",
+  "description": "JSON document describing the just created room",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the room",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": { "description": "Name of the room", "type": "string" },
+    "buildingId": {
+      "description": "Id of the building in which the room is located",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "required": ["id", "name", "buildingId"],
+  "additionalProperties": false
+}

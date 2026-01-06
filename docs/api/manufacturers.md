@@ -1,5 +1,7 @@
 # `/api/manufacturers`
 
+!!! success "Up to date"
+
 !!! warning
 
     The api is still under active development. The documentation might not reflect the current implementation. The documentation represents the current end goal for the v1.0 release. Feel free to leave feedback in the site_manager_server repo.
@@ -37,21 +39,20 @@ None.
 === "Example"
 
     ```json
-    --8<-- "json_examples/GET_manufacturers_res.json"
+    --8<-- "json_examples/manufacturers/GET_manufacturers_res.json"
     ```
 
 === "Schema"
 
     ```json
-    {}
+    --8<-- "json_schemas/manufacturers/GET_manufacturers_res.schema.json"
     ```
 
-| Name        | Type          | Description                             | Notes |
-| ----------- | ------------- | --------------------------------------- | ----- |
-| `id`        | `string(32)`  | id of the manufacturer                  |       |
-| `name`      | `string`      | human readable name of the manufacturer |       |
-| `nameShort` | `string(16)`  | abbreviated version of the name         |       |
-| `email`     | `string/null` | email to contact the manufacturer       |       |
+| Name        | Type         | Description                             | Notes |
+| ----------- | ------------ | --------------------------------------- | ----- |
+| `id`        | `string(32)` | id of the manufacturer                  |       |
+| `name`      | `string`     | human readable name of the manufacturer |       |
+| `nameShort` | `string(16)` | abbreviated version of the name         |       |
 
 ## `POST`
 
@@ -74,21 +75,20 @@ None.
 === "Example"
 
     ```json
-    --8<-- "json_examples/POST_manufacturers_req.json"
+    --8<-- "json_examples/manufacturers/POST_manufacturers_req.json"
     ```
 
 === "Schema"
 
     ```json
-    {}
+    --8<-- "json_schemas/manufacturers/POST_manufacturers_req.schema.json"
     ```
 
-| Name        | Type          | Description                                  | Notes |
-| ----------- | ------------- | -------------------------------------------- | ----- |
-| `id`        | `string(32)`  | id of the manufacturer                       |       |
-| `name`      | `string`      | human readable name of the device            |       |
-| `nameShort` | `string(16)`  | abbreviated version of the name              |       |
-| `email?`    | `string/null` | (optional) email to contact the manufacturer |       |
+| Name        | Type         | Description                       | Notes |
+| ----------- | ------------ | --------------------------------- | ----- |
+| `id`        | `string(32)` | id of the manufacturer            |       |
+| `name`      | `string`     | human readable name of the device |       |
+| `nameShort` | `string(16)` | abbreviated version of the name   |       |
 
 #### Status Codes
 
@@ -104,18 +104,17 @@ None.
 === "Example"
 
     ```json
-    --8<-- "json_examples/POST_manufacturers_res.json"
+    --8<-- "json_examples/manufacturers/POST_manufacturers_res.json"
     ```
 
 === "Schema"
 
     ```json
-    {}
+    --8<-- "json_schemas/manufacturers/POST_manufacturers_res.schema.json"
     ```
 
-| Name        | Type          | Description                                  | Notes |
-| ----------- | ------------- | -------------------------------------------- | ----- |
-| `id`        | `string(32)`  | id of the manufacturer                       |       |
-| `name`      | `string`      | human readable name of the device            |       |
-| `nameShort` | `string(16)`  | abbreviated version of the name              |       |
-| `email`     | `string/null` | (optional) email to contact the manufacturer |       |
+| Name        | Type         | Description                       | Notes |
+| ----------- | ------------ | --------------------------------- | ----- |
+| `id`        | `string(32)` | id of the manufacturer            |       |
+| `name`      | `string`     | human readable name of the device |       |
+| `nameShort` | `string(16)` | abbreviated version of the name   |       |

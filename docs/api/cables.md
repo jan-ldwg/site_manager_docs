@@ -1,162 +1,108 @@
 # `/api/cables`
 
+!!! success "Up to date"
+
 !!! warning
 
     The api is still under active development. The documentation might not reflect the current implementation. The documentation represents the current end goal for the v1.0 release. Feel free to leave feedback in the site_manager_server repo.
 
-=== "GET"
+## `GET`
 
-    **Description:**
+#### Description
 
-    Returns a list of all cables.
+Returns a list of all cables.
 
-    **Path:**
+#### Path
 
-    ```HTTP
-    GET /api/v1/cables
+```HTTP
+GET /api/v1/cables
+```
+
+#### Query Parameters
+
+| Name              | Type                | Description                                                |
+| ----------------- | ------------------- | ---------------------------------------------------------- |
+| `startRackId`     | `string / string[]` | (optional) Retrieves only cables starting in this rack     |
+| `startRoomId`     | `string / string[]` | (optional) Retrieves only cables starting room             |
+| `startBuildingId` | `string / string[]` | (optional) Retrieves only cables starting in this building |
+| `endRackId`       | `string / string[]` | (optional) Retrieves only cables ending in this rack       |
+| `endRoomId`       | `string / string[]` | (optional) Retrieves only cables ending room               |
+| `endBuildingId`   | `string / string[]` | (optional) Retrieves only cables ending in this building   |
+
+See the [paragraph about query parameters](overview.md) for detailed usage.
+
+#### Request Body
+
+None.
+
+#### Status Codes
+
+| Code  | Status                |
+| ----- | --------------------- |
+| `200` | Success               |
+| `500` | Internal Server Error |
+
+#### Response Body
+
+=== "Example"
+
+    ```json
+    --8<-- "json_examples/cables/GET_cables_res.json"
     ```
 
-    **Query Parameters:**
+=== "Schema"
 
-    | Name              | Type                 | Description                                                |
-    | ----------------- | -------------------- | ---------------------------------------------------------- |
-    | `startRackId`     | `string / string[]` | (optional) Retrieves only cables starting in this rack     |
-    | `startRoomId`     | `string / string[]` | (optional) Retrieves only cables starting room             |
-    | `startBuildingId` | `string / string[]` | (optional) Retrieves only cables starting in this building |
-    | `endRackId`       | `string / string[]` | (optional) Retrieves only cables ending in this rack       |
-    | `endRoomId`       | `string / string[]` | (optional) Retrieves only cables ending room               |
-    | `endBuildingId`   | `string / string[]` | (optional) Retrieves only cables ending in this building   |
-
-    **Request Body:**
-
-    None.
-
-    **Status Codes:**
-
-    | Code  | Status                |
-    | ----- | --------------------- |
-    | `200` | Success               |
-    | `500` | Internal server error |
-
-    **Response Body:**
-
-    === "Example"
-        ```json
-        --8<-- "json_examples/GET_cables_res.jsonc"
-        ```
-
-    === "Schema"
-
-    | Name                   | Type                    | Description                                     | Notes            |
-    | ---------------------- | ----------------------- | ----------------------------------------------- | ---------------- |
-    | `id`                   | `string`                | id of the cable                                 |                  |
-    | `number`               | `string / null`         | number of the cable as printed on it            |                  |
-    | `length`               | `number / null`         | length of the cable in meters                   |                  |
-    | `startPortId`          | `string`                | UUIDv4 of the start port                        |                  |
-    | `startPortName`        | `string`                | name of the start port as printed on the device |                  |
-    | `startConnectorId`     | `string / null`         | id of the cable connector at the start side     |                  |
-    | `startConnectorName`   | `string / null`         | name of the cable connector at the start side   |                  |
-    | `startConnectorGender` | `MALE / FEMALE / HERMA` | gender of the cable connector at the start side |                  |
-    | `startConnectorIcon`   | `string`                | icon of the cable connector at the start side   | available as svg |
-    | `startConnectorColor`  | `string / null`         | color of the cable connector at the start side  |                  |
-    | `startDeviceId`        | `string`                | UUIDv4 of the device on the start side          |                  |
-    | `startDeviceName`      | `string`                | name of the device on the start side            |                  |
-    | `startRackId`          | `string`                | UUIDv4 of the rack on the start side            |                  |
-    | `startRackName`        | `string`                | name of the rack on the start side              |                  |
-    | `endPortId`            | `string`                | UUIDv4 of the end port                          |                  |
-    | `endPortName`          | `string`                | name of the end port as printed on the device   |                  |
-    | `endConnectorId`       | `string / null`         | id of the cable connector at the end side       |                  |
-    | `endConnectorName`     | `string / null`         | name of the cable connector at the end side     |                  |
-    | `endConnectorGender`   | `MALE / FEMALE / HERMA` | gender of the cable connector at the end side   |                  |
-    | `endConnectorIcon`     | `string`                | icon of the cable connector at the end side     | available as svg |
-    | `endConnectorColor`    | `string / null`         | color of the cable connector at the end side    |                  |
-    | `endDeviceId`          | `string`                | UUIDv4 of the device on the end side            |                  |
-    | `endDeviceName`        | `string`                | name of the device on the end side              |                  |
-    | `endRackId`            | `string`                | UUIDv4 of the rack on the end side              |                  |
-    | `endRackName`          | `string`                | name of the rack on the end side                |                  |
-
-=== "POST"
-
-     **Description:**
-
-    Creates a new cable.
-
-    **Path:**
-
-    ```HTTP
-    POST /api/v1/cables
+    ```json
+    --8<-- "json_schemas/cables/GET_cables_res.schema.json"
     ```
 
-    **Query Parameters:**
+## `POST`
 
-    None.
+#### Description
 
-    **Request Body:**
+Creates a new cable.
 
-    === "Example"
-        ```json
-        --8<-- "json_examples/POST_cables_req.json"
-        ```
+#### Path
 
-    === "Schema"
-        ```json
-        {}
-        ```
+```HTTP
+POST /api/v1/cables
+```
 
-    | Name                  | Type            | Description                                               |
-    | --------------------- | --------------- | --------------------------------------------------------- |
-    | `number`              | `string / null` | number of the cable as printed on it                      |
-    | `length`              | `number / null` | (optional) length of the cable in meters                  |
-    | `startPort`           | `string`        | UUIDv4 of the start port                                  |
-    | `startConnector`      | `string / null` | (optional) id of the cable connector at the start side    |
-    | `startConnectorColor` | `string / null` | (optional) color of the cable connector at the start side |
-    | `endPort`             | `string`        | UUIDv4 of the end port                                    |
-    | `endConnector`        | `string / null` | (optional) id of the cable connector at the end side      |
-    | `endConnectorColor`   | `string / null` | (optional) color of the cable connector at the end side   |
+#### Query Parameters
 
-    **Status Codes:**
+None.
 
-    | Code  | Status                |
-    | ----- | --------------------- |
-    | `200` | Success               |
-    | `500` | Internal server error |
+#### Request Body
 
-    **Response Body:**
+=== "Example"
 
-    === "Example"
-        ```json
-        --8<-- "json_examples/POST_cables_res.json"
-        ```
+    ```json
+    --8<-- "json_examples/cables/POST_cables_req.json"
+    ```
 
-    === "Schema"
-        ```json
-        {}
-        ```
+=== "Schema"
 
-    | Name                   | Type                    | Description                                     | Notes            |
-    | ---------------------- | ----------------------- | ----------------------------------------------- | ---------------- |
-    | `id`                   | `string`                | id of the cable                                 |                  |
-    | `number`               | `string / null`         | number of the cable as printed on it            |                  |
-    | `length`               | `number / null`         | length of the cable in meters                   |                  |
-    | `startPortId`          | `string`                | UUIDv4 of the start port                        |                  |
-    | `startPortName`        | `string`                | name of the start port as printed on the device |                  |
-    | `startConnectorId`     | `string / null`         | id of the cable connector at the start side     |                  |
-    | `startConnectorName`   | `string / null`         | name of the cable connector at the start side   |                  |
-    | `startConnectorGender` | `MALE / FEMALE / HERMA` | gender of the cable connector at the start side |                  |
-    | `startConnectorIcon`   | `string`                | icon of the cable connector at the start side   | available as svg |
-    | `startConnectorColor`  | `string / null`         | color of the cable connector at the start side  |                  |
-    | `startDeviceId`        | `string`                | UUIDv4 of the device on the start side          |                  |
-    | `startDeviceName`      | `string`                | name of the device on the start side            |                  |
-    | `startRackId`          | `string`                | UUIDv4 of the rack on the start side            |                  |
-    | `startRackName`        | `string`                | name of the rack on the start side              |                  |
-    | `endPortId`            | `string`                | UUIDv4 of the end port                          |                  |
-    | `endPortName`          | `string`                | name of the end port as printed on the device   |                  |
-    | `endConnectorId`       | `string / null`         | id of the cable connector at the end side       |                  |
-    | `endConnectorName`     | `string / null`         | name of the cable connector at the end side     |                  |
-    | `endConnectorGender`   | `MALE / FEMALE / HERMA` | gender of the cable connector at the end side   |                  |
-    | `endConnectorIcon`     | `string`                | icon of the cable connector at the end side     | available as svg |
-    | `endConnectorColor`    | `string / null`         | color of the cable connector at the end side    |                  |
-    | `endDeviceId`          | `string`                | UUIDv4 of the device on the end side            |                  |
-    | `endDeviceName`        | `string`                | name of the device on the end side              |                  |
-    | `endRackId`            | `string`                | UUIDv4 of the rack on the end side              |                  |
-    | `endRackName`          | `string`                | name of the rack on the end side                |                  |
+    ```json
+    --8<-- "json_schemas/cables/POST_cables_req.schema.json"
+    ```
+
+#### Status Codes
+
+| Code  | Status                |
+| ----- | --------------------- |
+| `200` | Success               |
+| `500` | Internal server error |
+
+#### Response Body
+
+=== "Example"
+
+    ```json
+    --8<-- "json_examples/cables/POST_cables_res.json"
+    ```
+
+=== "Schema"
+
+    ```json
+    --8<-- "json_schemas/cables/POST_cables_res.schema.json"
+    ```

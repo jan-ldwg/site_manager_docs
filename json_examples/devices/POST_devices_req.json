@@ -1,0 +1,7 @@
+{
+  "deviceTypeId": "directout_maven_a",
+  "rackId": "bc8cf910-0fdc-49ba-8212-f6e8e3a4c90e",
+  "name": "A-DSP01",
+  "description": "Audio DSP for main mixer",
+  "serialNumber": "x2025-065"
+}

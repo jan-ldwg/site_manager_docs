@@ -1,234 +1,139 @@
 # `/api/devices`
 
+!!! success "Up to date"
+
 !!! warning
 
     The api is still under active development. The documentation might not reflect the current implementation. The documentation represents the current end goal for the v1.0 release. Feel free to leave feedback in the site_manager_server repo.
 
-=== "GET"
+## `GET`
 
-    **Description:**
+#### Description
 
-    Returns the device.
+Returns the device.
 
-    **Path:**
+#### Path
 
-    ```HTTP
-    GET /api/v1/devices/{deviceid}
+```HTTP
+GET /api/v1/devices/{deviceId}
+```
+
+#### Query Parameters
+
+None.
+
+#### Request Body
+
+None.
+
+#### Status Codes
+
+| Code  | Status                |
+| ----- | --------------------- |
+| `200` | Success               |
+| `400` | Bad Request           |
+| `401` | Unauthorized          |
+| `404` | Not Found             |
+| `500` | Internal Server Error |
+
+#### Response Body
+
+=== "Example"
+
+    ```json
+    --8<-- "json_examples/devices/POST_devices_res.json"
     ```
 
-    **Query Parameters:**
+=== "Schema"
 
-    None.
-
-    **Request Body:**
-
-    None.
-
-    **Status Codes:**
-
-    | Code  | Status                |
-    | ----- | --------------------- |
-    | `200` | Success               |
-    | `500` | Internal server error |
-
-    **Response Body:**
-
-    === "Example"
-        ```json
-        --8<-- "json_examples/POST_devices_res.json"
-        ```
-
-    === "Schema"
-        ```json
-        {}
-        ```
-
-    | Name                    | Type     | Description                               | Notes                                                            |
-    | ----------------------- | -------- | ----------------------------------------- | ---------------------------------------------------------------- | ---------------------------------- |
-    | `id`                    | `string` | UUIDv4 of the device                      |
-    | `name`                  | `string  | null`                                     | human readable name of the device                                | limited to 16 characters           |
-    | `deviceTypeId`          | `string` | id of the type of the device              |
-    | `deviceTypeName`        | `string` | human readable name of the device type    |
-    | `manufacturerId`        | `string` | id of the manufacturer of the device      |
-    | `manufacturerName`      | `string` | full name of the manufacturer             |
-    | `manufacturerNameShort` | `string` | colloquial name of the manufacturer       |
-    | `description`           | `string  | null`                                     | user defined description of the device                           |
-    | `serialNumber`          | `string  | null`                                     | serial number of the device                                      | limited to 32 characters           |
-    | `siteId`                | `string` | UUIDv4 of the site                        |
-    | `siteName`              | `string` | human readable name of the site           |
-    | `buildingId`            | `string` | UUIDv4 of the building                    |
-    | `buildingName`          | `string` | human readable name of the building       |
-    | `roomId`                | `string` | UUIDv4 of the room                        |
-    | `roomName`              | `string` | human readable name of the room           |
-    | `rackId`                | `string` | UUIDv4 of the rack                        |
-    | `rackName`              | `string` | human readable name of the rack           |
-    | `rackElevation`         | `number  | null`                                     | position of the device in RU counted from the bottom of the rack |
-    | `rackPosition`          | `FRONT   | BACK                                      | LOOSE`                                                           | position of the device in the rack |
-    | `ports`                 |          |                                           |
-    | `portId`                | `string` | UUIDv4 of the port                        |
-    | `portTypeId`            | `string` | UUIDv4 of the port type                   |
-    | `portTypeName`          | `string` | name of the port as labeled on the device |
-    | `portTypeDirection`     | `"IN"    | "OUT"                                     | "BIDI"`                                                          | direction of the port type         |
-    | `connectorId`           | `string` | id of the connector                       |
-    | `connectorName`         | `string` | human readable name of the connector      |
-    | `connectorGender`       | `"MALE"  | "FEMALE"                                  | "HERMA“`                                                         | gender of the connector            |
-    | `connectorIcon`         | `string` | name of the associated icon               | every icon is available as svg                                   |
-    | `moduleSlots`           |          |                                           |
-    | `moduleSlotId`          | `string` | UUIDv4 of the module slot                 |
-    | `moduleSlotTypeId`      | `string` | UUIDv4 of the module slot type            |
-    | `moduleSlotTypeName`    | `string` | name of the slot as labeled on the device |
-    | `module`                |          |                                           |
-    | `moduleId`              | `string` | UUIDv4 of the module                      |
-    | `moduleTypeId`          | `string` | id of the module type                     |
-    | `moduleTypeName`        | `string` | human readable name of the module type    |
-    | `manufacturerId`        | `string` | id of the manufacturer of the module      |
-    | `manufacturerName`      | `string` | full name of the manufacturer             |
-    | `manufacturerNameShort` | `string` | colloquial name of the manufacturer       |
-
-=== "PATCH"
-
-    **Description:**
-
-    Changes an existing device.
-
-    **Path:**
-
-    ```HTTP
-    PATCH /api/v1/devices/{deviceid}
+    ```json
+    --8<-- "json_schemas/devices/GET_device_res.schema.json"
     ```
 
-    **Query Parameters:**
+## `PATCH`
 
-    None.
+#### Description
 
-    **Request Body:**
+Updates values of an existing device.
 
-    === "Example"
+#### Path
 
-        ```json
-        --8<-- "json_examples/PATCH_devices_device_req.json"
-        ```
-    === "Schema"
+```HTTP
+PATCH /api/v1/devices/{deviceId}
+```
 
-        ```json
-        {}
-        ```
+#### Query Parameters
 
-    | Name           | Type     | Description                                                         | Notes                                                  |
-    | -------------- | -------- | ------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------ |
-    | `rackId`       | `string` | (optional) UUIDv4 of the rack in which the device should be created |
-    | `name`         | `string  | null`                                                               | (optional) human readable name of the device to create |
-    | `description`  | `string  | null`                                                               | (optional) user defined description of the device      |
-    | `serialNumber` | `string  | null`                                                               | (optional) serial number of the device                 | limited to 32 characters |
+None.
 
-    **Status Codes:**
+#### Request Body
 
-    | Code  | Status                |
-    | ----- | --------------------- |
-    | `200` | Success               |
-    | `404` | Device not found      |
-    | `500` | Internal server error |
+=== "Example"
 
-    **Response Body:**
-
-    === "Example"
-
-        ```json
-        --8<-- "json_examples/POST_devices_res.json"
-        ```
-
-    === "Schema"
-
-        ```json
-        {}
-        ```
-
-    | Name                    | Type     | Description                               | Notes                                                              |                                    |
-    | ----------------------- | -------- | ----------------------------------------- | ------------------------------------------------------------------ | ---------------------------------- |
-    | `id`                    | `string` | UUIDv4 of the device                      |                                                                    |                                    |
-    | `name`                  | `string  | null`                                     | human readable name of the device                                  | limited to 16 characters           |
-    | `deviceTypeId`          | `string` | id of the type of the device              |                                                                    |                                    |
-    | `deviceTypeName`        | `string` | human readable name of the device type    |                                                                    |                                    |
-    | `manufacturerId`        | `string` | id of the manufacturer of the device      |                                                                    |                                    |
-    | `manufacturerName`      | `string` | full name of the manufacturer             |                                                                    |                                    |
-    | `manufacturerNameShort` | `string` | colloquial name of the manufacturer       |                                                                    |                                    |
-    | `description`           | `string  | null`                                     | user defined description of the device                             |                                    |
-    | `serialNumber`          | `string  | null`                                     | serial number of the device                                        | limited to 32 characters           |
-    | `siteId`                | `string` | UUIDv4 of the site                        |                                                                    |                                    |
-    | `siteName`              | `string` | human readable name of the site           |                                                                    |                                    |
-    | `buildingId`            | `string` | UUIDv4 of the building                    |                                                                    |                                    |
-    | `buildingName`          | `string` | human readable name of the building       |                                                                    |                                    |
-    | `roomName`              | `string` | human readable name of the room           |                                                                    |                                    |
-    | `roomId`                | `string` | UUIDv4 of the room                        |                                                                    |                                    |
-    | `rackId`                | `string` | UUIDv4 of the rack                        |                                                                    |                                    |
-    | `rackName`              | `string` | human readable name of the rack           |                                                                    |                                    |
-    | `rackElevation`         | `number  | null`                                     | `position of the device in RU counted from the bottom of the rack` |                                    |
-    | `rackPosition`          | `FRONT   | BACK                                      | LOOSE`                                                             | position of the device in the rack |
-    | `ports`                 |          |                                           |                                                                    |                                    |
-    | `portId`                | `string` | UUIDv4 of the port                        |                                                                    |                                    |
-    | `portTypeId`            | `string` | UUIDv4 of the port type                   |                                                                    |                                    |
-    | `portTypeName`          | `string` | name of the port as labeled on the device |                                                                    |                                    |
-    | `portTypeDirection`     | `"IN"    | "OUT"                                     | "BIDI"`                                                            | direction of the port type         |
-    | `connectorId`           | `string` | id of the connector                       |                                                                    |                                    |
-    | `connectorName`         | `string` | human readable name of the connector      |                                                                    |                                    |
-    | `connectorGender`       | `"MALE"  | "FEMALE"                                  | "HERMA“`                                                           | gender of the connector            |
-    | `connectorIcon`         | `string` | name of the associated icon               | every icon is available as svg                                     |                                    |
-    | `moduleSlots`           |          |                                           |                                                                    |                                    |
-    | `moduleSlotId`          | `string` | UUIDv4 of the module slot                 |                                                                    |                                    |
-    | `moduleSlotTypeId`      | `string` | UUIDv4 of the module slot type            |                                                                    |                                    |
-    | `moduleSlotTypeName`    | `string` | name of the slot as labeled on the device |                                                                    |                                    |
-    | `module`                |          |                                           |                                                                    |                                    |
-    | `moduleId`              | `string` | UUIDv4 of the module                      |                                                                    |                                    |
-    | `moduleTypeId`          | `string` | id of the module type                     |                                                                    |                                    |
-    | `moduleTypeName`        | `string` | human readable name of the module type    |                                                                    |                                    |
-    | `manufacturerId`        | `string` | id of the manufacturer of the module      |                                                                    |                                    |
-    | `manufacturerName`      | `string` | full name of the manufacturer             |                                                                    |                                    |
-    | `manufacturerNameShort` | `string` | colloquial name of the manufacturer       |                                                                    |                                    |
-
-=== "DELETE"
-
-    **Description:**
-
-    Deletes a device, all its associated modules and the connected cables.
-
-    **Path:**
-
-    ```HTTP
-    DELETE /api/v1/devices/{deviceid}
+    ```json
+    --8<-- "json_examples/devices/PATCH_devices_req.json"
     ```
 
-    **Query Parameters:**
+=== "Schema"
 
-    None.
+    ```json
+    --8<-- "json_schemas/devices/PATCH_device_req.schema.json"
+    ```
 
-    **Request Body:**
+#### Status Codes
 
-    None.
+| Code  | Status                |
+| ----- | --------------------- |
+| `200` | Success               |
+| `400` | Bad Request           |
+| `401` | Unauthorized          |
+| `404` | Not Found             |
+| `500` | Internal Server Error |
 
-    **Status Codes:**
+#### Response Body
 
-    | Code  | Status                |
-    | ----- | --------------------- |
-    | `200` | Success               |
-    | `404` | Device not found      |
-    | `500` | Internal server error |
+=== "Example"
 
-    **Response Body:**
+    ```json
+    --8<-- "json_examples/devices/POST_devices_res.json"
+    ```
 
-    === "Example"
+=== "Schema"
 
-        ```json
-        --8<-- "json_examples/DELETE_devices_device_res.json"
-        ```
+    ```json
+    --8<-- "json_schemas/devices/PATCH_device_res.schema.json"
+    ```
 
-    === "Schema"
+## `DELETE`
 
-        ```json
-        {}
-        ```
+#### Description
 
-    | Name             | Type       | Description                    | Notes |
-    | ---------------- | ---------- | ------------------------------ | ----- |
-    | `deletedDevice`  | `string`   | UUIDv4 of the deleted device   |       |
-    | `deletedCables`  | `string[]` | UUIDv4s of the deleted cables  |       |
-    | `deletedModules` | `string[]` | UUIDv4s of the deleted modules |       |
+Deletes a device, all its associated modules and the connected cables.
+
+#### Path
+
+```HTTP
+DELETE /api/v1/devices/{deviceId}
+```
+
+#### Query Parameters
+
+None.
+
+#### Request Body
+
+None.
+
+#### Status Codes
+
+| Code  | Status                |
+| ----- | --------------------- |
+| `200` | Success               |
+| `400` | Bad Request           |
+| `401` | Unauthorized          |
+| `404` | Not Found             |
+| `500` | Internal Server Error |
+
+#### Response Body
+
+None.

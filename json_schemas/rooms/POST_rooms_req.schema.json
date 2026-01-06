@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POST api/v1/rooms REQUEST",
+  "description": "JSON document describing a new room",
+  "type": "object",
+  "properties": {
+    "name": { "description": "Name of the room", "type": "string" },
+    "buildingId": {
+      "description": "Id of the building in which the room is located",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "required": ["name", "buildingId"],
+  "additionalProperties": false
+}

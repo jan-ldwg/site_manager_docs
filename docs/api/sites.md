@@ -1,5 +1,7 @@
 # `/api/sites`
 
+!!! success "Up to date"
+
 !!! warning
 
     The api is still under active development. The documentation might not reflect the current implementation. The documentation represents the current end goal for the v1.0 release. Feel free to leave feedback in the site_manager_server repo.
@@ -37,13 +39,13 @@ None.
 === "Example"
 
     ```json
-    --8<-- "json_examples/GET_sites_res.json"
+    --8<-- "json_examples/sites/GET_sites_res.json"
     ```
 
 === "Schema"
 
     ```json
-    {}
+    --8<-- "json_schemas/sites/GET_sites_res.schema.json"
     ```
 
 | Name   | Type             | Description                     |
@@ -72,13 +74,13 @@ None.
 === "Example"
 
     ```json
-    --8<-- "json_examples/POST_sites_req.json"
+    --8<-- "json_examples/sites/POST_sites_req.json"
     ```
 
 === "Schema"
 
     ```json
-    {}
+    --8<-- "json_schemas/sites/POST_sites_req.schema.json"
     ```
 
 | Name   | Type     | Description                     | Notes |
@@ -98,13 +100,13 @@ None.
 === "Example"
 
     ```json
-    --8<-- "json_examples/POST_sites_res.json"
+    --8<-- "json_examples/sites/POST_sites_res.json"
     ```
 
 === "Schema"
 
     ```json
-    {}
+    --8<-- "json_schemas/sites/POST_sites_res.schema.json"
     ```
 
 | Name   | Type             | Description                     | Notes |

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POST api/v1/modules REQUEST",
+  "description": "JSON document describing a new module",
+  "type": "object",
+  "properties": {
+    "moduleTypeId": {
+      "description": "Id of the module type. Consists of id of manufacturer followed by id of module type. See documentation for rules.",
+      "type": "string",
+      "pattern": "^(?=.{1,48}$)(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])?-[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+      "maxLength": 48
+    },
+    "moduleSlotId": {
+      "description": "Id of the module slot",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "required": ["moduleTypeId", "moduleSlotId"],
+  "additionalProperties": false
+}

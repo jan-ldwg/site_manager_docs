@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POST api/v1/devices REQUEST",
+  "description": "JSON document describing a new device",
+  "type": "object",
+  "properties": {
+    "deviceTypeId": {
+      "description": "Id of the device type. Consists of id of manufacturer followed by id of device type. See documentation for rules.",
+      "type": "string",
+      "pattern": "^(?=.{1,48}$)(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])?-[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+      "maxLength": 48
+    },
+    "rackId": { "description": "", "type": "string", "format": "uuid" },
+    "name": { "description": "", "type": ["string", "null"] },
+    "description": { "description": "", "type": ["string", "null"] },
+    "serialNumber": { "description": "", "type": ["string", "null"] }
+  },
+  "required": ["deviceTypeId", "rackId"],
+  "additionalProperties": false
+}

@@ -8,7 +8,7 @@ Docker Desktop is available [here](https://www.docker.com/products/docker-deskto
 
 ### 2. Set up environment variables
 
-Open an empty folder in an editor of your choice (this tutorial uses [VSCode](https://code.visualstudio.com/)). Create a file called `.env`. In this file, you will set up basic parameters and names for the application and the database. Be sure to set at least a `POSTGRES_USER`, `POSTGRES_PASSWORD`, the corresponding `DATABASE_URL` and a `BETTER_AUTH_SECRET`. You can generate a secret [here](https://www.better-auth.com/docs/installation#set-environment-variables).
+Open an empty folder in an editor of your choice (this tutorial uses [VSCode](https://code.visualstudio.com/)). Create a file called `.env` and paste the contents from below. In this file, you will set up basic parameters and names for the application and the database. Make sure to change at least `POSTGRES_USER`, `POSTGRES_PASSWORD`, the corresponding `DATABASE_URL` and a `BETTER_AUTH_SECRET`. You can generate a secret [here](https://www.better-auth.com/docs/installation#set-environment-variables). The rest of the parameters can be left as they are.
 
 ```title=".env"
 POSTGRES_DB="site-manager-db"
@@ -19,7 +19,7 @@ DATABASE_URL="postgres://<your username>:<your password>@db:5432/site-manager-db
 
 PORT=5056
 
-BETTER_AUTH_SECRET= "superlongstring"
+BETTER_AUTH_SECRET= "<superlongstring>"
 #secret for Better Auth, 32 character base64 string,
 #see https://www.better-auth.com/docs/installation#set-environment-variables
 BETTER_AUTH_URL=http://localhost:5056 # Base URL of the app
@@ -32,7 +32,7 @@ DEFAULT_ADMIN_EMAIL="admin@example.com" #this is only for login, site_manager wi
 
 ### 3. Configure compose.yaml
 
-In the same folder, create a file called `compose.yaml`.
+In the same folder, create a file called `compose.yaml` and paste the below contents.
 
 ```yaml title="compose.yaml"
 services:
@@ -104,8 +104,8 @@ Open a terminal in your working directory and run
 docker compose up -d
 ```
 
-Docker should automatically fetch the required images and set up an empty database
+Docker should automatically fetch the required images and set up an empty database.
 
 ### 5. Login
 
-Go to [http://localhost:5056](http://localhost:5056) and login with the account you set up in your `.env`. This account has admin privileges and can be used to add additional user accounts.
+Go to [http://localhost:5056](http://localhost:5056) and login with the account you set up in your `.env`. If you didn't change it the default is `admin@example.com` and `password`. This account has admin privileges and can be used to add additional user accounts.

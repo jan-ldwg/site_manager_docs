@@ -1,0 +1,59 @@
+{
+  "id": "f0492dbe-d74c-4b1e-9315-1afc78511927",
+  "name": "Device",
+  "deviceTypeId": "lawo-power-core-rev-3",
+  "deviceTypeName": "Power Core Rev.3",
+  "manufacturerId": "lawo",
+  "manufacturerName": "Lawo AG",
+  "manufacturerNameShort": "Lawo",
+  "description": "Audio DSP for playout",
+  "serialNumber": "12345",
+  "siteId": "7829eb19-3f4f-4935-b5c3-2ce3aef53de2",
+  "siteName": "Stuttgart",
+  "buildingId": "fb20f42d-f53b-45d5-81a0-4865e88ac25e",
+  "buildingName": "HDHF",
+  "roomId": "d6f7e684-d06e-4002-9c4e-fdd34040715c",
+  "roomName": "Regie",
+  "rackId": "a4d350f3-719e-4b10-a1f9-de9630b2560e",
+  "rackName": "Rack",
+  "ports": [
+    {
+      "id": "315bb8d4-c40c-432b-906c-d0ba9fcb2d83",
+      "portTypeId": "045758c9-71bf-4888-99c1-94d23456e4fd",
+      "portTypeName": "WCLK IN",
+      "portTypeDirection": "IN",
+      "connectorId": "BNC_f",
+      "connectorName": "BNC 75 Ohm female",
+      "connectorGender": "FEMALE",
+      "connectorIcon": "BNC_f"
+    }
+  ],
+  "moduleSlots": [
+    {
+      "id": "2e042ef9-3695-4333-9975-0ba83e511bdc",
+      "moduleSlotTypeId": "f2181ebd-71a9-47db-9ff6-0bbee73d1032",
+      "moduleSlotTypeName": "dwc0",
+      "module": {
+        "id": "4e1b0966-1660-482d-8212-f1a69f457702",
+        "moduleTypeId": "lawo-98160-61",
+        "moduleTypeName": "981/60-61",
+        "manufacturerId": "lawo",
+        "manufacturerName": "Lawo AG",
+        "manufacturerNameShort": "Lawo",
+        "ports": [
+          {
+            "id": "8892e87d-a60f-479e-a438-dc1bd56c68c3",
+            "portTypeId": "db961f94-4ec0-41e8-9528-082a8ab1001c",
+            "portTypeName": "",
+            "portTypeDirection": "UP",
+            "connectorId": "RJ45_f",
+            "connectorName": "RJ45 female",
+            "connectorGender": "FEMALE",
+            "connectorIcon": "RJ45_f"
+          }
+        ],
+        "moduleSlots": []
+      }
+    }
+  ]
+}

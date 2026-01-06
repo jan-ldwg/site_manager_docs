@@ -1,0 +1,25 @@
+{
+  "version": "1.0",
+  "id": "lawo-power-core-rev-3",
+  "name": "Power Core Rev.3",
+  "manufacturerId": "lawo",
+  "orderCode": null,
+  "orderNumber": "710/13",
+  "climateLoad": 90,
+  "portTypes": [
+    {
+      "name": "WCLK IN",
+      "direction": "IN",
+      "connectorId": "BNC_f",
+      "compatibleSignalTypes": ["WCLK"]
+    }
+  ],
+  "moduleSlotTypes": [
+    {
+      "name": "dwc0",
+      "compatibleModuleSlotFormFactors": ["sfp"],
+      "compatibleModuleTypes": ["lawo-98160-61"],
+      "incompatibleModuleTypes": []
+    }
+  ]
+}

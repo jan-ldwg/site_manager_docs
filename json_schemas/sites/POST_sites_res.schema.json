@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POST api/v1/sites RESPONSE",
+  "description": "JSON document describing the just created site",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the site",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": { "description": "Name of the site", "type": "string" }
+  },
+  "required": ["id", "name"],
+  "additionalProperties": false
+}

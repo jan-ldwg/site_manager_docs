@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PATCH api/v1/devices/{deviceId} REQUEST",
+  "description": "JSON document describing updates to a device",
+  "type": "object",
+  "properties": {
+    "name": { "description": "", "type": ["string", "null"] },
+    "description": { "description": "", "type": ["string", "null"] },
+    "serialNumber": { "description": "", "type": ["string", "null"] }
+  },
+  "required": [],
+  "additionalProperties": false
+}

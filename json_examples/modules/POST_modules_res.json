@@ -1,0 +1,26 @@
+{
+  "id": "84384502-20d7-4fab-9f59-96b7680bac76",
+  "moduleTypeId": "lawo-madi-io",
+  "manufacturerId": "lawo",
+  "manufacturerNameShort": "Lawo",
+  "ports": [
+    {
+      "id": "8892e87d-a60f-479e-a438-dc1bd56c68c3",
+      "portTypeId": "db961f94-4ec0-41e8-9528-082a8ab1001c",
+      "portTypeName": "",
+      "direction": "UP",
+      "connectorId": "RJ45_f",
+      "connectorName": "RJ45 female",
+      "connectorIcon": "RJ45_f",
+      "connectorGender": "FEMALE"
+    }
+  ],
+  "moduleSlots": [
+    {
+      "id": "56d4e86d-fd5d-441d-a13f-bcd729a85ee4",
+      "moduleSlotTypeId": "5045c55b-02f0-4f7d-ab10-580dd85900ef",
+      "moduleSlotTypeName": "1",
+      "module": {}
+    }
+  ]
+}

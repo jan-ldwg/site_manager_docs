@@ -1,203 +1,133 @@
-# `/api/cables`
+# `/api/cables/{cableId}`
+
+!!! success "Up to date"
 
 !!! warning
 
     The api is still under active development. The documentation might not reflect the current implementation. The documentation represents the current end goal for the v1.0 release. Feel free to leave feedback in the site_manager_server repo.
 
-=== "GET"
+## `GET`
 
-    **Description:**
+#### Description
 
-    Returns the cables.
+Returns the cable.
 
-    **Path:**
+#### Path
 
-    ```HTTP
-    GET /api/v1/cables/{cableid}
+```HTTP
+GET /api/v1/cables/{cableId}
+```
+
+#### Query Parameters
+
+None.
+
+#### Request Body
+
+None.
+
+#### Status Codes
+
+| Code  | Status                |
+| ----- | --------------------- |
+| `200` | Success               |
+| `404` | Not Found             |
+| `500` | Internal Server Error |
+
+#### Response Body
+
+=== "Example"
+
+    ```json
+    --8<-- "json_examples/cables/POST_cables_res.json"
     ```
 
-    **Query Parameters:**
+=== "Schema"
 
-    None.
-
-    **Request Body:**
-
-    None.
-
-    **Status Codes:**
-
-    | Code  | Status                |
-    | ----- | --------------------- |
-    | `200` | Success               |
-    | `404` | Cable not found       |
-    | `500` | Internal server error |
-
-    **Response Body:**
-
-    === "Example"
-        ```json
-        --8<-- "json_examples/POST_cables_res.json"
-        ```
-
-    === "Schema"
-
-    | Name                   | Type                    | Description                                     | Notes            |
-    | ---------------------- | ----------------------- | ----------------------------------------------- | ---------------- |
-    | `id`                   | `string`                | id of the cable                                 |                  |
-    | `number`               | `string / null`         | number of the cable as printed on it            |                  |
-    | `length`               | `number / null`         | length of the cable in meters                   |                  |
-    | `startPortId`          | `string`                | UUIDv4 of the start port                        |                  |
-    | `startPortName`        | `string`                | name of the start port as printed on the device |                  |
-    | `startConnectorId`     | `string / null`         | id of the cable connector at the start side     |                  |
-    | `startConnectorName`   | `string / null`         | name of the cable connector at the start side   |                  |
-    | `startConnectorGender` | `MALE / FEMALE / HERMA` | gender of the cable connector at the start side |                  |
-    | `startConnectorIcon`   | `string`                | icon of the cable connector at the start side   | available as svg |
-    | `startConnectorColor`  | `string / null`         | color of the cable connector at the start side  |                  |
-    | `startDeviceId`        | `string`                | UUIDv4 of the device on the start side          |                  |
-    | `startDeviceName`      | `string`                | name of the device on the start side            |                  |
-    | `startRackId`          | `string`                | UUIDv4 of the rack on the start side            |                  |
-    | `startRackName`        | `string`                | name of the rack on the start side              |                  |
-    | `endPortId`            | `string`                | UUIDv4 of the end port                          |                  |
-    | `endPortName`          | `string`                | name of the end port as printed on the device   |                  |
-    | `endConnectorId`       | `string / null`         | id of the cable connector at the end side       |                  |
-    | `endConnectorName`     | `string / null`         | name of the cable connector at the end side     |                  |
-    | `endConnectorGender`   | `MALE / FEMALE / HERMA` | gender of the cable connector at the end side   |                  |
-    | `endConnectorIcon`     | `string`                | icon of the cable connector at the end side     | available as svg |
-    | `endConnectorColor`    | `string / null`         | color of the cable connector at the end side    |                  |
-    | `endDeviceId`          | `string`                | UUIDv4 of the device on the end side            |                  |
-    | `endDeviceName`        | `string`                | name of the device on the end side              |                  |
-    | `endRackId`            | `string`                | UUIDv4 of the rack on the end side              |                  |
-    | `endRackName`          | `string`                | name of the rack on the end side                |                  |
-
-=== "PATCH"
-
-    **Description:**
-
-    Changes an existing cable.
-
-    **Path:**
-
-    ```HTTP
-    PATCH /api/v1/cables/{cableid}
+    ```json
+    --8<-- "json_schemas/cables/GET_cable_res.schema.json"
     ```
 
-    **Query Parameters:**
+## `PATCH`
 
-    None.
+#### Description
 
-     **Request Body:**
+Changes an existing cable.
 
-    === "Example"
+#### Path
 
-        ```json
-        --8<-- "json_examples/PATCH_devices_device_req.json"
-        ```
-    === "Schema"
+```HTTP
+PATCH /api/v1/cables/{cableId}
+```
 
-        ```json
-        {}
-        ```
-    | Name                  | Type            | Description                                               |
-    | --------------------- | --------------- | --------------------------------------------------------- |
-    | `number`              | `string / null` | number of the cable as printed on it                      |
-    | `length`              | `number / null` | (optional) length of the cable in meters                  |
-    | `startConnector`      | `string / null` | (optional) id of the cable connector at the start side    |
-    | `startConnectorColor` | `string / null` | (optional) color of the cable connector at the start side |
-    | `endConnector`        | `string / null` | (optional) id of the cable connector at the end side      |
-    | `endConnectorColor`   | `string / null` | (optional) color of the cable connector at the end side   |
+#### Query Parameters
 
-    **Status Codes:**
+None.
 
-    | Code  | Status                |
-    | ----- | --------------------- |
-    | `200` | Success               |
-    | `404` | Cable not found       |
-    | `500` | Internal server error |
+#### Request Body
 
-    **Response Body:**
+=== "Example"
 
-    === "Example"
-        ```json
-        --8<-- "json_examples/POST_cables_res.json"
-        ```
-
-    === "Schema"
-        ```json
-        {}
-        ```
-
-    | Name                   | Type                    | Description                                     | Notes            |
-    | ---------------------- | ----------------------- | ----------------------------------------------- | ---------------- |
-    | `id`                   | `string`                | id of the cable                                 |                  |
-    | `number`               | `string / null`         | number of the cable as printed on it            |                  |
-    | `length`               | `number / null`         | length of the cable in meters                   |                  |
-    | `startPortId`          | `string`                | UUIDv4 of the start port                        |                  |
-    | `startPortName`        | `string`                | name of the start port as printed on the device |                  |
-    | `startConnectorId`     | `string / null`         | id of the cable connector at the start side     |                  |
-    | `startConnectorName`   | `string / null`         | name of the cable connector at the start side   |                  |
-    | `startConnectorGender` | `MALE / FEMALE / HERMA` | gender of the cable connector at the start side |                  |
-    | `startConnectorIcon`   | `string`                | icon of the cable connector at the start side   | available as svg |
-    | `startConnectorColor`  | `string / null`         | color of the cable connector at the start side  |                  |
-    | `startDeviceId`        | `string`                | UUIDv4 of the device on the start side          |                  |
-    | `startDeviceName`      | `string`                | name of the device on the start side            |                  |
-    | `startRackId`          | `string`                | UUIDv4 of the rack on the start side            |                  |
-    | `startRackName`        | `string`                | name of the rack on the start side              |                  |
-    | `endPortId`            | `string`                | UUIDv4 of the end port                          |                  |
-    | `endPortName`          | `string`                | name of the end port as printed on the device   |                  |
-    | `endConnectorId`       | `string / null`         | id of the cable connector at the end side       |                  |
-    | `endConnectorName`     | `string / null`         | name of the cable connector at the end side     |                  |
-    | `endConnectorGender`   | `MALE / FEMALE / HERMA` | gender of the cable connector at the end side   |                  |
-    | `endConnectorIcon`     | `string`                | icon of the cable connector at the end side     | available as svg |
-    | `endConnectorColor`    | `string / null`         | color of the cable connector at the end side    |                  |
-    | `endDeviceId`          | `string`                | UUIDv4 of the device on the end side            |                  |
-    | `endDeviceName`        | `string`                | name of the device on the end side              |                  |
-    | `endRackId`            | `string`                | UUIDv4 of the rack on the end side              |                  |
-    | `endRackName`          | `string`                | name of the rack on the end side                |                  |
-
-=== "DELETE"
-
-    **Description:**
-
-    Deletes a cable.
-
-    **Path:**
-
-    ```HTTP
-    DELETE /api/v1/cables/{cableid}
+    ```json
+    --8<-- "json_examples/cables/PATCH_cables_req.json"
     ```
 
-    **Query Parameters:**
+=== "Schema"
 
-    None.
+    ```json
+    --8<-- "json_schemas/cables/PATCH_cables_req.schema.json"
+    ```
 
-    **Request Body:**
+#### Status Codes
 
-    None.
+| Code  | Status                |
+| ----- | --------------------- |
+| `200` | Success               |
+| `404` | Not found             |
+| `500` | Internal Server Error |
 
-    **Status Codes:**
+#### Response Body
 
-    | Code  | Status                |
-    | ----- | --------------------- |
-    | `200` | Success               |
-    | `404` | Cable not found       |
-    | `500` | Internal server error |
+=== "Example"
 
-    **Response Body:**
+    ```json
+    --8<-- "json_examples/cables/POST_cables_res.json"
+    ```
 
-    === "Example"
+=== "Schema"
 
-        ```json
-        {
-            "deletedCable": "c0ec2b68-94a7-421b-9dfe-10619f1b125a"
-        }
-        ```
+    ```json
+    --8<-- "json_schemas/cables/PATCH_cables_res.schema.json"
+    ```
 
-    === "Schema"
+## `DELETE`
 
-        ```json
-        {}
-        ```
+#### Description
 
-    | Name           | Type     | Description                 |
-    | -------------- | -------- | --------------------------- |
-    | `deletedCable` | `string` | UUIDv4 of the deleted cable |
+Deletes a cable.
+
+#### Path
+
+```HTTP
+DELETE /api/v1/cables/{cableId}
+```
+
+#### Query Parameters
+
+None.
+
+#### Request Body
+
+None.
+
+#### Status Codes
+
+| Code  | Status                |
+| ----- | --------------------- |
+| `200` | Success               |
+| `404` | Not found             |
+| `500` | Internal Server Error |
+
+#### Response Body
+
+None.

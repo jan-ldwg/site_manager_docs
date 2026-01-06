@@ -1,0 +1,10 @@
+{
+  "number": "x15234",
+  "length": 2,
+  "startPortId": "fe9300db-5879-47de-b966-374c03eabcab",
+  "endPortId": "7aa89af7-e2bf-4d49-a652-8cde3dddab50",
+  "startConnectorId": "BNC_m",
+  "endConnectorId": "BNC_m",
+  "startConnectorColor": "red",
+  "endConnectorColor": "blue"
+}

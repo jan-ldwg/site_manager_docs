@@ -1,0 +1,22 @@
+{
+  "id": "5caa58cb-9a0b-46d8-9f15-dc4020412471",
+  "name": "BALANCED IN LEFT",
+  "direction": "IN",
+  "connectorId": "XLR3p_f",
+  "connectorName": "XLR 3pole female",
+  "connectorGender": "FEMALE",
+  "compatibleSignals": [
+    {
+      "signalId": "AUDIO_BAL_ANA",
+      "signalName": "Balanced Analog Audio"
+    }
+  ],
+  "compatibleConnectors": [
+    {
+      "connectorId": "XLR3p_m",
+      "connectorName": "XLR 3pole male",
+      "connectorIcon": "XLR3p_m",
+      "connectorGender": "MALE"
+    }
+  ]
+}

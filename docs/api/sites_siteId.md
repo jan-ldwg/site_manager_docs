@@ -1,4 +1,6 @@
-# `/api/manufacturers/{id}`
+# `/api/sites/{siteId}`
+
+!!! success "Up to date"
 
 !!! warning
 
@@ -13,7 +15,7 @@ Returns the site.
 #### Path
 
 ```HTTP
-GET /api/v1/sites/{id}
+GET /api/v1/sites/{siteId}
 ```
 
 #### Query Parameters
@@ -39,13 +41,13 @@ None.
 === "Example"
 
     ```json
-    --8<-- "json_examples/POST_sites_res.json"
+    --8<-- "json_examples/sites/POST_sites_res.json"
     ```
 
 === "Schema"
 
     ```json
-    {}
+    --8<-- "json_schemas/sites/GET_site_res.schema.json"
     ```
 
 | Name   | Type             | Description                     | Notes |
@@ -62,7 +64,7 @@ Deletes the site.
 #### Path
 
 ```HTTP
-DELETE /api/v1/site/{id}
+DELETE /api/v1/site/{siteId}
 ```
 
 #### Query Parameters

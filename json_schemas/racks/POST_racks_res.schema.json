@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POST api/v1/racks RESPONSE",
+  "description": "JSON document describing the just created rack",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the rack",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": { "description": "Name of the rack", "type": "string" },
+    "roomId": {
+      "description": "Id of the room in which the rack is located",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "required": ["id", "name", "roomId"],
+  "additionalProperties": false
+}

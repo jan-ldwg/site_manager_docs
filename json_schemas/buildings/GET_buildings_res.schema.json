@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GET api/v1/buildings RESPONSE",
+  "description": "JSON document listing buildings",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "description": "Id of the building",
+        "type": "string",
+        "format": "uuid"
+      },
+      "name": { "description": "Name of the building", "type": "string" },
+      "siteId": {
+        "description": "Id of the site at which the building is located",
+        "type": "string",
+        "format": "uuid"
+      }
+    },
+    "required": ["id", "name", "siteId"],
+    "additionalProperties": false
+  }
+}

@@ -1,0 +1,139 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POST api/v1/devicetypes RESPONSE",
+  "description": "JSON document describing the just created device type",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the device type. Consists of id of manufacturer followed by id of device type. See documentation for rules.",
+      "type": "string",
+      "pattern": "^(?=.{1,48}$)(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])?-[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+      "maxLength": 48
+    },
+    "version": {
+      "description": "Version number of the template. Minor version must be increased with every change. Major version must only be changed when targeting a different API version.",
+      "type": "string",
+      "pattern": "^\\d{1,2}\\.\\d{1,2}$"
+    },
+    "name": {
+      "description": "Name of the device as given by manufacturer",
+      "type": "string",
+      "maxLength": 256
+    },
+    "manufacturerId": {
+      "description": "Id of the manufacturer of the device type.",
+      "type": "string",
+      "patter": "^(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])$",
+      "maxLength": 16
+    },
+    "manufacturerName": {
+      "description": "Name of the manufacturer",
+      "type": "string"
+    },
+    "manufacturerNameShort": {
+      "description": "Abbreviated version of the name of the manufacturer",
+      "type": "string",
+      "maxLength": 16
+    },
+    "orderCode": {
+      "description": "Order code for the device type as used by the manufacturer.",
+      "type": ["string", "null"]
+    },
+    "orderNumber": {
+      "description": "Order number for the device type as used by the manufacturer.",
+      "type": ["string", "null"]
+    },
+    "climateLoad": {
+      "description": "The maximum heat dissipation of the device type.",
+      "type": "integer",
+      "minimum": 0
+    },
+    "portTypes": {
+      "description": "List of all types of ports on the device type.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Id of the port type",
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "description": "Name of the port, as printed on the device.",
+            "type": "string"
+          },
+          "direction": {
+            "description": "Direction of the port type. See documentation for explainations of the possible values.",
+            "enum": [
+              "IN",
+              "OUT",
+              "INOUT",
+              "BIDI",
+              "UP",
+              "DOWN",
+              "FRONT",
+              "BACK"
+            ]
+          },
+          "connectorId": {
+            "description": "Id of the connector.",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+          },
+          "compatibleSignalTypes": {
+            "description": "List of signal types that are compatible with this port.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^(?!.*--)(?:[a-z](?:[a-z-]{0,14}[a-z])?_)?[A-Z0-9]+(?:_[A-Z0-9]+)*$"
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "direction",
+          "connectorId",
+          "compatibleSignalTypes"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "moduleSlotTypes": {
+      "description": "List of all types of module slots on the device type.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Id of the module slot type",
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "description": "Name of the module slot, as labeled on the device.",
+            "type": "string"
+          }
+        },
+        "required": ["id", "name"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "name",
+    "manufacturerId",
+    "manufacturerName",
+    "manufacturerNameShort",
+    "orderCode",
+    "orderNumber",
+    "climateLoad",
+    "portTypes",
+    "moduleSlotTypes"
+  ],
+  "additionalProperties": false
+}

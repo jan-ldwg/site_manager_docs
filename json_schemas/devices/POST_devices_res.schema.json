@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POST api/v1/devices RESPONSE",
+  "description": "JSON document describing the just created device",
+  "type": "object",
+  "properties": {
+    "id": { "description": "", "type": "string", "format": "uuid" },
+    "name": { "description": "", "type": ["string", "null"] },
+    "deviceTypeId": {
+      "description": "Id of the device type. Consists of id of manufacturer followed by id of device type. See documentation for rules.",
+      "type": "string",
+      "pattern": "^(?=.{1,48}$)(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])?-[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+      "maxLength": 48
+    },
+    "deviceTypeName": {
+      "description": "Name of the device as given by manufacturer",
+      "type": "string",
+      "maxLength": 256
+    },
+    "manufacturerId": {
+      "description": "Id of the manufacturer of the device type.",
+      "type": "string",
+      "patter": "^(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])$",
+      "maxLength": 16
+    },
+    "manufacturerName": { "description": "", "type": "string" },
+    "manufacturerNameShort": { "description": "", "type": "string" },
+    "description": { "description": "", "type": ["string", "null"] },
+    "serialNumber": { "description": "", "type": ["string", "null"] },
+    "siteId": { "description": "", "type": "string", "format": "uuid" },
+    "siteName": { "description": "", "type": "string" },
+    "buildingId": { "description": "", "type": "string", "format": "uuid" },
+    "buildingName": { "description": "", "type": "string" },
+    "roomId": { "description": "", "type": "string", "format": "uuid" },
+    "roomName": { "description": "", "type": "string" },
+    "rackId": { "description": "", "type": "string", "format": "uuid" },
+    "rackName": { "description": "", "type": "string" },
+    "ports": {
+      "description": "",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "description": "", "type": "string", "format": "uuid" },
+          "portTypeId": {
+            "description": "",
+            "type": "string",
+            "format": "uuid"
+          },
+          "portTypeName": {
+            "description": "Name of the port, as printed on the device.",
+            "type": "string"
+          },
+          "portTypeDirection": {
+            "description": "Direction of the port type. See documentation for explainations of the possible values.",
+            "enum": [
+              "IN",
+              "OUT",
+              "INOUT",
+              "BIDI",
+              "UP",
+              "DOWN",
+              "FRONT",
+              "BACK"
+            ]
+          },
+          "connectorId": {
+            "description": "Id of the connector.",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+          },
+          "connectorName": { "description": "", "type": "string" },
+          "connectorGender": {
+            "description": "",
+            "enum": ["MALE", "FEMALE", "HERMA"]
+          },
+          "connectorIcon": {
+            "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+          }
+        },
+        "required": [
+          "id",
+          "portTypeId",
+          "portTypeName",
+          "portTypeDirection",
+          "connectorId",
+          "connectorName",
+          "connectorIcon"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "moduleSlots": {
+      "description": "",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "description": "", "type": "string", "format": "uuid" },
+          "moduleSlotTypeId": {
+            "description": "",
+            "type": "string",
+            "format": "uuid"
+          },
+          "moduleSlotTypeName": {
+            "description": "Name of the module slot, as labeled on the device.",
+            "type": "string"
+          },
+          "module": { "type": "object" }
+        },
+        "required": ["id", "moduleSlotTypeId", "moduleSlotTypeName", "module"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "deviceTypeId",
+    "deviceTypeName",
+    "manufacturerId",
+    "manufacturerName",
+    "manufacturerNameShort",
+    "description",
+    "serialNumber",
+    "siteId",
+    "siteName",
+    "buildingId",
+    "buildingName",
+    "roomId",
+    "roomName",
+    "rackId",
+    "rackName",
+    "ports",
+    "moduleSlots"
+  ],
+  "additionalProperties": false
+}

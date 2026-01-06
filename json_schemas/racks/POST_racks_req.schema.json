@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POST api/v1/racks REQUEST",
+  "description": "JSON document describing a new rack",
+  "type": "object",
+  "properties": {
+    "name": { "description": "Name of the rack", "type": "string" },
+    "roomId": {
+      "description": "Id of the room in which the rack is located",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "required": ["name", "roomId"],
+  "additionalProperties": false
+}

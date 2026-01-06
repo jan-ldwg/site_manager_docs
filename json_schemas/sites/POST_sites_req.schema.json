@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POST api/v1/sites REQUEST",
+  "description": "JSON document describing a new site",
+  "type": "object",
+  "properties": {
+    "name": { "description": "Name of the site", "type": "string" }
+  },
+  "required": ["name"],
+  "additionalProperties": false
+}

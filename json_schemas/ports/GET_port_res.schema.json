@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GET api/v1/ports/{portId} RESPONSE",
+  "description": "JSON document describing the port",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the port",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "description": "Name of the port, as printed on the device.",
+      "type": "string"
+    },
+    "direction": {
+      "description": "Direction of the port. See documentation for explainations of the possible values.",
+      "enum": ["IN", "OUT", "INOUT", "BIDI", "UP", "DOWN", "FRONT", "BACK"]
+    },
+    "connectorId": {
+      "description": "Id of the connector.",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+    },
+    "connectorName": {
+      "description": "Name of the connector.",
+      "type": "string"
+    },
+    "connectorIcon": {
+      "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+    },
+    "connectorGender": {
+      "description": "Gender of the connector",
+      "enum": ["MALE", "FEMALE", "HERMA"]
+    },
+    "compatibleSignalTypes": {
+      "description": "List of signal types that are compatible with this port",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "signalId": {
+            "description": "Id of the signal type",
+            "type": "string",
+            "pattern": "^(?!.*--)(?:[a-z](?:[a-z-]{0,14}[a-z])?_)?[A-Z0-9]+(?:_[A-Z0-9]+)*$"
+          },
+          "signalName": {
+            "description": "Name of the signal type",
+            "type": "string"
+          }
+        }
+      }
+    },
+    "compatibleConnectors": {
+      "description": "",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "connectorId": {
+            "description": "Id of the connector.",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+          },
+          "connectorName": {
+            "description": "Name of the connector.",
+            "type": "string"
+          },
+          "connectorIcon": {
+            "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+          },
+          "connectorGender": {
+            "description": "Gender of the connector",
+            "enum": ["MALE", "FEMALE", "HERMA"]
+          }
+        }
+      }
+    }
+  }
+}

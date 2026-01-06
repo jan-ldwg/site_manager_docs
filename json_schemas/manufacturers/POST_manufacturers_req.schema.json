@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POST api/v1/manufacturers REQUEST",
+  "description": "JSON document describing a new manufacturer",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the manufacturer of the device type.",
+      "type": "string",
+      "patter": "^(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])$",
+      "maxLength": 16
+    },
+    "name": {
+      "description": "Name of the manufacturer",
+      "type": "string"
+    },
+    "nameShort": {
+      "description": "Abbreviated version of the name of the manufacturer",
+      "type": "string",
+      "maxLength": 16
+    }
+  },
+  "required": ["id", "name", "nameShort"],
+  "additionalProperties": false
+}

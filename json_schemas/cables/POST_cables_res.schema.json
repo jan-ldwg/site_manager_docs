@@ -1,0 +1,254 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "POST api/v1/cables/{cableId} RESPONSE",
+  "description": "JSON document describing the just created cable",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "number": {
+      "description": "Number of the cable",
+      "type": ["string", "null"]
+    },
+    "length": {
+      "description": "length of the cable in meters",
+      "type": ["number", "null"],
+      "minimum": 0
+    },
+    "startPortId": {
+      "description": "Id of the port at the start side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startPortName": {
+      "description": "Name of the port at the start side of the cable",
+      "type": "string"
+    },
+    "startPortDirection": {
+      "description": "Direction of the port. See documentation for explainations of the possible values.",
+      "enum": ["IN", "OUT", "INOUT", "BIDI", "UP", "DOWN", "FRONT", "BACK"]
+    },
+    "startConnectorId": {
+      "description": "Id of the connector attached to the start side of the cable",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+    },
+    "startConnectorColor": {
+      "description": "Name of the connector, e.g. housing or sleeve, attached to the start side of the cable",
+      "enum": [
+        "red",
+        "blue",
+        "orange",
+        "yellow",
+        "green",
+        "beige",
+        "brown",
+        "lightgray",
+        "mediumgray",
+        "black",
+        "purple",
+        "cyan",
+        "white",
+        "pink"
+      ]
+    },
+    "startConnectorName": {
+      "description": "Name of the connector attached to the start side of the cable",
+      "type": "string"
+    },
+    "startConnectorGender": {
+      "description": "Gender of the connector attached to the start side of the cable",
+      "enum": ["MALE", "FEMALE", "HERMA"]
+    },
+    "startConnectorIcon": {
+      "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+    },
+    "startDeviceId": {
+      "description": "Id of the device at the start side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startDeviceName": {
+      "description": "Name of the device at the start side of the cable",
+      "type": "string"
+    },
+    "startRackId": {
+      "description": "Id of the rack at the start side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startRackName": {
+      "description": "Name of the rack at the start side of the cable",
+      "type": "string"
+    },
+    "startRoomId": {
+      "description": "Id of the room at the start side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startRoomName": {
+      "description": "Name of the room at the start side of the cable",
+      "type": "string"
+    },
+    "startBuildingId": {
+      "description": "Id of the building at the start side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startBuildingName": {
+      "description": "Name of the building at the start side of the cable",
+      "type": "string"
+    },
+    "startSiteId": {
+      "description": "Id of the site at the start side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startSiteName": {
+      "description": "Name of the site at the start side of the cable",
+      "type": "string"
+    },
+    "endPortId": {
+      "description": "Id of the port at the end side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endPortName": {
+      "description": "Name of the port at the end side of the cable",
+      "type": "string"
+    },
+    "endPortDirection": {
+      "description": "Direction of the port. See documentation for explainations of the possible values.",
+      "enum": ["IN", "OUT", "INOUT", "BIDI", "UP", "DOWN", "FRONT", "BACK"]
+    },
+    "endConnectorId": {
+      "description": "Id of the connector attached to the end side of the cable",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+    },
+    "endConnectorColor": {
+      "description": "Name of the connector, e.g. housing or sleeve, attached to the end side of the cable",
+      "enum": [
+        "red",
+        "blue",
+        "orange",
+        "yellow",
+        "green",
+        "beige",
+        "brown",
+        "lightgray",
+        "mediumgray",
+        "black",
+        "purple",
+        "cyan",
+        "white",
+        "pink"
+      ]
+    },
+    "endConnectorName": {
+      "description": "Name of the connector attached to the end side of the cable",
+      "type": "string"
+    },
+    "endConnectorGender": {
+      "description": "Gender of the connector attached to the end side of the cable",
+      "enum": ["MALE", "FEMALE", "HERMA"]
+    },
+    "endConnectorIcon": {
+      "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+    },
+    "endDeviceId": {
+      "description": "Id of the device at the end side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endDeviceName": {
+      "description": "Name of the device at the end side of the cable",
+      "type": "string"
+    },
+    "endRackId": {
+      "description": "Id of the rack at the end side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endRackName": {
+      "description": "Name of the rack at the end side of the cable",
+      "type": "string"
+    },
+    "endRoomId": {
+      "description": "Id of the room at the end side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endRoomName": {
+      "description": "Name of the room at the end side of the cable",
+      "type": "string"
+    },
+    "endBuildingId": {
+      "description": "Id of the building at the end side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endBuildingName": {
+      "description": "Name of the building at the end side of the cable",
+      "type": "string"
+    },
+    "endSiteId": {
+      "description": "Id of the site at the end side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endSiteName": {
+      "description": "Name of the site at the end side of the cable",
+      "type": "string"
+    }
+  },
+  "required": [
+    "id",
+    "number",
+    "length",
+    "startPortId",
+    "startPortName",
+    "startPortDirection",
+    "startConnectorId",
+    "startConnectorColor",
+    "startConnectorName",
+    "startConnectorGender",
+    "startConnectorIcon",
+    "startDeviceId",
+    "startDeviceName",
+    "startRackId",
+    "startRackName",
+    "startRoomId",
+    "startRoomName",
+    "startBuildingId",
+    "startBuildingName",
+    "startSiteId",
+    "startSiteName",
+    "endPortId",
+    "endPortName",
+    "endPortDirection",
+    "endConnectorId",
+    "endConnectorColor",
+    "endConnectorName",
+    "endConnectorGender",
+    "endConnectorIcon",
+    "endDeviceId",
+    "endDeviceName",
+    "endRackId",
+    "endRackName",
+    "endRoomId",
+    "endRoomName",
+    "endBuildingId",
+    "endBuildingName",
+    "endSiteId",
+    "endSiteName"
+  ],
+  "additionalProperties": false
+}

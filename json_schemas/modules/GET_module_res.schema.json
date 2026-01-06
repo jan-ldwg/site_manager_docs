@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GET api/v1/modules RESPONSE",
+  "description": "JSON document describing a module",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the module",
+      "type": "string",
+      "format": "uuid"
+    },
+    "moduleTypeId": {
+      "description": "Id of the module type. Consists of id of manufacturer followed by id of module type. See documentation for rules.",
+      "type": "string",
+      "pattern": "^(?=.{1,48}$)(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])?-[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+      "maxLength": 48
+    },
+    "manufacturerId": {
+      "description": "Id of the manufacturer of the device type.",
+      "type": "string",
+      "patter": "^(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])$",
+      "maxLength": 16
+    },
+    "manufacturerNameShort": { "description": "", "type": "string" },
+    "ports": {
+      "description": "",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "description": "", "type": "string", "format": "uuid" },
+          "portTypeId": {
+            "description": "",
+            "type": "string",
+            "format": "uuid"
+          },
+          "portTypeName": {
+            "description": "Name of the port, as printed on the device.",
+            "type": "string"
+          },
+          "portTypeDirection": {
+            "description": "Direction of the port type. See documentation for explainations of the possible values.",
+            "enum": [
+              "IN",
+              "OUT",
+              "INOUT",
+              "BIDI",
+              "UP",
+              "DOWN",
+              "FRONT",
+              "BACK"
+            ]
+          },
+          "connectorId": {
+            "description": "Id of the connector.",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+          },
+          "connectorName": {
+            "description": "Name of the connector",
+            "type": "string"
+          },
+          "connectorIcon": {
+            "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$"
+          },
+          "connectorGender": {
+            "description": "Gender of the connector",
+            "enum": ["MALE", "FEMALE", "HERMA"]
+          }
+        },
+        "required": [
+          "id",
+          "portTypeId",
+          "portTypeName",
+          "portTypeDirection",
+          "connectorId",
+          "connectorName",
+          "connectorIcon",
+          "connectorGender"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "moduleSlots": {
+      "description": "",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "description": "", "type": "string", "format": "uuid" },
+          "moduleSlotTypeId": {
+            "description": "",
+            "type": "string",
+            "format": "uuid"
+          },
+          "moduleSlotTypeName": {
+            "description": "Name of the module slot, as labeled on the device.",
+            "type": "string"
+          },
+          "module": { "type": "object" }
+        },
+        "required": ["id", "moduleSlotTypeId", "moduleSlotTypeName", "module"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "id",
+    "moduleTypeId",
+    "manufacturerId",
+    "manufacturerNameShort",
+    "ports",
+    "moduleSlots"
+  ],
+  "additionalProperties": false
+}
