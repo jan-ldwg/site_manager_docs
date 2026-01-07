@@ -28,6 +28,9 @@ DEFAULT_ADMIN_USER="admin"
 DEFAULT_ADMIN_PASSWORD="password"
 DEFAULT_ADMIN_EMAIL="admin@example.com" #this is only for login, site_manager will not send you any email.
 
+REFETCH_INTERVAL=600000
+TEMPLATE_URL="https://api.github.com/repos/jan-ldwg/site_manager_templates/zipball/main"
+
 ```
 
 ### 3. Configure compose.yaml

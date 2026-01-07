@@ -9,12 +9,17 @@
       "type": "string",
       "format": "uuid"
     },
-    "name": {
-      "description": "Name of the port, as printed on the device.",
+    "portTypeId": {
+      "description": "Id of the port type",
+      "type": "string",
+      "format": "uuid"
+    },
+    "portTypeName": {
+      "description": "Name of the port type, as printed on the device.",
       "type": "string"
     },
-    "direction": {
-      "description": "Direction of the port. See documentation for explainations of the possible values.",
+    "portTypeDirection": {
+      "description": "Direction of the port type. See documentation for explainations of the possible values.",
       "enum": ["IN", "OUT", "INOUT", "BIDI", "UP", "DOWN", "FRONT", "BACK"]
     },
     "connectorId": {
@@ -50,7 +55,9 @@
             "description": "Name of the signal type",
             "type": "string"
           }
-        }
+        },
+        "required": ["signalId", "signalName"],
+        "additionalProperties": false
       }
     },
     "compatibleConnectors": {
@@ -77,8 +84,25 @@
             "description": "Gender of the connector",
             "enum": ["MALE", "FEMALE", "HERMA"]
           }
-        }
+        },
+        "required": [
+          "connectorId",
+          "connectorName",
+          "connectorIcon",
+          "connectorGender"
+        ],
+        "additionalProperties": false
       }
     }
-  }
+  },
+  "required": [
+    "id",
+    "portTypeId",
+    "portTypeName",
+    "portTypeDirection",
+    "connectorId",
+    "connectorName",
+    "connectorGender"
+  ],
+  "additionalProperties": false
 }

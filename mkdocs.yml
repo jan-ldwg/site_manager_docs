@@ -49,12 +49,14 @@ nav:
   - Getting Started: gettingstarted.md
   - Installation: installation.md
   - Library:
+      - Overview: library/overview.md
+      - Create templates: library/create.md
       - Contribute: library/contribute.md
-      - Connectors: library/connectors.md
-      - Signals: library/signals.md
-  - Data Model:
-      - Device Types: datamodel/devicetype.md
-      - Devices: datamodel/devices.md
+      #- Connectors: library/connectors.md
+      #- Signals: library/signals.md
+  #- Data Model:
+  #- Device Types: datamodel/devicetype.md
+  #- Devices: datamodel/devices.md
   - API:
       - Overview: api/overview.md
       - /devices: api/devices.md
