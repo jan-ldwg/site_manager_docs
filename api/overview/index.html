@@ -9,7 +9,7 @@
       
       
       
-        <link rel="prev" href="../../datamodel/devices/">
+        <link rel="prev" href="../../library/contribute/">
       
       
         <link rel="next" href="../devices/">
@@ -339,154 +339,58 @@
   
   
     <li class="md-nav__item">
+      <a href="../../library/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../library/create/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create templates
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../library/contribute/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     Contribute
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../library/connectors/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Connectors
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../library/signals/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Signals
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-      
-      
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-      
-    
-    
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
-        
-          
-          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
-    Data Model
-    
-  </span>
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_5">
-            <span class="md-nav__icon md-icon"></span>
-            Data Model
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../datamodel/devicetype/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Device Types
-    
-  </span>
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../datamodel/devices/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    Devices
     
   </span>
   
@@ -526,10 +430,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
         
           
-          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
             
   
   
@@ -542,8 +446,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_6">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
             <span class="md-nav__icon md-icon"></span>
             API
           </label>
@@ -1220,10 +1124,10 @@
 <li>authentication and authorization</li>
 </ul>
 </div>
-<p>site_manager is designed to be flexible and easy to integrate into overarching workflows. To allow connection to external systems, a fully featured API is available. This API provides endpoints to take every action that is available in the GUI. In fact all interaction between the server and the GUI is handled by the API.</p>
+<p>site_manager is designed to be flexible and easy to integrate into overarching workflows. To allow connection to external systems, a fully featured API is available. This API provides endpoints to take every action that is available in the GUI.</p>
 <h2 id="general-design">General design</h2>
 <p>The API follows the traditional REST paradigm. Access is possible via HTTP using tools such as <a href="https://www.curl.se">curl</a>, <a href="https://www.postman.com">Postman</a> or your favorite scripting language. The base path for all API endpoints is <code>{YourSiteMangerInstance}/api/v1</code>.</p>
-<p>These 5 methods are supported. Note that not every endpoint supports every method. See the documentation of the individual endpoints to learn about there supported methods.</p>
+<p>These 5 methods are supported. Note that not every endpoint supports every method. See the documentation of the individual endpoints to learn about their supported methods.</p>
 <table>
 <thead>
 <tr>
@@ -1254,9 +1158,10 @@
 </tr>
 </tbody>
 </table>
+<p>A <code>GET</code> for a single database object, e.g. <code>GET api/v1/devices/{deviceId}</code>, will return a 404 error if the object does not exist. However, a <code>GET</code> for a group of objects, e.g. <code>GET api/v1/devices</code>, will return an empty array if no matching object is found.</p>
 <p><code>POST</code>, <code>PATCH</code> and <code>PUT</code> return the full object on success.</p>
 <h2 id="authentication">Authentication</h2>
-<p>site_manager uses cookies for authentication. Every request to protected api endpoints (e.g. everything except <code>api/auth/sign-in/email</code>) has to include a valid session cookie. The cookie is called <code>site-manager.session_data</code>.</p>
+<p>site_manager uses cookies for authentication. Every request to protected API endpoints (e.g. everything except <code>api/auth/sign-in/email</code>) has to include a valid session cookie. The cookie is called <code>site-manager.session_data</code>.</p>
 <p>To make direct requests to the server without using the frontend authentication is required. This can done by sending the email and password to <code>api/auth/sign-in/email</code>. The api will respond with the cookie, which can then be sent with all future requests.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
@@ -1270,7 +1175,7 @@
 <div class="language-HTTP highlight"><span class="filename">HTTP</span><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="err">GET api/v1/devices?siteId=7829eb19-3f4f-4935-b5c3-2ce3aef53de2&amp;siteId=5caa58cb-9a0b-46d8-9f15-dc4020412471</span>
 </span></code></pre></div>
 <h2 id="status-codes">Status codes</h2>
-<p>The api uses the following HTTP status codes:</p>
+<p>The API uses the following HTTP status codes:</p>
 <table>
 <thead>
 <tr>
