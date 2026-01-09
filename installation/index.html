@@ -1097,7 +1097,9 @@
 <h3 id="1-install-docker-desktop">1. Install Docker Desktop</h3>
 <p>Docker Desktop is available <a href="https://www.docker.com/products/docker-desktop/">here</a> for all major platforms.</p>
 <h3 id="2-set-up-environment-variables">2. Set up environment variables</h3>
-<p>Open an empty folder in an editor of your choice (this tutorial uses <a href="https://code.visualstudio.com/">VSCode</a>). Create a file called <code>.env</code> and paste the contents from below. In this file, you will set up basic parameters and names for the application and the database. Make sure to change at least <code>POSTGRES_USER</code>, <code>POSTGRES_PASSWORD</code>, the corresponding <code>DATABASE_URL</code> and a <code>BETTER_AUTH_SECRET</code>. You can generate a secret <a href="https://www.better-auth.com/docs/installation#set-environment-variables">here</a>. The rest of the parameters can be left as they are.</p>
+<p>Open an empty folder in an editor of your choice (this tutorial uses <a href="https://code.visualstudio.com/">VSCode</a>). Create a file called <code>.env</code> and paste the contents from below. In this file, you will set up basic parameters and names for the application and the database. Make sure to change at least <code>POSTGRES_USER</code>, <code>POSTGRES_PASSWORD</code>, the corresponding <code>DATABASE_URL</code> and a <code>BETTER_AUTH_SECRET</code>. The rest of the parameters can be left as they are.</p>
+<p>The <code>POSTGRES_USER</code>and <code>POSTGRES_PASSWORD</code>are used to create a user with which site_manager connects to the database. This is not the user you use to login to the web ui. You will not need to enter this anywhere else.</p>
+<p>The <code>BETTER_AUTH_SECRET</code> is used for hashing and encryption. You can generate a secret <a href="https://www.better-auth.com/docs/installation#set-environment-variables">here</a>.</p>
 <div class="language-text highlight"><span class="filename">.env</span><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>POSTGRES_DB=&quot;site-manager-db&quot;
 </span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>POSTGRES_USER=&quot;&lt;your username&gt;&quot;
 </span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>POSTGRES_PASSWORD=&quot;&lt;your password&gt;&quot;
@@ -1186,7 +1188,7 @@
 </span></code></pre></div>
 <p>Docker should automatically fetch the required images and set up an empty database.</p>
 <h3 id="5-login">5. Login</h3>
-<p>Go to <a href="http://localhost:5056">http://localhost:5056</a> and login with the account you set up in your <code>.env</code>. If you didn't change it the default is <code>admin@example.com</code> and <code>password</code>. This account has admin privileges and can be used to add additional user accounts.</p>
+<p>Go to <a href="http://localhost:5056">http://localhost:5056</a> and login with the account you set up in your <code>.env</code> as <code>DEFAULT_ADMIN_EMAIL</code> and <code>DEFAULT_ADMIN_PASSWORD</code>. If you didn't change it the default is <code>admin@example.com</code> and <code>password</code>. This account has admin privileges and can be used to add additional user accounts.</p>
 
 
 
