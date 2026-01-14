@@ -73,7 +73,7 @@ None.
 === "Example"
 
     ```json
-    --8<-- "json_examples/deviceTypes/POST_devicetypes_req.json"
+    --8<-- "json_examples/deviceTypes/POST_deviceTypes_req.json"
     ```
 
 === "Schema"
