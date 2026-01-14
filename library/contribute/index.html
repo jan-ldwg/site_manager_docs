@@ -1113,16 +1113,22 @@
 <img alt="" src="../../images/create-new-file.png" title="Create new file" /></p>
 <p>Name the file and create the new device template. See <a href="../create/">this guide</a> for details. Then click <code>Commit changes...</code>.
 <img alt="" src="../../images/edit-file.png" /></p>
-<p>Give the commit a meaningful message. You can commit directly to the <code>main</code> branch, since you are working inside of your fork. Click <code>Commit changes</code>.
-<img alt="" src="../../images/commit-dialog.png" title="Commit dialog" /></p>
-<p>You will now see that your branch is 1 commit ahead of the main repository. Click <code>Contribute -&gt; Open pull request</code>.
-<img alt="" src="../../images/create-pull-request.png" title="Create pull request" /></p>
+<p>Give the commit a meaningful message. You should commit to a new feature branch, else your <code>main</code> branch will no longer be able to properly sync with the upstream repository. You should give this branch a meaningful name, although you will not use it again. The click <code>Propose changes</code>.
+<img alt="" src="../../images/propose-changes.png" title="Propose changes" /></p>
+<p>Navigate to the main page of your fork and switch to the just created feature branch.
+<img alt="" src="../../images/switch-to-feature-branch.png" title="Switch to feature branch" /></p>
+<p>You will now see that your feature branch is 1 commit ahead of the main repository. Click <code>Contribute -&gt; Open pull request</code>.
+<img alt="" src="../../images/open-pull-request.png" title="Open pull request" /></p>
 <p>A dialog will open. Be sure to add the resources you used to create the template to ensure a swift review. You don't need to change anything else. Click <code>Create pull request</code>.
 <img alt="" src="../../images/pull-request-dialog.png" title="Pull request dialog" /></p>
-<p>That's it! A maintainer will now review your changes and run the automatic checks. They will contact you if there are any issues or further questions.</p>
+<p>That's it! The automatic validation should now start and a maintainer will review your changes. They will contact you if there are any issues or further questions.
+<img alt="" src="../../images/created-pull-request.png" /></p>
+<p>After your (or any other pull request) has been merged to the upstream repository your fork will become out of date. Click <code>Sync fork -&gt; Update branch</code> to pull the latest version of the upstream repository to your fork.
+<img alt="" src="../../images/update-branch.png" title="Update branch" /></p>
 </div>
 <div class="tabbed-block">
 <p>We recommend using Visual Studio Code, as it offers a native integration with GitHub. You can download it <a href="https://code.visualstudio.com/Download">here</a>.</p>
+<p>A more detailed workflow will be documented here in the future...</p>
 </div>
 </div>
 </div>
