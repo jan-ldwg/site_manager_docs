@@ -1,23 +1,58 @@
 # Contribute
 
-## Validating your submission using JSON schema
+Contributing new templates to site_manager is the easiest and fastest way to see the devices you need become available. The whole workflow follows standard GitHub principles. If you are familiar with this you will feel right at home. If not here is an easy introduction to get started.
 
-To ensure that your submission meets the minimum technical requirements you can validate it against the following JSON schemas using a schema validator of your choice.
+## Create a GitHub account
 
-If you don't have any experience, we recommend [jsonschemavalidator.net](https://www.jsonschemavalidator.net/). Just copy and paste the appropriate schema from this page on the left side and your prepared submission on the right side. The tool will inform you of any errors.
+To contribute you will need a GitHub account. You can sign up [here](https://github.com/signup).
 
-!!! note
+## Fork the project
 
-    This validation only ensures that basic criteria are met, like correct names of properties. Some simple regex are used to look out for obvious typos or prohibited characters. However, this validation does not wether the ids referencing other objects like the manufacturer, connector, etc. actually exist.
+Forking the project means creating a copy that you can edit.
 
-??? example "JSON schema for device type"
+Navigate to the [site_manager_templates repo](https://github.com/jan-ldwg/site_manager_templates).
 
-    ```json title="Schema for device types"
-        --8<-- "json_schemas/devicetypes/POST_deviceTypes_req.schema.json"
-    ```
+Click `Fork -> Create a new fork`.
+![](../images/fork-repo.png "Fork repo")
 
-??? example "JSON schema for module type"
+The default values are fine, just accept by clicking `Create fork`.
+![](../images/create-fork.png "Create fork")
 
-    ```json title="Schema for module types"
-        --8<-- "json_schemas/moduletypes/POST_moduleTypes_req.schema.json"
-    ```
+You have now created a fork and are ready to do your changes.
+![](../images/fork-main-page.png "Fork main page")
+
+## Do your changes
+
+You can do small changes right from the GitHub website. For larger changes we recommend cloning the repo locally and using an editor like VS Code.
+
+=== "GitHub"
+
+    If you want to add a new device type, navigate to the folder of the manufacturer and click `Add file -> Create new file`.
+    ![](../images//create-new-file.png "Create new file")
+
+    Name the file and create the new device template. See [this guide](create.md) for details. Then click `Commit changes...`.
+    ![](../images/edit-file.png)
+
+    Give the commit a meaningful message. You should commit to a new feature branch, else your `main` branch will no longer be able to properly sync with the upstream repository. You should give this branch a meaningful name, although you will not use it again. The click `Propose changes`.
+    ![](../images/propose-changes.png "Propose changes")
+
+    Navigate to the main page of your fork and switch to the just created feature branch.
+    ![](../images/switch-to-feature-branch.png "Switch to feature branch")
+
+    You will now see that your feature branch is 1 commit ahead of the main repository. Click `Contribute -> Open pull request`.
+    ![](../images/open-pull-request.png "Open pull request")
+
+    A dialog will open. Be sure to add the resources you used to create the template to ensure a swift review. You don't need to change anything else. Click `Create pull request`.
+    ![](../images/pull-request-dialog.png "Pull request dialog")
+
+    That's it! The automatic validation should now start and a maintainer will review your changes. They will contact you if there are any issues or further questions.
+    ![](../images/created-pull-request.png)
+
+    After your (or any other pull request) has been merged to the upstream repository your fork will become out of date. Click `Sync fork -> Update branch` to pull the latest version of the upstream repository to your fork.
+    ![](../images/update-branch.png "Update branch")
+
+=== "VS Code"
+
+    We recommend using Visual Studio Code, as it offers a native integration with GitHub. You can download it [here](https://code.visualstudio.com/Download).
+
+    A more detailed workflow will be documented here in the future...
