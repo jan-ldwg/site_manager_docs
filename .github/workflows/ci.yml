@@ -6,6 +6,8 @@ on:
       - main
     paths:
       - "docs/**"
+      - "json_examples"
+      - "json_schemas"
       - "mkdocs.yml"
 permissions:
   contents: write
