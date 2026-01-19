@@ -12,13 +12,18 @@
         "format": "uuid"
       },
       "name": { "description": "Name of the building", "type": "string" },
+      "nameShort": {
+        "description": "Short name of the building",
+        "type": ["string", "null"],
+        "maxLength": 16
+      },
       "siteId": {
         "description": "Id of the site at which the building is located",
         "type": "string",
         "format": "uuid"
       }
     },
-    "required": ["id", "name", "siteId"],
+    "required": ["id", "name", "nameShort", "siteId"],
     "additionalProperties": false
   }
 }

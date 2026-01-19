@@ -5,6 +5,11 @@
   "type": "object",
   "properties": {
     "name": { "description": "Name of the room", "type": "string" },
+    "number": {
+      "description": "Number of the room",
+      "type": ["string", "null"],
+      "maxLength": 16
+    },
     "buildingId": {
       "description": "Id of the building in which the room is located",
       "type": "string",

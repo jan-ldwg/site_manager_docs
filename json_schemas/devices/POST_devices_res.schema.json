@@ -33,6 +33,11 @@
     "buildingName": { "description": "", "type": "string" },
     "roomId": { "description": "", "type": "string", "format": "uuid" },
     "roomName": { "description": "", "type": "string" },
+    "roomNumber": {
+      "description": "Number of the room",
+      "type": ["string", "null"],
+      "maxLength": 16
+    },
     "rackId": { "description": "", "type": "string", "format": "uuid" },
     "rackName": { "description": "", "type": "string" },
     "ports": {
@@ -131,6 +136,7 @@
     "buildingName",
     "roomId",
     "roomName",
+    "roomNumber",
     "rackId",
     "rackName",
     "ports",

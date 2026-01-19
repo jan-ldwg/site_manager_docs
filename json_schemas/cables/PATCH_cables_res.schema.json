@@ -95,6 +95,11 @@
       "description": "Name of the room at the start side of the cable",
       "type": "string"
     },
+    "startRoomNumber": {
+      "description": "Number of the room",
+      "type": ["string", "null"],
+      "maxLength": 16
+    },
     "startBuildingId": {
       "description": "Id of the building at the start side of the cable",
       "type": "string",
@@ -190,6 +195,11 @@
       "description": "Name of the room at the end side of the cable",
       "type": "string"
     },
+    "endRoomNumber": {
+      "description": "Number of the room",
+      "type": ["string", "null"],
+      "maxLength": 16
+    },
     "endBuildingId": {
       "description": "Id of the building at the end side of the cable",
       "type": "string",
@@ -227,6 +237,7 @@
     "startRackName",
     "startRoomId",
     "startRoomName",
+    "startRoomNumber",
     "startBuildingId",
     "startBuildingName",
     "startSiteId",
@@ -245,6 +256,7 @@
     "endRackName",
     "endRoomId",
     "endRoomName",
+    "endRoomNumber",
     "endBuildingId",
     "endBuildingName",
     "endSiteId",
