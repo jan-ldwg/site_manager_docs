@@ -30,8 +30,10 @@ theme:
     - navigation.instant
     - navigation.sections
     - content.action.edit
+    - content.footnote.tooltips
 
 markdown_extensions:
+  - footnotes
   - attr_list
   - md_in_html
   - pymdownx.highlight:
@@ -40,6 +42,7 @@ markdown_extensions:
       pygments_lang_class: true
       auto_title: true
   - pymdownx.inlinehilite
+  - pymdownx.keys
   - pymdownx.snippets:
       base_path: .
       check_paths: true
@@ -47,6 +50,9 @@ markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tabbed:
       alternate_style: true
 
@@ -54,9 +60,13 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Getting Started: gettingstarted.md
   - Installation: installation.md
-  - Release Notes: releasenotes.md
+  - Tutorial:
+      - Getting started: tutorial/gettingstarted.md
+      - Basic concepts: tutorial/concepts.md
+      - Wiring diagram: tutorial/wiringdiagram.md
+      - Cable list: tutorial/cablelist.md
+      - Device list: tutorial/devicelist.md
   - Library:
       - Overview: library/overview.md
       - Create templates: library/create.md
@@ -66,6 +76,7 @@ nav:
   #- Data Model:
   #- Device Types: datamodel/devicetype.md
   #- Devices: datamodel/devices.md
+  - Release Notes: releasenotes.md
   - API:
       - Overview: api/overview.md
       - /devices: api/devices.md
