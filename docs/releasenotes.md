@@ -2,6 +2,17 @@
 
 Release names follow SemVer (MAJOR.MINOR.PATCH-PRERELEASE). Changes to major will mean either changes to API or to the database schema.
 
+## v1.0.0-alpha.1.2
+
+**Feb 18 2026**
+
+Just minor bug fixes and UI improvments.
+
+- Adds some new icons
+- Improves layout on ultrawide displays
+- Fixes a bug where the container would keep crashing after a bad update to the templates repo
+- Fixes a bug where multi selection selected the wrong rows on sorted tables
+
 ## v1.0.0-alpha.1.1
 
 **Feb 5 2026**
