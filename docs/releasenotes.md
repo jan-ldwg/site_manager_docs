@@ -2,6 +2,15 @@
 
 Release names follow SemVer (MAJOR.MINOR.PATCH-PRERELEASE). Changes to major will mean either changes to API or to the database schema.
 
+## v1.0.0-alpha.1.3
+
+**Feb 19 2026**
+
+Some improvements to keyboard navigation
+
+- On the wiring diagram page Cmd/Ctrl+B triggers a relayout
+- Delete can be used to delete elements (in addition to Backspace)
+
 ## v1.0.0-alpha.1.2
 
 **Feb 18 2026**

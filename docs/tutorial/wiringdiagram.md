@@ -42,8 +42,24 @@ Modules can be added to devices in the sidebar. Select the device you want to ad
 
 ## Using the search bar
 
-To quickly find devices in the wiring diagram you can use the search bar. Simply enter the manufacturer, name or type of the device you are looking for. If there are multiple results use ++enter++ or the arrows in the search bar to navigate between them.
+To quickly find devices in the wiring diagram you can use the search bar. Simply enter the manufacturer, name or type of the device you are looking for. If there are multiple results use ++enter++ / ++shift+enter++ or the arrows in the search bar to navigate between them.
 
 ## Exporting the diagram
 
 You can export the diagram as an svg file by clicking on the button in the toolbar.
+
+## Shortcuts
+
+=== ":fontawesome-brands-windows: Windows"
+
+    |                          |                          |
+    | ------------------------ | ------------------------ |
+    | ++ctrl+b++               | Relayout diagram         |
+    | ++backspace++ / ++delete++ | Delete selected elements |
+
+=== ":fontawesome-brands-apple: macOS"
+
+    |               |                          |
+    | ------------- | ------------------------ |
+    | ++command+b++ | Relayout diagram         |
+    | ++backspace++ | Delete selected elements |
