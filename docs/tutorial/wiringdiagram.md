@@ -40,6 +40,10 @@ Navigation in the diagram is similar to most drawing programs. You can pan the v
 
 Modules can be added to devices in the sidebar. Select the device you want to add a module to, open the `Modules`section in the sidebar and add a module using the dropdown. In the dropdown whitelisted modules are modules that are confirmed by the manufacturer to work. Compatible modules will physically fit but there is no guarantee that they will function. Consult the documentation of the device to be sure.
 
+## Changing the location of devices
+
+The location of a device can be changed after adding it to the diagram via the `Location`section in the sidebar. Simply select the new location and confirm.
+
 ## Using the search bar
 
 To quickly find devices in the wiring diagram you can use the search bar. Simply enter the manufacturer, name or type of the device you are looking for. If there are multiple results use ++enter++ / ++shift+enter++ or the arrows in the search bar to navigate between them.
@@ -56,6 +60,7 @@ You can export the diagram as an svg file by clicking on the button in the toolb
     | ------------------------ | ------------------------ |
     | ++ctrl+b++               | Relayout diagram         |
     | ++backspace++ / ++delete++ | Delete selected elements |
+    | ++ctrl+k++               | Search in diagram        |
 
 === ":fontawesome-brands-apple: macOS"
 
@@ -63,3 +68,4 @@ You can export the diagram as an svg file by clicking on the button in the toolb
     | ------------- | ------------------------ |
     | ++command+b++ | Relayout diagram         |
     | ++backspace++ | Delete selected elements |
+    | ++cmd+k++     | Search in diagram        |

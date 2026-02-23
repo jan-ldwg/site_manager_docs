@@ -2,6 +2,17 @@
 
 Release names follow SemVer (MAJOR.MINOR.PATCH-PRERELEASE). Changes to major will mean either changes to API or to the database schema.
 
+## v1.0.0-alpha.1.4
+
+**Feb 23 2026**
+
+Devices can now be moved between locations even after having been added to the diagram. Also bug fixes.
+
+- Adds select inputs in location section of sidebar to move devices. API support for this as well.
+- Cmd+K focuses the search bar.
+- Ordering of manufacturers fixed.
+- Fixes incorrect file suffix for CSV downloads on windows.
+
 ## v1.0.0-alpha.1.3
 
 **Feb 19 2026**
