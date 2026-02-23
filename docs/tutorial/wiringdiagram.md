@@ -60,7 +60,6 @@ You can export the diagram as an svg file by clicking on the button in the toolb
     | ------------------------ | ------------------------ |
     | ++ctrl+b++               | Relayout diagram         |
     | ++backspace++ / ++delete++ | Delete selected elements |
-    | ++ctrl+k++               | Search in diagram        |
 
 === ":fontawesome-brands-apple: macOS"
 
