@@ -2,6 +2,12 @@
 
 Release names follow SemVer (MAJOR.MINOR.PATCH-PRERELEASE). Changes to major will mean either changes to API or to the database schema.
 
+## v1.0.0-alpha.1.5
+
+**Mar 6 2026**
+
+- sync process no longer crashes when trying to insert a moduleType with an empty array of moduleSlotTypes
+
 ## v1.0.0-alpha.1.4
 
 **Feb 23 2026**
