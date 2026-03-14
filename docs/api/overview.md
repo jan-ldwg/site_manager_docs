@@ -6,9 +6,11 @@
 
 site_manager is designed to be flexible and easy to integrate into overarching workflows. To allow connection to external systems, a fully featured API is available. This API provides endpoints to take every action that is available in the GUI.
 
+Laborious task can also be automated using simple scripts. See [this basic example for generating cable numbers](scripting.md).
+
 ## General design
 
-The API follows the traditional REST paradigm. Access is possible via HTTP using tools such as [curl](https://www.curl.se), [Postman](https://www.postman.com) or your favorite scripting language. The base path for all API endpoints is `{YourSiteMangerInstance}/api/v1`.
+The API follows widely accepted design rules. Access is possible via HTTP using tools such as [curl](https://www.curl.se), [Postman](https://www.postman.com) or your favorite scripting language. The base path for all API endpoints is `{YourSiteMangerInstance}/api/`.
 
 These 5 methods are supported. Note that not every endpoint supports every method. See the documentation of the individual endpoints to learn about their supported methods.
 
@@ -20,7 +22,7 @@ These 5 methods are supported. Note that not every endpoint supports every metho
 | PUT    | replace an existing object. The existing object will be deleted and new one will be created in its place |
 | DELETE | delete an object from the database                                                                       |
 
-A `GET` for a single database object, e.g. `GET api/v1/devices/{deviceId}`, will return a 404 error if the object does not exist. However, a `GET` for a group of objects, e.g. `GET api/v1/devices`, will return an empty array if no matching object is found.
+A `GET` for a single database object, e.g. `GET api/devices/{deviceId}`, will return a 404 error if the object does not exist. However, a `GET` for a group of objects, e.g. `GET api/devices`, will return an empty array if no matching object is found.
 
 `POST`, `PATCH` and `PUT` return the full object on success.
 
