@@ -16,7 +16,7 @@
         <link rel="prev" href="../../library/contribute/">
       
       
-        <link rel="next" href="../api_docs/">
+        <link rel="next" href="../scripting/">
       
       
         
@@ -847,6 +847,34 @@
   
   
     <li class="md-nav__item">
+      <a href="../scripting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Scripting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../api_docs/" class="md-nav__link">
         
   
@@ -965,8 +993,9 @@
 <p>The API is still under active development and is not stabilized. The documentation might not reflect the current implementation. The documentation represents the current end goal for the v1.0 release. Feel free to leave feedback in the site_manager_server repo.</p>
 </div>
 <p>site_manager is designed to be flexible and easy to integrate into overarching workflows. To allow connection to external systems, a fully featured API is available. This API provides endpoints to take every action that is available in the GUI.</p>
+<p>Laborious task can also be automated using simple scripts. See <a href="../scripting/">this basic example for generating cable numbers</a>.</p>
 <h2 id="general-design">General design</h2>
-<p>The API follows the traditional REST paradigm. Access is possible via HTTP using tools such as <a href="https://www.curl.se">curl</a>, <a href="https://www.postman.com">Postman</a> or your favorite scripting language. The base path for all API endpoints is <code>{YourSiteMangerInstance}/api/v1</code>.</p>
+<p>The API follows widely accepted design rules. Access is possible via HTTP using tools such as <a href="https://www.curl.se">curl</a>, <a href="https://www.postman.com">Postman</a> or your favorite scripting language. The base path for all API endpoints is <code>{YourSiteMangerInstance}/api/</code>.</p>
 <p>These 5 methods are supported. Note that not every endpoint supports every method. See the documentation of the individual endpoints to learn about their supported methods.</p>
 <table>
 <thead>
@@ -998,7 +1027,7 @@
 </tr>
 </tbody>
 </table>
-<p>A <code>GET</code> for a single database object, e.g. <code>GET api/v1/devices/{deviceId}</code>, will return a 404 error if the object does not exist. However, a <code>GET</code> for a group of objects, e.g. <code>GET api/v1/devices</code>, will return an empty array if no matching object is found.</p>
+<p>A <code>GET</code> for a single database object, e.g. <code>GET api/devices/{deviceId}</code>, will return a 404 error if the object does not exist. However, a <code>GET</code> for a group of objects, e.g. <code>GET api/devices</code>, will return an empty array if no matching object is found.</p>
 <p><code>POST</code>, <code>PATCH</code> and <code>PUT</code> return the full object on success.</p>
 <h2 id="authentication">Authentication</h2>
 <p>site_manager uses cookies for authentication. Every request to protected API endpoints (e.g. everything except <code>api/auth/sign-in/email</code>) has to include a valid session cookie. The cookie is called <code>site-manager.session_data</code>.</p>
