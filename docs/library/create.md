@@ -11,13 +11,13 @@ If you don't have any experience, we recommend [jsonschemavalidator.net](https:/
 ??? example "JSON schema for device type"
 
     ```json title="Schema for device types"
-        --8<-- "json_schemas/deviceTypes/POST_deviceTypes_req.schema.json"
+        --8<-- "api/json/deviceTypes/deviceTypeCreate.json"
     ```
 
 ??? example "JSON schema for module type"
 
     ```json title="Schema for module types"
-        --8<-- "json_schemas/moduleTypes/POST_moduleTypes_req.schema.json"
+        --8<-- "api/json/moduleTypes/moduleTypeCreate.json"
     ```
 
 ## Modeling a device
