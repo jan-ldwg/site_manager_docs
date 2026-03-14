@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DeviceUpdate model",
+  "description": "JSON document describing updates to a device",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "",
+      "type": ["string", "null"],
+      "examples": ["DSP"]
+    },
+    "rackId": {
+      "description": "",
+      "type": "string",
+      "format": "uuid"
+    },
+    "rackPosition": {
+      "description": "Mounting position of the device in a rack",
+      "enum": ["FRONT", "BACK", "LOOSE"],
+      "type": "string",
+      "examples": ["FRONT"]
+    },
+    "rackElevation": {
+      "description": "Lowest rack unit the device occupies. Zero if device is not mounted in a rack.",
+      "type": "number",
+      "minimum": 0,
+      "examples": [23]
+    },
+    "description": {
+      "description": "",
+      "type": ["string", "null"],
+      "examples": ["Audio DSP for backup console"]
+    },
+    "serialNumber": {
+      "description": "",
+      "type": ["string", "null"],
+      "examples": ["54567675"]
+    },
+    "notes": {
+      "description": "",
+      "type": ["string", "null"],
+      "examples": ["This is scheduled for replacement in Q2"]
+    },
+    "status": {
+      "description": "",
+      "enum": [
+        "PLANNED",
+        "ORDERED",
+        "DELIVERED",
+        "INSTALLED",
+        "TESTED",
+        "IN_SERVICE",
+        "OUT_OF_SERVICE"
+      ],
+      "type": ["string", "null"],
+      "examples": ["INSTALLED"]
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

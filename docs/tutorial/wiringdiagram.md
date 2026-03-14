@@ -6,7 +6,7 @@ When opening the page for the first time, the diagram will be empty. You will ne
 
 !!! note
 
-    It is not possible to show buildings from multiple sites at once. If you think you need this you should rethink how you have structure your locations.
+    It is not possible to show buildings from multiple sites at once. If you think you need this you should rethink how you have structured your locations.
 
 ## Adding locations
 

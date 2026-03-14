@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Bad request message",
+  "description": "Error message provided with 400 codes",
+  "type": "object",
+  "properties": {
+    "error": {
+      "description": "A descriptive error message",
+      "type": "string",
+      "example": "Invalid syntax in the request"
+    },
+    "hint": {
+      "description": "Further explaination and steps to remediate the error",
+      "type": "string",
+      "example": "Hints about proper syntax "
+    }
+  },
+  "required": ["error", "hint"],
+  "additionalProperties": false
+}

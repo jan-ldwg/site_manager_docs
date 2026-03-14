@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ConnectorCreate model",
+  "description": "JSON document describing a connector",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the connector.",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+      "examples": ["BNC_f"]
+    },
+    "name": {
+      "description": "",
+      "type": "string",
+      "examples": ["BNC 75 Ohm female"]
+    },
+    "gender": {
+      "description": "",
+      "enum": ["MALE", "FEMALE", "HERMA"],
+      "type": "string"
+    },
+    "icon": {
+      "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+      "examples": ["BNC_f"]
+    },
+    "compatibleConnectors": {
+      "description": "List of connectors compatible with this connector",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+        "examples": ["BNC_f"]
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": ["id", "name", "gender", "icon", "compatibleConnectors"],
+  "additionalProperties": false
+}

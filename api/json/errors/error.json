@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Error message",
+  "description": "Error message provided with 4xx and 5xx codes",
+  "type": "object",
+  "properties": {
+    "error": {
+      "description": "A descriptive error message",
+      "type": "string",
+      "example": "Failed to add resource"
+    },
+    "hint": {
+      "description": "Further explaination and steps to remediate the error",
+      "type": "string",
+      "example": "The provided manufacturer id does not exist"
+    }
+  },
+  "required": ["error"],
+  "additionalProperties": false
+}

@@ -1,0 +1,1286 @@
+openapi: 3.1.0
+
+info:
+  title: site_manager
+  version: "1.0"
+
+servers:
+  - url: http://example.com/api
+    description: Since site_manager is hosted locally the URL depends on your setup
+
+paths:
+  /devices:
+    summary: Instances of physical devices
+
+    get:
+      summary: Read a list of devices
+      parameters:
+        - $ref: "#/components/parameters/siteId"
+        - $ref: "#/components/parameters/buildingId"
+        - $ref: "#/components/parameters/roomId"
+        - $ref: "#/components/parameters/rackId"
+      responses:
+        "200":
+          description: List retrieved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeviceList"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+    post:
+      summary: Add a device
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeviceCreate"
+      responses:
+        "201":
+          description: Device added
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /devices/{deviceId}:
+    summary: Single device Instances
+    parameters:
+      - name: deviceId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    get:
+      summary: Return information of a single device
+      responses:
+        "200":
+          description: Information of the device
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+    patch:
+      summary: Update a device
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeviceUpdate"
+      responses:
+        "200":
+          description: Device successfully modified
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Device"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/500"
+    delete:
+      summary: Delete a device
+      responses:
+        "204":
+          description: Device deleted
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /ports/{portId}:
+    summary: Port attached to a device or moduleId
+    parameters:
+      - name: portId
+        in: path
+        required: true
+        schema: {}
+    get:
+      summary: Return information of a single port
+      responses:
+        "200":
+          description: Information about the port
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Port"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /modules:
+    summary: Modules installed in devices
+    get:
+      summary: Get a list of all modules
+      responses:
+        "200":
+          description: List of modules
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModuleList"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+
+    post:
+      summary: Create a new module
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ModuleCreate"
+      responses:
+        "201":
+          description: Module added
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Module"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /modules/{moduleId}:
+    summary: Module installed in a device
+    parameters:
+      - name: moduleId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    get:
+      summary: Return information of a single module
+      responses:
+        "200":
+          description: Information of the module
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Module"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+    delete:
+      summary: Delete a module
+      responses:
+        "204":
+          description: "Device deleted"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /cables:
+    summary: Cables connecting devices
+
+    get:
+      summary: Return a list of cables
+      parameters:
+        - $ref: "#/components/parameters/startRackId"
+        - $ref: "#/components/parameters/startRoomId"
+        - $ref: "#/components/parameters/startBuildingId"
+        - $ref: "#/components/parameters/endRackId"
+        - $ref: "#/components/parameters/endRoomId"
+        - $ref: "#/components/parameters/endBuildingId"
+      responses:
+        "200":
+          description: List of cables
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CableList"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+    post:
+      summary: Add a new cableId
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CableCreate"
+      responses:
+        "201":
+          description: Cable added
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cable"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/500"
+  /cables/{cableId}:
+    summary: Cable connecting devices
+    parameters:
+      - name: cableId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    get:
+      summary: Get information of a cable
+      responses:
+        "200":
+          description: Information of a cable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cable"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+    patch:
+      summary: Update a cable
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CableUpdate"
+      responses:
+        "200":
+          description: Updated cable
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Cable"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/500"
+
+    delete:
+      summary: Delete a cable
+      responses:
+        "204":
+          description: Cable deleted
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /sites:
+    summary: Physical locations separated by significant distances
+    get:
+      summary: Get a list of sites
+      responses:
+        "200":
+          description: Information of a site
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SiteList"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+    post:
+      summary: Add a site
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SiteCreate"
+      responses:
+        "201":
+          description: The created site
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Site"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /site/{siteId}:
+    summary: A single site
+    parameters:
+      - name: siteId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    get:
+      summary: Get information of a single site
+      responses:
+        "200":
+          description: Information of the site
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Site"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+
+    delete:
+      summary: Delete a site
+      responses:
+        "204":
+          description: Site deleted
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "409":
+          $ref: "#/components/responses/409"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /buildings:
+    summary: Physical buildings
+    get:
+      summary: Get a list of buildings
+      parameters:
+        - $ref: "#/components/parameters/siteId"
+      responses:
+        "200":
+          description: Information of a building
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/BuildingList"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+    post:
+      summary: Add a building
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/BuildingCreate"
+      responses:
+        "201":
+          description: The created building
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Building"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /buildings/{buildingId}:
+    summary: A single buildingId
+    parameters:
+      - name: buildingId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    get:
+      summary: Get information of a single building
+      responses:
+        "200":
+          description: Information of the building
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Building"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+    delete:
+      summary: Delete a building
+      responses:
+        "204":
+          description: Building deleted
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "409":
+          $ref: "#/components/responses/409"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /rooms:
+    summary: Rooms
+    get:
+      summary: Get a list of Rooms
+      parameters:
+        - $ref: "#/components/parameters/buildingId"
+      responses:
+        "200":
+          description: Information of a room
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RoomList"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+    post:
+      summary: Add a room
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RoomCreate"
+      responses:
+        "201":
+          description: The created room
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Room"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /rooms/{roomId}:
+    summary: A single room
+    parameters:
+      - name: roomId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    get:
+      summary: Get information of a single room
+      responses:
+        "200":
+          description: Information of the room
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Room"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+    delete:
+      summary: Delete a room
+      responses:
+        "204":
+          description: Room deleted
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "409":
+          $ref: "#/components/responses/409"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /racks:
+    summary: Either an equipment rack or some other place where devices are installed (e.g. a table)
+    get:
+      summary: Get a list of racks
+      parameters:
+        - $ref: "#/components/parameters/roomId"
+      responses:
+        "200":
+          description: Information of a rack
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/RackList"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+    post:
+      summary: Add a rack
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/RackCreate"
+      responses:
+        "201":
+          description: The created rack
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rack"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /racks/{rackId}:
+    summary: A single rack
+    parameters:
+      - name: rackId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    get:
+      summary: Get information of a single rack
+      responses:
+        "200":
+          description: Information of the rack
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Rack"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+    delete:
+      summary: Delete a rack
+      responses:
+        "204":
+          description: Rack deleted
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "409":
+          $ref: "#/components/responses/409"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /devicetypes:
+    summary: A list of specific models offered by manufacturers
+    get:
+      summary: Get a list of device types
+      parameters:
+        - $ref: "#/components/parameters/manufacturerId"
+      responses:
+        "200":
+          description: A list of device types
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeviceTypeList"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+    post:
+      summary: Add a device type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DeviceTypeCreate"
+      responses:
+        "201":
+          description: The created device type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeviceType"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /devicetypes/{deviceTypeId}:
+    summary: A specific model
+    parameters:
+      - name: deviceTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Get information of a device type
+      responses:
+        "200":
+          description: Information of the device type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/DeviceType"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+    delete:
+      summary: Delete a device type
+      responses:
+        "204":
+          description: Device type deleted
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "409":
+          $ref: "#/components/responses/409"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /moduleslottypes/{moduleSlotTypeId}/compatiblemoduletypes:
+    summary: The list of module types that can fit into that specific slot type
+    parameters:
+      - name: moduleSlotTypeId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    get:
+      summary: Read information about the compatibility of module types for this module slot type
+      responses:
+        "200":
+          description: List retrieved
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModuleSlotTypeCompatible"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /moduletypes:
+    summary: A list of specific modules offered by manufacturers
+    get:
+      summary: Read the list of module types
+      responses:
+        "200":
+          description: A list of module types
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModuleTypeList"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+    post:
+      summary: Add a module type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ModuleTypeCreate"
+      responses:
+        "200":
+          description: The created module type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModuleType"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /cabletypes:
+    summary: A list of different kinds of cables
+    get:
+      summary: Read the list of cable types
+      responses:
+        "200":
+          description: The list of cable types
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/CableTypeList"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /connectors:
+    summary: A list of different kinds of connectors
+    get:
+      summary: Read the list of connectors
+      responses:
+        "200":
+          description: The list of connectors
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConnectorList"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+
+    post:
+      summary: Add a new connector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ConnectorCreate"
+      responses:
+        "201":
+          description: The added connector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Connector"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /connectors/{connectorId}:
+    summary: A connector to connect cables to devices
+    parameters:
+      - name: connectorId
+        in: path
+        required: true
+        schema:
+          type: string
+    patch:
+      summary: Update a connector
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ConnectorUpdate"
+      responses:
+        "200":
+          description: The updated connector
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Connector"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /signaltypes:
+    summary: A list of different kinds of signals
+    get:
+      summary: Read a list of signal types
+      responses:
+        "200":
+          description: The list of signal types
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SignalTypeList"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+    post:
+      summary: Add a signal type
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignalTypeCreate"
+      responses:
+        "201":
+          description: The added signal type
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SignalType"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /manufacturers:
+    summary: Manufacturers of equipment
+    get:
+      summary: Read the list of manufacturers
+      responses:
+        "200":
+          description: The list of manufacturers
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ManufacturerList"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+    post:
+      summary: Add a manufacturer
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ManufacturerCreate"
+      responses:
+        "201":
+          description: The added manufacturer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ManufacturerCreate"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /manufacturers/{manufacturerId}:
+    summary: A manufacturer of equipment
+    parameters:
+      - name: manufacturerId
+        in: path
+        required: true
+        schema:
+          type: string
+    get:
+      summary: Read the information of a manufacturer
+      responses:
+        "200":
+          description: The information of the manufacturer
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Manufacturer"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+    delete:
+      summary: Delete a manufacturer
+      responses:
+        "204":
+          description: Manufacturer deleted
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "500":
+          $ref: "#/components/responses/500"
+
+  /moduleslots/{moduleSlotId}/module:
+    summary: Access the module inside a module slot
+    parameters:
+      - name: moduleSlotId
+        in: path
+        required: true
+        schema:
+          type: string
+          format: uuid
+    put:
+      summary: Replace the module in the slot or put a new one in
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ModuleCreate"
+      responses:
+        "201":
+          description: The just added module
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Module"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "404":
+          $ref: "#/components/responses/404"
+        "422":
+          $ref: "#/components/responses/422"
+        "500":
+          $ref: "#/components/responses/500"
+
+components:
+  #turn off settings->YAML validate to compile this until this is fixed
+  #https://github.com/42Crunch/vscode-openapi/issues/340
+  schemas:
+    Device:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/devices/device.json"
+    DeviceList:
+      type: array
+      items:
+        #$ref: "#/components/schemas/Device"
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/devices/device.json"
+    DeviceCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/devices/deviceCreate.json"
+    DeviceUpdate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/devices/deviceUpdate.json"
+    Module:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/modules/module.json"
+    ModuleList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/modules/module.json"
+    ModuleCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/modules/moduleCreate.json"
+    Cable:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/cables/cable.json"
+    CableList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/cables/cable.json"
+    CableCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/cables/cableCreate.json"
+    CableUpdate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/cables/cableUpdate.json"
+    Port:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/ports/port.json"
+    Site:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/sites/site.json"
+    SiteList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/sites/site.json"
+    SiteCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/sites/siteCreate.json"
+    Building:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/buildings/building.json"
+    BuildingList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/buildings/building.json"
+    BuildingCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/buildings/buildingCreate.json"
+    Room:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/rooms/room.json"
+    RoomList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/rooms/room.json"
+    RoomCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/rooms/roomCreate.json"
+    Rack:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/racks/rack.json"
+    RackList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/racks/rack.json"
+    DeviceType:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/deviceTypes/deviceType.json"
+    DeviceTypeList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/deviceTypes/deviceType.json"
+    DeviceTypeCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/deviceTypes/deviceTypeCreate.json"
+    RackCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/racks/rackCreate.json"
+    ModuleSlotTypeCompatible:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/moduleSlotTypes/moduleSlotTypeCompatible.json"
+    ModuleType:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/moduleTypes/moduleType.json"
+    ModuleTypeList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/moduleTypes/moduleType.json"
+    ModuleTypeCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/moduleTypes/moduleTypeCreate.json"
+    CableType:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/cableTypes/cableType.json"
+    CableTypeList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/cableTypes/cableType.json"
+    Connector:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/connectors/connector.json"
+    ConnectorList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/connectors/connector.json"
+    ConnectorCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/connectors/connectorCreate.json"
+    ConnectorUpdate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/connectors/connectorUpdate.json"
+    SignalType:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/signalTypes/signalType.json"
+    SignalTypeList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/signalTypes/signalType.json"
+    SignalTypeCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/signalTypes/signalTypeCreate.json"
+    Manufacturer:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/manufacturers/manufacturer.json"
+    ManufacturerList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/manufacturers/manufacturer.json"
+    ManufacturerCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/manufacturers/manufacturerCreate.json"
+
+    ServerError:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/errors/serverError.json"
+    AuthorizationError:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/errors/authorizationError.json"
+    RequestError:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/errors/requestError.json"
+    NotFoundError:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/errors/notFoundError.json"
+    ValidationError:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/errors/validationError.json"
+    ConflictError:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/errors/conflictError.json"
+    ErrorMessage:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/errors/error.json"
+
+  responses:
+    "400":
+      description: The request does not follow the syntax rules. Retrying with the same request will never result in success.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/RequestError"
+    "401":
+      description: The request does not include valid authorization. Retry with the proper cookie included in the request.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/AuthorizationError"
+    "404":
+      description: The requested path is syntactically corrcect but no ressource exists here
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/NotFoundError"
+    "409":
+      description: The request is valid but can not be processed due to the current state of the database (e.g. a ressource can not be deleted while it is still referenced elsewhere). Retrying this request another time might result in success.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ConflictError"
+    "422":
+      description: Request is syntactically correct but violates some validation logic. Retrying will not result in success.
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ValidationError"
+    "500":
+      description: Internal server error
+      content:
+        application/json:
+          schema:
+            $ref: "#/components/schemas/ServerError"
+            #$ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/errors/serverError.json"
+
+  parameters:
+    siteId:
+      name: siteId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+    buildingId:
+      name: buildingId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+    roomId:
+      name: roomId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+    rackId:
+      name: rackId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+    startRackId:
+      name: startRackId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+    startRoomId:
+      name: startRoomId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+    startBuildingId:
+      name: startBuildingId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+    endRackId:
+      name: endRackId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+    endRoomId:
+      name: endRoomId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+    endBuildingId:
+      name: endBuildingId
+      in: query
+      required: false
+      schema:
+        type: string
+        format: uuid
+    manufacturerId:
+      name: manufacturerId
+      in: query
+      required: false
+      schema:
+        type: string

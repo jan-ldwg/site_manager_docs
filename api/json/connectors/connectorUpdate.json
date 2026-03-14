@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ConnectorUpdate model",
+  "description": "JSON document describing updates to a connector",
+  "type": "object",
+  "properties": {
+    "compatibleConnectors": {
+      "description": "List of connectors compatible with this connector",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+        "examples": ["BNC_f"]
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": ["compatibleConnectors"],
+  "additionalProperties": false
+}

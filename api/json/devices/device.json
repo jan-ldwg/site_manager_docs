@@ -1,0 +1,284 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Device model",
+  "description": "JSON document describing a single device",
+  "type": "object",
+  "properties": {
+    "id": { "description": "", "type": "string", "format": "uuid" },
+    "name": {
+      "description": "",
+      "type": ["string", "null"],
+      "examples": ["A-DSP"]
+    },
+    "deviceTypeId": {
+      "description": "Id of the device type. Consists of id of manufacturer followed by id of device type. See documentation for rules.",
+      "type": "string",
+      "pattern": "^(?=.{1,48}$)(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])?-[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+      "maxLength": 48,
+      "examples": ["lawo-auhd-core"]
+    },
+    "deviceTypeName": {
+      "description": "Name of the device as given by manufacturer",
+      "type": "string",
+      "maxLength": 256,
+      "examples": ["A_UHD Core"]
+    },
+    "manufacturerId": {
+      "description": "Id of the manufacturer of the device type.",
+      "type": "string",
+      "pattern": "^(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])$",
+      "maxLength": 16,
+      "examples": ["lawo"]
+    },
+    "manufacturerName": {
+      "description": "",
+      "type": "string",
+      "examples": ["Lawo AG"]
+    },
+    "manufacturerNameShort": {
+      "description": "",
+      "type": "string",
+      "examples": ["Lawo"]
+    },
+    "rackType": {
+      "description": "Type of rack the device can be mounted in.",
+      "enum": ["NONE", "19INCH"],
+      "type": "string",
+      "examples": ["19INCH"]
+    },
+    "rackHeight": {
+      "description": "Height of the device in rack units. 0 if device is not rackmountable.",
+      "type": "number",
+      "minimum": 0,
+      "examples": [2]
+    },
+    "rackDepth": {
+      "description": "Depth of the device within the rack in mm. Measured from the plane of the rack to the furthest protrusion of the device.",
+      "type": "number",
+      "minimum": 0,
+      "examples": [324]
+    },
+    "description": {
+      "description": "",
+      "type": ["string", "null"],
+      "examples": ["Audio DSP for the main mixer"]
+    },
+    "notes": {
+      "description": "",
+      "type": ["string", "null"],
+      "examples": ["This is scheduled for replacement in Q2"]
+    },
+    "status": {
+      "description": "",
+      "enum": [
+        "PLANNED",
+        "ORDERED",
+        "DELIVERED",
+        "INSTALLED",
+        "TESTED",
+        "IN_SERVICE",
+        "OUT_OF_SERVICE"
+      ],
+      "type": ["string", "null"],
+      "examples": ["INSTALLED"]
+    },
+    "serialNumber": {
+      "description": "",
+      "type": ["string", "null"],
+      "examples": ["356674567"]
+    },
+    "siteId": { "description": "", "type": "string", "format": "uuid" },
+    "siteName": {
+      "description": "",
+      "type": "string",
+      "examples": ["Frankfurt"]
+    },
+    "buildingId": { "description": "", "type": "string", "format": "uuid" },
+    "buildingName": {
+      "description": "",
+      "type": "string",
+      "examples": ["Production Center"]
+    },
+    "roomId": { "description": "", "type": "string", "format": "uuid" },
+    "roomName": { "description": "", "type": "string", "examples": ["MCR 1"] },
+    "roomNumber": {
+      "description": "Number of the room",
+      "type": ["string", "null"],
+      "maxLength": 16,
+      "examples": ["A01/045"]
+    },
+    "rackId": { "description": "", "type": "string", "format": "uuid" },
+    "rackName": {
+      "description": "",
+      "type": "string",
+      "examples": ["Rack 23"]
+    },
+    "rackPosition": {
+      "description": "Mounting position of the device in a rack",
+      "enum": ["FRONT", "BACK", "LOOSE"],
+      "type": "string",
+      "examples": ["FRONT"]
+    },
+    "rackElevation": {
+      "description": "Lowest rack unit the device occupies. Zero if device is not mounted in a rack.",
+      "type": "number",
+      "minimum": 0,
+      "examples": [23]
+    },
+    "createdAt": {
+      "description": "",
+      "type": "string",
+      "format": "date-time",
+      "examples": ["2026-03-07T13:52:34.736Z"]
+    },
+    "createdBy": {
+      "description": "",
+      "type": "string",
+      "examples": ["4B7y4PX9aJ8O0c2WyKhVmBqMqFRG9iay"]
+    },
+    "createdByName": {
+      "description": "",
+      "type": "string",
+      "examples": ["John Doe"]
+    },
+    "updatedAt": {
+      "description": "",
+      "type": "string",
+      "format": "date-time",
+      "examples": ["2026-03-07T13:52:34.736Z"]
+    },
+    "updatedBy": {
+      "description": "",
+      "type": "string",
+      "examples": ["4B7y4PX9aJ8O0c2WyKhVmBqMqFRG9iay"]
+    },
+    "updatedByName": {
+      "description": "",
+      "type": "string",
+      "examples": ["John Doe"]
+    },
+    "ports": {
+      "description": "",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "description": "", "type": "string", "format": "uuid" },
+          "portTypeId": {
+            "description": "",
+            "type": "string",
+            "format": "uuid"
+          },
+          "portTypeName": {
+            "description": "Name of the port, as printed on the device.",
+            "type": "string",
+            "examples": ["WCLK IN"]
+          },
+          "portTypeDirection": {
+            "description": "Direction of the port type. See documentation for explainations of the possible values.",
+            "enum": [
+              "IN",
+              "OUT",
+              "INOUT",
+              "BIDI",
+              "UP",
+              "DOWN",
+              "FRONT",
+              "BACK"
+            ],
+            "type": "string"
+          },
+          "connectorId": {
+            "description": "Id of the connector.",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+            "examples": ["BNC_f"]
+          },
+          "connectorName": {
+            "description": "",
+            "type": "string",
+            "examples": ["BNC 75 Ohm female"]
+          },
+          "connectorGender": {
+            "description": "",
+            "enum": ["MALE", "FEMALE", "HERMA"],
+            "type": "string"
+          },
+          "connectorIcon": {
+            "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+            "examples": ["BNC_f"]
+          }
+        },
+        "required": [
+          "id",
+          "portTypeId",
+          "portTypeName",
+          "portTypeDirection",
+          "connectorId",
+          "connectorName",
+          "connectorIcon"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "moduleSlots": {
+      "description": "",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "description": "", "type": "string", "format": "uuid" },
+          "moduleSlotTypeId": {
+            "description": "",
+            "type": "string",
+            "format": "uuid"
+          },
+          "moduleSlotTypeName": {
+            "description": "Name of the module slot, as labeled on the device.",
+            "type": "string",
+            "examples": ["SFP 1"]
+          },
+          "module": { "type": "object" }
+        },
+        "required": ["id", "moduleSlotTypeId", "moduleSlotTypeName", "module"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "deviceTypeId",
+    "deviceTypeName",
+    "manufacturerId",
+    "manufacturerName",
+    "manufacturerNameShort",
+    "rackType",
+    "rackHeight",
+    "rackDepth",
+    "description",
+    "serialNumber",
+    "siteId",
+    "siteName",
+    "buildingId",
+    "buildingName",
+    "roomId",
+    "roomName",
+    "roomNumber",
+    "rackId",
+    "rackName",
+    "rackPosition",
+    "rackElevation",
+    "ports",
+    "moduleSlots",
+    "createdAt",
+    "createdBy",
+    "createdByName",
+    "updatedAt",
+    "updatedBy",
+    "updatedByName"
+  ],
+  "additionalProperties": false
+}

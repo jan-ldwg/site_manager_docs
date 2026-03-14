@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "RoomCreate model",
+  "description": "JSON document describing a new room",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the room",
+      "type": "string",
+      "examples": ["MCR-CAR"]
+    },
+    "number": {
+      "description": "Number of the room",
+      "type": ["string", "null"],
+      "maxLength": 16,
+      "examples": ["01-025"]
+    },
+    "buildingId": {
+      "description": "Id of the building in which the room is located",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "required": ["name", "buildingId"],
+  "additionalProperties": false
+}

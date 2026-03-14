@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SignalType model",
+  "description": "JSON document describing a signal type",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the signal type",
+      "type": "string",
+      "pattern": "^(?!.*--)(?:[a-z](?:[a-z-]{0,14}[a-z])?_)?[A-Z0-9]+(?:_[A-Z0-9]+)*$",
+      "examples": ["WCLK"]
+    },
+    "name": {
+      "description": "Name of the signal type",
+      "type": "string",
+      "examples": ["Wordclock"]
+    }
+  },
+  "required": ["id", "name"],
+  "additionalProperties": false
+}

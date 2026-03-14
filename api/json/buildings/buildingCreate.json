@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "BuildingCreate model",
+  "description": "JSON document describing a new building",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the building",
+      "type": "string",
+      "examples": ["Production Center"]
+    },
+    "nameShort": {
+      "description": "Short name of the building",
+      "type": ["string", "null"],
+      "maxLength": 16,
+      "examples": ["PC"]
+    },
+    "siteId": {
+      "description": "Id of the site at which the building is located",
+      "type": "string",
+      "format": "uuid"
+    }
+  },
+  "required": ["name", "siteId"],
+  "additionalProperties": false
+}

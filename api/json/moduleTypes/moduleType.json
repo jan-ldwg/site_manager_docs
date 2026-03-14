@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ModuleType model",
+  "description": "JSON document describing a module type",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the module type. Consists of id of manufacturer followed by id of module type. See documentation for rules.",
+      "type": "string",
+      "pattern": "^(?=.{1,48}$)(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])?-[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+      "maxLength": 48,
+      "examples": ["directout-dantemilansrcio"]
+    },
+    "version": {
+      "description": "Version number of the template. Minor version must be increased with every change. Major version must only be changed when targeting a different API version.",
+      "type": "string",
+      "pattern": "^\\d{1,2}\\.\\d{1,2}$",
+      "examples": ["1.1"]
+    },
+    "name": {
+      "description": "Name of the module as given by manufacturer",
+      "type": "string",
+      "maxLength": 256,
+      "examples": ["DANTE.MILAN.SRC.IO"]
+    },
+    "manufacturerId": {
+      "description": "Id of the manufacturer of the device type.",
+      "type": "string",
+      "patter": "^(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])$",
+      "maxLength": 16,
+      "examples": ["directout"]
+    },
+    "manufacturerName": {
+      "description": "Name of the manufacturer",
+      "type": "string",
+      "examples": ["DirectOut GmbH"]
+    },
+    "manufacturerNameShort": {
+      "description": "Abbreviated version of the name of the manufacturer",
+      "type": "string",
+      "maxLength": 16,
+      "examples": ["DirectOut"]
+    },
+    "orderCode": {
+      "description": "Order code for the module type as used by the manufacturer.",
+      "type": ["string", "null"],
+      "examples": ["DTMILSRCIO"]
+    },
+    "orderNumber": {
+      "description": "Order number for the module type as used by the manufacturer.",
+      "type": ["string", "null"],
+      "examples": ["DONETDA01"]
+    },
+    "moduleFormFactorId": {
+      "description": "Form factor of the module.",
+      "type": ["string", "null"],
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "examples": ["directout-a-slot"]
+    },
+    "portTypes": {
+      "description": "List of all types of ports on the module type.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Id of the port type",
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "description": "Name of the port, as printed on the device.",
+            "type": "string",
+            "examples": ["PRI (1)"]
+          },
+          "direction": {
+            "description": "Direction of the port type. See documentation for explainations of the possible values.",
+            "enum": [
+              "IN",
+              "OUT",
+              "INOUT",
+              "BIDI",
+              "UP",
+              "DOWN",
+              "FRONT",
+              "BACK"
+            ],
+            "type": "string",
+            "examples": ["UP"]
+          },
+          "connectorId": {
+            "description": "Id of the connector.",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+            "examples": ["RJ45_f"]
+          },
+          "compatibleSignalTypes": {
+            "description": "List of signal types that are compatible with this port.",
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^(?!.*--)(?:[a-z](?:[a-z-]{0,14}[a-z])?_)?[A-Z0-9]+(?:_[A-Z0-9]+)*$",
+              "examples": ["10BASE_T", "100BASE_TX", "1000BASE_T"]
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "direction",
+          "connectorId",
+          "compatibleSignalTypes"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "moduleSlotTypes": {
+      "description": "List of all types of module slots on the module type.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Id of the module slot type",
+            "type": "string",
+            "format": "uuid"
+          },
+          "name": {
+            "description": "Name of the module slot, as labeled on the device.",
+            "type": "string",
+            "examples": ["1"]
+          },
+          "compatibleFormFactors": {
+            "description": "List of module slot factors that can physically fit into the slot.",
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+            }
+          }
+        },
+        "required": ["id", "name", "compatibleFormFactors"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "id",
+    "version",
+    "name",
+    "manufacturerId",
+    "manufacturerName",
+    "manufacturerNameShort",
+    "orderCode",
+    "orderNumber",
+    "moduleFormFactorId",
+    "portTypes",
+    "moduleSlotTypes"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Error message",
+  "description": "Error message provided with 500 codes",
+  "type": "object",
+  "properties": {
+    "error": {
+      "description": "A descriptive error message",
+      "type": "string",
+      "example": "Internal server error"
+    },
+    "hint": {
+      "description": "Further explaination and steps to remediate the error",
+      "type": "string",
+      "example": "If this error persists, please contact your administrator."
+    }
+  },
+  "required": ["error", "hint"],
+  "additionalProperties": false
+}

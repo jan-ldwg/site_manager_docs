@@ -33,11 +33,21 @@ You can do small changes right from the GitHub website. For larger changes we re
     Name the file and create the new device template. See [this guide](create.md) for details. Then click `Commit changes...`.
     ![](../images/edit-file.png)
 
-    Give the commit a meaningful message. You should commit to a new feature branch, else your `main` branch will no longer be able to properly sync with the upstream repository. You should give this branch a meaningful name, although you will not use it again. The click `Propose changes`.
+    Give the commit a meaningful message. You should commit to a new feature branch, else your `main` branch will no longer be able to properly sync with the upstream repository. You should give this branch a meaningful name, although you will not use it again. Then click `Propose changes`.
     ![](../images/propose-changes.png "Propose changes")
 
     Navigate to the main page of your fork and switch to the just created feature branch.
     ![](../images/switch-to-feature-branch.png "Switch to feature branch")
+
+=== "VS Code"
+
+    We recommend using Visual Studio Code, as it offers native integration with GitHub. You can download it [here](https://code.visualstudio.com/Download).
+
+    A more detailed workflow will be documented here in the future...
+
+## Contribute back
+
+=== "GitHub"
 
     You will now see that your feature branch is 1 commit ahead of the main repository. Click `Contribute -> Open pull request`.
     ![](../images/open-pull-request.png "Open pull request")
@@ -53,6 +63,6 @@ You can do small changes right from the GitHub website. For larger changes we re
 
 === "VS Code"
 
-    We recommend using Visual Studio Code, as it offers a native integration with GitHub. You can download it [here](https://code.visualstudio.com/Download).
+    We recommend using Visual Studio Code, as it offers native integration with GitHub. You can download it [here](https://code.visualstudio.com/Download).
 
     A more detailed workflow will be documented here in the future...

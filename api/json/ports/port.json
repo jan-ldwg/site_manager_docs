@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Port model",
+  "description": "JSON document describing a port",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the port",
+      "type": "string",
+      "format": "uuid"
+    },
+    "portTypeId": {
+      "description": "Id of the port type",
+      "type": "string",
+      "format": "uuid"
+    },
+    "portTypeName": {
+      "description": "Name of the port type, as printed on the device.",
+      "type": "string",
+      "examples": ["WCLK IN"]
+    },
+    "portTypeDirection": {
+      "description": "Direction of the port type. See documentation for explainations of the possible values.",
+      "enum": ["IN", "OUT", "INOUT", "BIDI", "UP", "DOWN", "FRONT", "BACK"],
+      "type": "string",
+      "examples": ["IN"]
+    },
+    "connectorId": {
+      "description": "Id of the connector.",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+      "examples": ["BNC_f"]
+    },
+    "connectorName": {
+      "description": "Name of the connector.",
+      "type": "string",
+      "examples": ["BNC 75 Ohm female"]
+    },
+    "connectorIcon": {
+      "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+      "examples": ["BNC_f"]
+    },
+    "connectorGender": {
+      "description": "Gender of the connector",
+      "enum": ["MALE", "FEMALE", "HERMA"],
+      "type": "string",
+      "examples": ["FEMALE"]
+    },
+    "compatibleSignalTypes": {
+      "description": "List of signal types that are compatible with this port",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "signalId": {
+            "description": "Id of the signal type",
+            "type": "string",
+            "pattern": "^(?!.*--)(?:[a-z](?:[a-z-]{0,14}[a-z])?_)?[A-Z0-9]+(?:_[A-Z0-9]+)*$",
+            "examples": ["WCLK"]
+          },
+          "signalName": {
+            "description": "Name of the signal type",
+            "type": "string",
+            "examples": ["Wordclock"]
+          }
+        },
+        "required": ["signalId", "signalName"],
+        "additionalProperties": false
+      }
+    },
+    "compatibleConnectors": {
+      "description": "",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "connectorId": {
+            "description": "Id of the connector.",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+            "examples": ["BNC_m"]
+          },
+          "connectorName": {
+            "description": "Name of the connector.",
+            "type": "string",
+            "examples": ["BNC 75 Ohm male"]
+          },
+          "connectorIcon": {
+            "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+            "examples": ["BNC_m"]
+          },
+          "connectorGender": {
+            "description": "Gender of the connector",
+            "enum": ["MALE", "FEMALE", "HERMA"],
+            "type": "string",
+            "examples": ["MALE"]
+          }
+        },
+        "required": [
+          "connectorId",
+          "connectorName",
+          "connectorIcon",
+          "connectorGender"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "id",
+    "portTypeId",
+    "portTypeName",
+    "portTypeDirection",
+    "connectorId",
+    "connectorName",
+    "connectorGender"
+  ],
+  "additionalProperties": false
+}

@@ -1,0 +1,459 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Cable model",
+  "description": "JSON document describing a cable",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "number": {
+      "description": "Number of the cable",
+      "type": ["string", "null"],
+      "examples": ["x21045"]
+    },
+    "length": {
+      "description": "length of the cable in meters",
+      "type": ["number", "null"],
+      "minimum": 0,
+      "examples": [5]
+    },
+    "notes": {
+      "description": "",
+      "type": ["string", "null"],
+      "examples": ["This is scheduled for replacement in Q2"]
+    },
+    "status": {
+      "description": "",
+      "enum": [
+        "PLANNED",
+        "ORDERED",
+        "DELIVERED",
+        "INSTALLED",
+        "TESTED",
+        "IN_SERVICE",
+        "OUT_OF_SERVICE"
+      ],
+      "type": ["string", "null"],
+      "examples": ["INSTALLED"]
+    },
+    "cableTypeId": {
+      "description": "Id of the cable type",
+      "type": "string",
+      "examples": ["CAT_6_flex"]
+    },
+    "cableTypeName": {
+      "description": "Name of the cable type",
+      "type": "string",
+      "examples": ["Cat.6 flex"]
+    },
+    "compatibleCableTypes": {
+      "description": "List of alternative cable types that would be valid",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Id of the cable type",
+            "type": "string",
+            "examples": ["CAT_7_flex"]
+          },
+          "name": {
+            "description": "Name of the cable type",
+            "type": "string",
+            "examples": ["Cat.7 flex"]
+          }
+        },
+        "required": ["id", "name"],
+        "additionalProperties": false
+      }
+    },
+    "createdAt": {
+      "description": "",
+      "type": "string",
+      "format": "date-time",
+      "examples": ["2026-03-07T13:52:34.736Z"]
+    },
+    "createdBy": {
+      "description": "",
+      "type": "string",
+      "examples": ["4B7y4PX9aJ8O0c2WyKhVmBqMqFRG9iay"]
+    },
+    "createdByName": {
+      "description": "",
+      "type": "string",
+      "examples": ["John Doe"]
+    },
+    "updatedAt": {
+      "description": "",
+      "type": "string",
+      "format": "date-time",
+      "examples": ["2026-03-07T13:52:34.736Z"]
+    },
+    "updatedBy": {
+      "description": "",
+      "type": "string",
+      "examples": ["4B7y4PX9aJ8O0c2WyKhVmBqMqFRG9iay"]
+    },
+    "updatedByName": {
+      "description": "",
+      "type": "string",
+      "examples": ["John Doe"]
+    },
+    "startPortId": {
+      "description": "Id of the port at the start side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startPortName": {
+      "description": "Name of the port at the start side of the cable",
+      "type": "string",
+      "examples": ["WCLK OUT"]
+    },
+    "startPortDirection": {
+      "description": "Direction of the port. See documentation for explainations of the possible values.",
+      "enum": ["IN", "OUT", "INOUT", "BIDI", "UP", "DOWN", "FRONT", "BACK"],
+      "type": "string",
+      "examples": ["OUT"]
+    },
+    "startConnectorId": {
+      "description": "Id of the connector attached to the start side of the cable",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+      "examples": ["BNC_m"]
+    },
+    "startConnectorColor": {
+      "description": "Name of the connector, e.g. housing or sleeve, attached to the start side of the cable",
+      "enum": [
+        "red",
+        "blue",
+        "orange",
+        "yellow",
+        "green",
+        "beige",
+        "brown",
+        "lightgray",
+        "mediumgray",
+        "black",
+        "purple",
+        "cyan",
+        "white",
+        "pink"
+      ],
+      "type": ["string", "null"],
+      "examples": ["red"]
+    },
+    "startConnectorName": {
+      "description": "Name of the connector attached to the start side of the cable",
+      "type": "string",
+      "examples": ["BNC 75 Ohm male"]
+    },
+    "startConnectorGender": {
+      "description": "Gender of the connector attached to the start side of the cable",
+      "enum": ["MALE", "FEMALE", "HERMA"],
+      "examples": ["MALE"]
+    },
+    "startConnectorIcon": {
+      "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+      "examples": ["BNC_m"]
+    },
+    "compatibleStartConnectors": {
+      "type": "array",
+      "items": {
+        "description": "List of alternative connectors that would be valid",
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Id of the connector",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+            "examples": ["BNC_m"]
+          },
+          "name": {
+            "description": "Name of the connector",
+            "type": "string",
+            "examples": ["BNC 75 Ohm male"]
+          },
+          "icon": {
+            "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+            "examples": ["BNC_m"]
+          },
+          "gender": {
+            "description": "Gender of the connector",
+            "enum": ["MALE", "FEMALE", "HERMA"],
+            "examples": ["MALE"]
+          }
+        },
+        "required": ["id", "name", "icon", "gender"],
+        "additionalProperties": false
+      }
+    },
+    "startDeviceId": {
+      "description": "Id of the device at the start side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startDeviceName": {
+      "description": "Name of the device at the start side of the cable",
+      "type": "string",
+      "examples": ["CLK-GEN1"]
+    },
+    "startRackId": {
+      "description": "Id of the rack at the start side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startRackName": {
+      "description": "Name of the rack at the start side of the cable",
+      "type": "string",
+      "examples": ["Rack 14"]
+    },
+    "startRoomId": {
+      "description": "Id of the room at the start side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startRoomName": {
+      "description": "Name of the room at the start side of the cable",
+      "type": "string",
+      "examples": ["MCR-CAR"]
+    },
+    "startRoomNumber": {
+      "description": "Number of the room",
+      "type": ["string", "null"],
+      "maxLength": 16,
+      "examples": ["01-025"]
+    },
+    "startBuildingId": {
+      "description": "Id of the building at the start side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startBuildingName": {
+      "description": "Name of the building at the start side of the cable",
+      "type": "string",
+      "examples": ["Production Center"]
+    },
+    "startSiteId": {
+      "description": "Id of the site at the start side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "startSiteName": {
+      "description": "Name of the site at the start side of the cable",
+      "type": "string",
+      "examples": ["Frankfurt"]
+    },
+    "endPortId": {
+      "description": "Id of the port at the end side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endPortName": {
+      "description": "Name of the port at the end side of the cable",
+      "type": "string",
+      "examples": ["WCLK IN"]
+    },
+    "endPortDirection": {
+      "description": "Direction of the port. See documentation for explainations of the possible values.",
+      "enum": ["IN", "OUT", "INOUT", "BIDI", "UP", "DOWN", "FRONT", "BACK"],
+      "type": "string",
+      "examples": ["IN"]
+    },
+    "endConnectorId": {
+      "description": "Id of the connector attached to the end side of the cable",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+      "examples": ["BNC_m"]
+    },
+    "endConnectorColor": {
+      "description": "Name of the connector, e.g. housing or sleeve, attached to the end side of the cable",
+      "enum": [
+        "red",
+        "blue",
+        "orange",
+        "yellow",
+        "green",
+        "beige",
+        "brown",
+        "lightgray",
+        "mediumgray",
+        "black",
+        "purple",
+        "cyan",
+        "white",
+        "pink"
+      ],
+      "type": ["string", "null"],
+      "examples": ["red"]
+    },
+    "endConnectorName": {
+      "description": "Name of the connector attached to the end side of the cable",
+      "type": "string",
+      "examples": ["WCLK IN"]
+    },
+    "endConnectorGender": {
+      "description": "Gender of the connector attached to the end side of the cable",
+      "enum": ["MALE", "FEMALE", "HERMA"],
+      "examples": ["MALE"]
+    },
+    "endConnectorIcon": {
+      "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+      "type": "string",
+      "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+      "examples": ["BNC_m"]
+    },
+    "compatibleEndConnectors": {
+      "description": "List of alternative connectors that would be valid",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "description": "Id of the connector",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+            "examples": ["BNC_m"]
+          },
+          "name": {
+            "description": "Name of the connector",
+            "type": "string",
+            "examples": ["BNC 75 Ohm male"]
+          },
+          "icon": {
+            "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+            "examples": ["BNC_m"]
+          },
+          "gender": {
+            "description": "Gender of the connector",
+            "enum": ["MALE", "FEMALE", "HERMA"],
+            "examples": ["MALE"]
+          }
+        },
+        "required": ["id", "name", "icon", "gender"],
+        "additionalProperties": false
+      }
+    },
+    "endDeviceId": {
+      "description": "Id of the device at the end side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endDeviceName": {
+      "description": "Name of the device at the end side of the cable",
+      "type": "string",
+      "examples": ["A-DSP"]
+    },
+    "endRackId": {
+      "description": "Id of the rack at the end side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endRackName": {
+      "description": "Name of the rack at the end side of the cable",
+      "type": "string",
+      "examples": ["Rack 15"]
+    },
+    "endRoomId": {
+      "description": "Id of the room at the end side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endRoomName": {
+      "description": "Name of the room at the end side of the cable",
+      "type": "string",
+      "examples": ["MCR-CAR"]
+    },
+    "endRoomNumber": {
+      "description": "Number of the room",
+      "type": ["string", "null"],
+      "maxLength": 16,
+      "examples": ["01-025"]
+    },
+    "endBuildingId": {
+      "description": "Id of the building at the end side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endBuildingName": {
+      "description": "Name of the building at the end side of the cable",
+      "type": "string",
+      "examples": ["Production Center"]
+    },
+    "endSiteId": {
+      "description": "Id of the site at the end side of the cable",
+      "type": "string",
+      "format": "uuid"
+    },
+    "endSiteName": {
+      "description": "Name of the site at the end side of the cable",
+      "type": "string",
+      "examples": ["Frankfurt"]
+    }
+  },
+  "required": [
+    "id",
+    "number",
+    "length",
+    "notes",
+    "status",
+    "cableTypeId",
+    "cableTypeName",
+    "compatibleCableTypes",
+    "createdAt",
+    "createdBy",
+    "createdByName",
+    "updatedAt",
+    "updatedBy",
+    "updatedByName",
+    "startPortId",
+    "startPortName",
+    "startPortDirection",
+    "startConnectorId",
+    "startConnectorColor",
+    "startConnectorName",
+    "startConnectorGender",
+    "startConnectorIcon",
+    "compatibleStartConnectors",
+    "startDeviceId",
+    "startDeviceName",
+    "startRackId",
+    "startRackName",
+    "startRoomId",
+    "startRoomName",
+    "startRoomNumber",
+    "startBuildingId",
+    "startBuildingName",
+    "startSiteId",
+    "startSiteName",
+    "endPortId",
+    "endPortName",
+    "endPortDirection",
+    "endConnectorId",
+    "endConnectorColor",
+    "endConnectorName",
+    "endConnectorGender",
+    "endConnectorIcon",
+    "compatibleEndConnectors",
+    "endDeviceId",
+    "endDeviceName",
+    "endRackId",
+    "endRackName",
+    "endRoomId",
+    "endRoomName",
+    "endRoomNumber",
+    "endBuildingId",
+    "endBuildingName",
+    "endSiteId",
+    "endSiteName"
+  ],
+  "additionalProperties": false
+}

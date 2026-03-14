@@ -8,7 +8,7 @@ Docker Desktop is available [here](https://www.docker.com/products/docker-deskto
 
 ### 2. Set up environment variables
 
-Open an empty folder in an editor of your choice (this tutorial uses [VSCode](https://code.visualstudio.com/)). Create a file called `.env` and paste the contents from below. In this file, you will set up basic parameters and names for the application and the database. Make sure to change at least `POSTGRES_USER`, `POSTGRES_PASSWORD`, the corresponding `DATABASE_URL` and a `BETTER_AUTH_SECRET`. The rest of the parameters can be left as they are.
+Open an empty folder in an editor of your choice (this tutorial uses [VSCode](https://code.visualstudio.com/)). Create a file called `.env` and paste the contents from below. In this file, you will set up basic parameters and names for the application and the database. Make sure to change at least `POSTGRES_USER`, `POSTGRES_PASSWORD`, the corresponding `DATABASE_URL` and `BETTER_AUTH_SECRET`. The rest of the parameters can be left as they are.
 
 The `POSTGRES_USER`and `POSTGRES_PASSWORD`are used to create a user with which site_manager connects to the database. This is not the user you use to login to the web ui. You will not need to enter this anywhere else.
 
@@ -30,7 +30,7 @@ BETTER_AUTH_URL=http://localhost:5056 # Base URL of the app
 
 DEFAULT_ADMIN_USER="admin"
 DEFAULT_ADMIN_PASSWORD="password"
-DEFAULT_ADMIN_EMAIL="admin@example.com" #this is only for login, site_manager will not send you any email.
+DEFAULT_ADMIN_EMAIL="admin@example.com" #this is only for login, site_manager will not send you any emails
 
 REFETCH_INTERVAL=600000
 TEMPLATE_URL="https://api.github.com/repos/jan-ldwg/site_manager_templates/zipball/main"
@@ -39,7 +39,7 @@ TEMPLATE_URL="https://api.github.com/repos/jan-ldwg/site_manager_templates/zipba
 
 ### 3. Configure compose.yaml
 
-In the same folder, create a file called `compose.yaml` and paste the below contents.
+In the same folder, create a file called `compose.yaml` with the following content.
 
 ```yaml title="compose.yaml"
 services:

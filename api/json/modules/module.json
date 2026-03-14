@@ -1,0 +1,133 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Module model",
+  "description": "JSON document describing a module",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the module",
+      "type": "string",
+      "format": "uuid"
+    },
+    "moduleTypeId": {
+      "description": "Id of the module type. Consists of id of manufacturer followed by id of module type. See documentation for rules.",
+      "type": "string",
+      "pattern": "^(?=.{1,48}$)(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])?-[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+      "maxLength": 48,
+      "examples": ["lawo-dante-io"]
+    },
+    "manufacturerId": {
+      "description": "Id of the manufacturer of the device type.",
+      "type": "string",
+      "patter": "^(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])$",
+      "maxLength": 16,
+      "examples": ["lawo"]
+    },
+    "manufacturerNameShort": {
+      "description": "",
+      "type": "string",
+      "examples": ["Lawo"]
+    },
+    "ports": {
+      "description": "",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "description": "", "type": "string", "format": "uuid" },
+          "portTypeId": {
+            "description": "",
+            "type": "string",
+            "format": "uuid"
+          },
+          "portTypeName": {
+            "description": "Name of the port, as printed on the device.",
+            "type": "string",
+            "examples": ["Dante Pri"]
+          },
+          "portTypeDirection": {
+            "description": "Direction of the port type. See documentation for explainations of the possible values.",
+            "enum": [
+              "IN",
+              "OUT",
+              "INOUT",
+              "BIDI",
+              "UP",
+              "DOWN",
+              "FRONT",
+              "BACK"
+            ],
+            "type": "string",
+            "examples": ["UP"]
+          },
+          "connectorId": {
+            "description": "Id of the connector.",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+            "examples": ["RJ45_f"]
+          },
+          "connectorName": {
+            "description": "Name of the connector",
+            "type": "string",
+            "examples": ["RJ45 female"]
+          },
+          "connectorIcon": {
+            "description": "Icon for use with this connector. These can be fetched as SVG icons from /icons/{id}.svg",
+            "type": "string",
+            "pattern": "^[A-Za-z0-9](?:[A-Za-z0-9]|[_.](?=[A-Za-z0-9]))*_(?:f|m|h)$",
+            "examples": ["RJ45_f"]
+          },
+          "connectorGender": {
+            "description": "Gender of the connector",
+            "enum": ["MALE", "FEMALE", "HERMA"],
+            "type": "string",
+            "examples": ["FEMALE"]
+          }
+        },
+        "required": [
+          "id",
+          "portTypeId",
+          "portTypeName",
+          "portTypeDirection",
+          "connectorId",
+          "connectorName",
+          "connectorIcon",
+          "connectorGender"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "moduleSlots": {
+      "description": "",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "description": "", "type": "string", "format": "uuid" },
+          "moduleSlotTypeId": {
+            "description": "",
+            "type": "string",
+            "format": "uuid"
+          },
+          "moduleSlotTypeName": {
+            "description": "Name of the module slot, as labeled on the device.",
+            "type": "string",
+            "examples": ["SFP 1"]
+          },
+          "module": { "type": "object" }
+        },
+        "required": ["id", "moduleSlotTypeId", "moduleSlotTypeName", "module"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "id",
+    "moduleTypeId",
+    "manufacturerId",
+    "manufacturerNameShort",
+    "ports",
+    "moduleSlots"
+  ],
+  "additionalProperties": false
+}

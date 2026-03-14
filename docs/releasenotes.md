@@ -1,6 +1,6 @@
 # Release notes
 
-Release names follow SemVer (MAJOR.MINOR.PATCH-PRERELEASE). Changes to major will mean either changes to API or to the database schema.
+Release names follow SemVer (MAJOR.MINOR.PATCH-PRERELEASE). Changes to major will mean either changes to the API or to the database schema. Be careful when updating to a new major version!
 
 ## v1.0.0-alpha.1.5
 

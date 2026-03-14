@@ -1,12 +1,20 @@
 site_name: site_manager_docs
 repo_url: https://github.com/jan-ldwg/site_manager_server
 edit_uri: https://github.com/jan-ldwg/site_manager_docs/tree/main/docs
-site_description:
+site_description: Documentation for the site_manager software application
 site_author: Jan Ludwig
-copyright:
+copyright: Copyright &copy; 2025 - 2026 Jan Ludwig
 
 watch:
   - ./
+
+plugins:
+  - search
+  - neoteroi.mkdocsoad:
+      use_pymdownx: true
+
+extra_css:
+  - css/mkdocsoad.css
 
 theme:
   name: material
@@ -34,8 +42,13 @@ theme:
 
 markdown_extensions:
   - footnotes
+  - admonition
   - attr_list
   - md_in_html
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
@@ -47,12 +60,6 @@ markdown_extensions:
       base_path: .
       check_paths: true
   - pymdownx.superfences
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.tabbed:
       alternate_style: true
 
@@ -61,6 +68,7 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Installation: installation.md
+  - Release Notes: releasenotes.md
   - Tutorial:
       - Getting started: tutorial/gettingstarted.md
       - Basic concepts: tutorial/concepts.md
@@ -76,30 +84,30 @@ nav:
   #- Data Model:
   #- Device Types: datamodel/devicetype.md
   #- Devices: datamodel/devices.md
-  - Release Notes: releasenotes.md
   - API:
       - Overview: api/overview.md
-      - /devices: api/devices.md
-      - /devices/{deviceId}: api/devices_deviceId.md
-      - /ports/{portId}: api/ports_portId.md
-      - /modules: api/modules.md
-      - /modules/{moduleId}: api/modules_moduleId.md
-      - /cables: api/cables.md
-      - /cables/{cableId}: api/cables_cableId.md
-      - /sites: api/sites.md
-      - /sites/{siteId}: api/sites_siteId.md
-      - /buildings: api/buildings.md
-      - /buildings/{buildingId}: api/buildings_buildingId.md
-      - /rooms: api/rooms.md
-      - /rooms/{roomId}: api/rooms_roomId.md
-      - /racks: api/racks.md
-      - /racks/{rackId}: api/racks_rackId.md
-      - /devicetypes: api/devicetypes.md
-      - /devicetypes/{deviceTypeId}: api/devicetypes_deviceTypeId.md
+      - Schema: api/api_docs.md
+      #- /devices: api/devices.md
+      #- /devices/{deviceId}: api/devices_deviceId.md
+      #- /ports/{portId}: api/ports_portId.md
+      #- /modules: api/modules.md
+      #- /modules/{moduleId}: api/modules_moduleId.md
+      #- /cables: api/cables.md
+      #- /cables/{cableId}: api/cables_cableId.md
+      #- /sites: api/sites.md
+      #- /sites/{siteId}: api/sites_siteId.md
+      #- /buildings: api/buildings.md
+      #- /buildings/{buildingId}: api/buildings_buildingId.md
+      #- /rooms: api/rooms.md
+      #- /rooms/{roomId}: api/rooms_roomId.md
+      #- /racks: api/racks.md
+      #- /racks/{rackId}: api/racks_rackId.md
+      #- /devicetypes: api/devicetypes.md
+      #- /devicetypes/{deviceTypeId}: api/devicetypes_deviceTypeId.md
       #- /moduleTypes: api/moduleTypes.md
       #- /moduleSlotsTypes: api/moduleSlotsTypes.md
       #- /portTypes: api/portTypes.md
       #- /signalTypes: api/signalTypes.md
       #- /connectors: api/connectors.md
-      - /manufacturers: api/manufacturers.md
-      - /manufacturers/{manufacturerId}: api/manufacturers_manufacturerId.md
+      #- /manufacturers: api/manufacturers.md
+      #- /manufacturers/{manufacturerId}: api/manufacturers_manufacturerId.md

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SiteCreate model",
+  "description": "JSON document describing a new site",
+  "type": "object",
+  "properties": {
+    "name": {
+      "description": "Name of the site",
+      "type": "string",
+      "examples": ["Frankfurt"]
+    }
+  },
+  "required": ["name"],
+  "additionalProperties": false
+}

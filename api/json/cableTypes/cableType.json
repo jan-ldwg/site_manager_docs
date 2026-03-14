@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CableType model",
+  "description": "JSON document describing a cable type",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the cabletype",
+      "type": "string",
+      "examples": ["CAT_6_flex"]
+    },
+    "name": {
+      "description": "Name of the cabletype",
+      "type": "string",
+      "examples": ["Cat.6 flex"]
+    }
+  },
+  "required": ["id", "name"],
+  "additionalProperties": false
+}

@@ -46,3 +46,39 @@ In general it is fine if older standards like DVI are not modeled completely for
 [^2]: without audio or HDCP
 
 [^3]: only with DP++
+
+### MADI standards
+
+MADI (Multichannel Audio Digital Interface) can be run over a variety of physical layers. The most common are 75 Ohm coaxial cable, single mode or multi mode fiber and twisted pair cabling.
+
+Single mode fiber is almost always 1310 nm, same as SDI. For multi mode fiber it is more complicated. The standard calls for 1300 nm over 62.5 micrometer fiber, same as FDDI. However, most manufacturers seem to have switched to 1310 nm over 50 micrometer fiber, as is common in modern ethernet. In theory both variants should be compatible, so site_manager does not differentiate them. 850 nm is also sometimes used, which is not compatible and therefore its own signal type. CWDM optics are also available from some vendors.
+
+### LC couplers
+
+LC couplers as used in keystone panels are often differentiated with different colors for different fiber types and polishes.
+
+| Type    | Polish | Color   |
+| ------- | ------ | ------- |
+| OS2     | PC/UPC | blue    |
+| OS2     | APC    | green   |
+| OM1/OM2 |        | beige   |
+| OM3     |        | aqua    |
+| OM4     |        | violett |
+| OM5     |        | lime    |
+
+However, mechanically these couplers are all the same, as they include no optical components at all. The connection between fibers is simply made by aligning the ferrules, which are always the same diameter.
+
+site_manager still differentiates these different couplers and will not let you use a OS2 APC coupler to connect OM3 fiber for example. This decision was made since there is no other mechanism in site_manager to ensure that compatible connectors are used on both side of the coupler.
+
+Neutrik only has one SKU for their OpticalCON Duo couplers, however, site_manager models these as three different module types to allow for better compatibility checks.
+
+### Euroblock connectors
+
+Euroblock connectors (also know as Phoenix connectors) are popular in installed AV for audio and control wiring and are also becoming more popular in broadcast devices for GPIO and serial connections. There are many different styles of these connectors, mostly differentiated by their pitch and number of positions/contacts. While a wide range of these connectors exists, the most commonly used ones are 3.5mm, 3.81mm and 5.08mm pitch. Unfortunately most manufacturers do not specify the connector for their equipment. Therefore site_manager also supports an unknown pitch which should be used if the correct pitch can not be determined with absolute certainty.
+
+| Pitch   | Example part from Phoenix | Id            |
+| ------- | ------------------------- | ------------- |
+| 3.5mm   | MC 1,5/ 2-ST-3,5          | EURO_35_2p_f  |
+| 3.81mm  | MC 1,5/ 2-ST-3,81         | EURO_381_2p_f |
+| 5.08mm  | MSTB 2,5/ 2-ST-5,08       | EURO_508_2p_f |
+| unknown | n/a                       | EURO_XX_2p_f  |

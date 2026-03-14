@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Rack model",
+  "description": "JSON document describing a rack",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the rack",
+      "type": "string",
+      "format": "uuid"
+    },
+    "name": {
+      "description": "Name of the rack",
+      "type": "string",
+      "examples": ["Rack 12"]
+    },
+    "roomId": {
+      "description": "Id of the room in which the rack is located",
+      "type": "string",
+      "format": "uuid"
+    },
+    "type": {
+      "description": "Type of the rack",
+      "enum": ["NONE", "19INCH"],
+      "type": "string",
+      "examples": ["19INCH"]
+    },
+    "totalRU": {
+      "description": "Height of the rack in units. 0 when not a rack",
+      "type": "number",
+      "minimum": 0,
+      "examples": [42]
+    },
+    "depth": {
+      "description": "Depth of the rack in mm",
+      "type": "number",
+      "minimum": 0,
+      "examples": [800]
+    }
+  },
+  "required": ["id", "name", "roomId", "type", "totalRU", "depth"],
+  "additionalProperties": false
+}

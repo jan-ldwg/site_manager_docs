@@ -1,14 +1,14 @@
 name: ci
 on:
   workflow_dispatch:
-  push:
-    branches:
-      - main
-    paths:
-      - "docs/**"
-      - "json_examples"
-      - "json_schemas"
-      - "mkdocs.yml"
+  #push:
+  #  branches:
+  #    - main
+  #  paths:
+  #    - "docs/**"
+  #    - "json_examples"
+  #    - "json_schemas"
+  #    - "mkdocs.yml"
 permissions:
   contents: write
 jobs:

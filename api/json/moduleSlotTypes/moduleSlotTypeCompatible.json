@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ModuleSlotTypeCompatible model",
+  "description": "JSON document describing the compatible and incompatible module types for a module slot type",
+  "type": "object",
+  "properties": {
+    "whitelist": {
+      "description": "List of module types that are guranteed by the manufacturer to work in this slot",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "moduleTypeId": {
+            "description": "Id of the module type. Consists of id of manufacturer followed by id of module type. See documentation for rules.",
+            "type": "string",
+            "pattern": "^(?=.{1,48}$)(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])?-[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+            "maxLength": 48,
+            "examples": ["directout-sfp-madi-bnc"]
+          },
+          "moduleTypeName": {
+            "description": "Name of the module as given by manufacturer",
+            "type": "string",
+            "maxLength": 256,
+            "examples": ["SFP MADI BNC"]
+          },
+          "manufacturerId": {
+            "description": "Id of the manufacturer of the device type.",
+            "type": "string",
+            "pattern": "^(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])$",
+            "maxLength": 16,
+            "examples": ["directout"]
+          },
+          "manufacturerName": {
+            "description": "",
+            "type": "string",
+            "examples": ["DirectOut GmbH"]
+          },
+          "manufacturerNameShort": {
+            "description": "",
+            "type": "string",
+            "examples": ["DirectOut"]
+          }
+        },
+        "required": [
+          "moduleTypeId",
+          "moduleTypeName",
+          "manufacturerId",
+          "manufacturerName",
+          "manufacturerNameShort"
+        ]
+      }
+    },
+    "blacklist": {
+      "description": "List of module types that will definitely not work in this slot",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "moduleTypeId": {
+            "description": "Id of the module type. Consists of id of manufacturer followed by id of module type. See documentation for rules.",
+            "type": "string",
+            "pattern": "^(?=.{1,48}$)(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])?-[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+            "maxLength": 48,
+            "examples": ["dnetgear-agm734"]
+          },
+          "moduleTypeName": {
+            "description": "Name of the module as given by manufacturer",
+            "type": "string",
+            "maxLength": 256,
+            "examples": ["AGM734"]
+          },
+          "manufacturerId": {
+            "description": "Id of the manufacturer of the device type.",
+            "type": "string",
+            "pattern": "^(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])$",
+            "maxLength": 16,
+            "examples": ["netgear"]
+          },
+          "manufacturerName": {
+            "description": "",
+            "type": "string",
+            "examples": ["NETGEAR Inc."]
+          },
+          "manufacturerNameShort": {
+            "description": "",
+            "type": "string",
+            "examples": ["NETGEAR"]
+          }
+        },
+        "required": [
+          "moduleTypeId",
+          "moduleTypeName",
+          "manufacturerId",
+          "manufacturerName",
+          "manufacturerNameShort"
+        ]
+      }
+    },
+    "compatibleModuleTypes": {
+      "description": "List of module types that physically fit but are not guranteed to work in this slot type",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "moduleTypeId": {
+            "description": "Id of the module type. Consists of id of manufacturer followed by id of module type. See documentation for rules.",
+            "type": "string",
+            "pattern": "^(?=.{1,48}$)(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])?-[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+            "maxLength": 48,
+            "examples": ["lawo-98160-82"]
+          },
+          "moduleTypeName": {
+            "description": "Name of the module as given by manufacturer",
+            "type": "string",
+            "maxLength": 256,
+            "examples": ["981/60-82"]
+          },
+          "manufacturerId": {
+            "description": "Id of the manufacturer of the device type.",
+            "type": "string",
+            "pattern": "^(?!.*--)[a-z](?:[a-z-]{0,14}[a-z])$",
+            "maxLength": 16,
+            "examples": ["lawo"]
+          },
+          "manufacturerName": {
+            "description": "",
+            "type": "string",
+            "examples": ["Lawo AG"]
+          },
+          "manufacturerNameShort": {
+            "description": "",
+            "type": "string",
+            "examples": ["Lawo"]
+          }
+        },
+        "required": [
+          "moduleTypeId",
+          "moduleTypeName",
+          "manufacturerId",
+          "manufacturerName",
+          "manufacturerNameShort"
+        ]
+      }
+    }
+  },
+  "required": ["whitelist", "blacklist", "compatibleModuleTypes"]
+}

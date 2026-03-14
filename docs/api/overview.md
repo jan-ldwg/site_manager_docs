@@ -2,14 +2,7 @@
 
 !!! warning
 
-    The api is still under active development. The documentation might not reflect the current implementation. The documentation represents the current end goal for the v1.0 release. Feel free to leave feedback in the site_manager_server repo.
-
-    Currently missing features:
-
-    - general improvements to structure
-    - unified naming of properties and parameters
-    - search params
-    - authentication and authorization
+    The API is still under active development and is not stabilized. The documentation might not reflect the current implementation. The documentation represents the current end goal for the v1.0 release. Feel free to leave feedback in the site_manager_server repo.
 
 site_manager is designed to be flexible and easy to integrate into overarching workflows. To allow connection to external systems, a fully featured API is available. This API provides endpoints to take every action that is available in the GUI.
 
@@ -54,24 +47,3 @@ If the query parameter is an id for filtering multiple ids can be specified to b
 ```HTTP
 GET api/v1/devices?siteId=7829eb19-3f4f-4935-b5c3-2ce3aef53de2&siteId=5caa58cb-9a0b-46d8-9f15-dc4020412471
 ```
-
-## Status codes
-
-The API uses the following HTTP status codes:
-
-| Code | Status                |     |
-| ---- | --------------------- | --- |
-| 200  | Ok                    |     |
-| 201  | Created               |     |
-| 400  | Bad Request           |     |
-| 401  | Unauthorized          |     |
-| 403  | Forbidden             |     |
-| 404  | Not Found             |     |
-| 409  | Conflict              |     |
-| 500  | Internal Server Error |     |
-
-## Error messages
-
-## About this documentation
-
-Optional parameters in the request body are marked with an `?` at the end of their key. This has to be omitted in the request.
