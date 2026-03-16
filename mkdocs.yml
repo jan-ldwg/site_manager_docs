@@ -37,6 +37,7 @@ theme:
     - content.links.external
     - navigation.instant
     - navigation.sections
+    - navigation.footer
     - content.action.edit
     - content.footnote.tooltips
 
@@ -72,9 +73,11 @@ nav:
   - Tutorial:
       - Getting started: tutorial/gettingstarted.md
       - Basic concepts: tutorial/concepts.md
-      - Wiring diagram: tutorial/wiringdiagram.md
-      - Cable list: tutorial/cablelist.md
-      - Device list: tutorial/devicelist.md
+      - Wiring Diagram: tutorial/wiringdiagram.md
+      - Cables: tutorial/cablelist.md
+      - Devices: tutorial/devicelist.md
+      - Account: tutorial/accountpage.md
+      - Users: tutorial/userpage.md
   - Library:
       - Overview: library/overview.md
       - Create templates: library/create.md

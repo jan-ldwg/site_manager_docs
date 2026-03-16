@@ -1,8 +1,14 @@
 The wiring diagram shows a graphical representation of the system. Use this view to add devices and cables or add new locations.
 
+![](../images/overview.png)
+
 ## Setting a filter
 
 When opening the page for the first time, the diagram will be empty. You will need to set a filter for the locations you want to see by clicking onto the funnel in the toolbar, selecting a site and then toggling the buildings, rooms and racks you want to see.
+
+<p align="center">
+<img src="../../images/location-filter.png" width="30%" >
+</p>
 
 !!! note
 
@@ -26,15 +32,15 @@ If you click onto a device or cable you will select it. Selected devices and cab
 
 ## Deleting a device or cable
 
-Select the device or cable and then press ++backspace++ to delete it. Deleting a device will also delete all modules and connected cables. You can select multiple elements by holding :fontawesome-brands-windows: ++ctrl++/:fontawesome-brands-apple: ++cmd++.
+Select the device or cable and then press ++backspace++ or ++delete++ to delete it. Deleting a device will also delete all modules and connected cables. You can select multiple elements by holding :fontawesome-brands-windows: ++ctrl++/:fontawesome-brands-apple: ++cmd++.
 
 !!! warning
 
-    This action can not be undone.
+    Deletions can not be undone.
 
 ## Navigating in the diagram
 
-Navigation in the diagram is similar to most drawing programs. You can pan the viewport vertically by scrolling. Hold down :fontawesome-brands-windows: ++shift++/ to pan horizontally and :fontawesome-brands-windows: ++ctrl++ to zoom. In the top left corner of are some buttons to zoom the viewport and center it. The magic wand does a relayout of the diagram.
+Navigation in the diagram is similar to most drawing programs. You can pan the viewport vertically by scrolling. Hold down ++shift++ to pan horizontally and :fontawesome-brands-windows: ++ctrl++/:fontawesome-brands-apple: ++cmd++ to zoom. In the top left corner of the viewport are some buttons to zoom the viewport and center it. The magic wand does a relayout of the diagram.
 
 ## Working with modules
 
@@ -50,7 +56,7 @@ To quickly find devices in the wiring diagram you can use the search bar. Simply
 
 ## Exporting the diagram
 
-You can export the diagram as an svg file by clicking on the button in the toolbar.
+You can export the diagram as an SVG file by clicking on the button in the toolbar.
 
 ## Shortcuts
 
