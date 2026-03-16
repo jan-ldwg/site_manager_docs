@@ -3,7 +3,7 @@ repo_url: https://github.com/jan-ldwg/site_manager_server
 edit_uri: https://github.com/jan-ldwg/site_manager_docs/tree/main/docs
 site_description: Documentation for the site_manager software application
 site_author: Jan Ludwig
-copyright: Copyright &copy; 2025 - 2026 Jan Ludwig
+copyright: Copyright &copy; 2025 - 2026 Jan Ludwig / BFE Studio und Medien Systeme GmbH
 
 watch:
   - ./
