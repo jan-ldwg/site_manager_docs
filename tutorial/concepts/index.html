@@ -525,7 +525,7 @@
   <span class="md-ellipsis">
     
   
-    Wiring diagram
+    Wiring Diagram
   
 
     
@@ -553,7 +553,7 @@
   <span class="md-ellipsis">
     
   
-    Cable list
+    Cables
   
 
     
@@ -581,7 +581,63 @@
   <span class="md-ellipsis">
     
   
-    Device list
+    Devices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../accountpage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Account
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../userpage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Users
   
 
     
@@ -963,17 +1019,21 @@
 
 <h2 id="understanding-devices-and-device-types">Understanding devices and device types</h2>
 <p>Device types can be thought of as templates that are used to create instances of devices. They represent one specific model by a manufacturer. In contrast to some other applications (e.g. Netbox) site_manager does not duplicate information from the device type into each device instance upon creation, but instead retrieves general information for a device by querying the device type. This means that a device type may only be deleted from the database when there are no devices of this type in the database. This also means that some information in the device type can be changed and all existing instances of this device will be updated on future queries.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The number of ports or module slots can not be changed afterwards.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The number of ports or module slots can not be changed afterwards.</p>
+<p>Retroactive changes to a device type are a future feature.</p>
 </div>
 <p>A device can have a number of ports to which cables can be connected and module slots which can host modules to expand the functionality and connectivity of the device.</p>
 <h2 id="understanding-locations">Understanding locations</h2>
-<p>Every device in site_manager has to be assigned a physical location. Locations are managed as a hierarchy.</p>
+<p>Every device in site_manager has to be assigned to a physical location. Locations are managed as a hierarchy.</p>
 <ul>
 <li>Sites are the top level of the hierarchy. They represent distinct locations with vast geographic distances between them. Therefore cables can not run between sites.</li>
 <li>Buildings and rooms are just what it sounds like. Their main use is to better organize the generated diagrams. There are no restrictions for cables running between different buildings or rooms.</li>
-<li>Racks are the lowest level in the hierarchy. They do not have to represent equipment racks but can also represent other places where devices are mounted like a table or a monitor wall. Devices have to be assigned to a rack.</li>
+<li>Racks are the lowest level in the hierarchy. They do not have to represent equipment racks but can also represent other places where devices are mounted like a table or a monitor wall. Devices have to be assigned to a rack. Devices may be assigned to a specific position within the rack if the device type and rack support this.</li>
 </ul>
 
 
@@ -998,6 +1058,46 @@
       </main>
       
         <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../gettingstarted/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Getting started">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Getting started
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../wiringdiagram/" class="md-footer__link md-footer__link--next" aria-label="Next: Wiring Diagram">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Wiring Diagram
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
@@ -1028,7 +1128,7 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.links.external", "navigation.instant", "navigation.sections", "content.action.edit", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "content.links.external", "navigation.instant", "navigation.sections", "navigation.footer", "content.action.edit", "content.footnote.tooltips"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
       <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
