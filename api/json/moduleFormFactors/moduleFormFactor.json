@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "moduleFormFactor model",
+  "description": "JSON document describing a module form factor",
+  "type": "object",
+  "properties": {
+    "id": {
+      "description": "Id of the module form factor",
+      "type": "string",
+      "pattern": "^(?!.*--)(?:[a-z](?:[a-z-]{0,14}[a-z])?_)?[a-z0-9]+(?:_[a-z0-9]+)*$",
+      "examples": ["sfp"]
+    },
+    "name": {
+      "description": "Name of the module form factor",
+      "type": "string",
+      "examples": ["SFP"]
+    },
+    "description": {
+      "description": "Further explanation and normative references",
+      "type": "string",
+      "examples": ["As specified in IEEE 123.ab"]
+    }
+  },
+  "required": ["id", "name"],
+  "additionalProperties": false
+}

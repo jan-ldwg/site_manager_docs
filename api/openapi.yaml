@@ -268,6 +268,7 @@ paths:
           $ref: "#/components/responses/422"
         "500":
           $ref: "#/components/responses/500"
+
   /cables/{cableId}:
     summary: Cable connecting devices
     parameters:
@@ -926,6 +927,42 @@ paths:
         "500":
           $ref: "#/components/responses/500"
 
+  /moduleformfactors:
+    summary: A list of all module form factors
+    get:
+      summary: Read the list of all module form factors
+      responses:
+        "200":
+          description: The list of module form factors
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModuleFormFactorList"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+    post:
+      summary: Add a new module form factors
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ModuleFormFactorCreate"
+      responses:
+        "201":
+          description: The added module form factors
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ModuleFormFactorCreate"
+        "400":
+          $ref: "#/components/responses/400"
+        "401":
+          $ref: "#/components/responses/401"
+        "500":
+          $ref: "#/components/responses/500"
+
   /manufacturers:
     summary: Manufacturers of equipment
     get:
@@ -1144,6 +1181,14 @@ components:
         $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/signalTypes/signalType.json"
     SignalTypeCreate:
       $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/signalTypes/signalTypeCreate.json"
+    ModuleFormFactor:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/moduleFormFactors/moduleFormFactor.json"
+    ModuleFormFactorList:
+      type: array
+      items:
+        $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/moduleFormFactors/moduleFormFactor.json"
+    ModuleFormFactorCreate:
+      $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/moduleFormFactors/moduleFormFactorCreate.json"
     Manufacturer:
       $ref: "/Users/janludwig/Javascript Tests/site_manager_docs/api/json/manufacturers/manufacturer.json"
     ManufacturerList:
